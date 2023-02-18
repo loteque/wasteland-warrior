@@ -1,0 +1,46 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
+  "elements": [
+    {
+      "id": "1CO9EWxgmowaNJul8TgFb",
+      "type": "text",
+      "x": 450.9033112334363,
+      "y": 298.38899691616274,
+      "width": 842,
+      "height": 500,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "roundness": null,
+      "seed": 654628907,
+      "version": 1200,
+      "versionNonce": 1148605931,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1676612384355,
+      "link": null,
+      "locked": false,
+      "text": "* Player character movement.\n* The world infinitely scrolls.\n* An enemy spawns.\n* Enemy follows player.\n* Player takes damage when hit by enemy.\n* Player has a weapon that auto-attacks.\n* Projectile damages enemy when they collide with enemy.\n* Many of the same enemy type spawn.\n* Enemies spawn continuously during a wave.\n* Enemies drop bottle caps when they die.\n* A shop opens up at timed intervals.\n* In the shop, weapon options appear.\n* Purchase weapon with bottlecaps.\n* After purchasing a weapon, the player gets that weapon attack\n* If the player already has the weapo purchased, they get to upgrade that weapon\n* At the end of 5 minutes, if the player is still alive, they beat the level.\n\n* If player runs out of health, they die\n* When the level is over, they go to upgrade screen.\n* On upgrade screen, they can purchase attribute upgrades with caps.",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "baseline": 493,
+      "containerId": null,
+      "originalText": "* Player character movement.\n* The world infinitely scrolls.\n* An enemy spawns.\n* Enemy follows player.\n* Player takes damage when hit by enemy.\n* Player has a weapon that auto-attacks.\n* Projectile damages enemy when they collide with enemy.\n* Many of the same enemy type spawn.\n* Enemies spawn continuously during a wave.\n* Enemies drop bottle caps when they die.\n* A shop opens up at timed intervals.\n* In the shop, weapon options appear.\n* Purchase weapon with bottlecaps.\n* After purchasing a weapon, the player gets that weapon attack\n* If the player already has the weapo purchased, they get to upgrade that weapon\n* At the end of 5 minutes, if the player is still alive, they beat the level.\n\n* If player runs out of health, they die\n* When the level is over, they go to upgrade screen.\n* On upgrade screen, they can purchase attribute upgrades with caps."
+    }
+  ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}
