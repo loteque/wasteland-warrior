@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Mob",
+"language": "GDScript",
+"path": "res://src/mobs/Mob.gd"
+} ]
+_global_script_class_icons={
+"Mob": ""
+}
+
 [application]
 
 config/name="Wasteland-Warrior"
@@ -26,6 +36,12 @@ window/stretch/aspect="keep"
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[importer_defaults]
+
+texture={
+"flags/filter": false
+}
 
 [input]
 
