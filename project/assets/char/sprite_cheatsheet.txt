@@ -1,0 +1,2 @@
+snapper_walk - 16x18px
+player_walk - 
