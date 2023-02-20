@@ -14,6 +14,10 @@ config/name="Wasteland-Warrior"
 run/main_scene="res://src/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Signals="*res://src/Signals.gd"
+
 [display]
 
 window/size/width=512
