@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "Mob",
 "language": "GDScript",
 "path": "res://src/mobs/Mob.gd"
+}, {
+"base": "Node2D",
+"class": "MobSpawner",
+"language": "GDScript",
+"path": "res://src/mobs/MobSpawner.gd"
+}, {
+"base": "Object",
+"class": "RandomUtils",
+"language": "GDScript",
+"path": "res://src/RandomUtils.gd"
 } ]
 _global_script_class_icons={
-"Mob": ""
+"Mob": "",
+"MobSpawner": "",
+"RandomUtils": ""
 }
 
 [application]

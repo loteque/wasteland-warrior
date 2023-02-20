@@ -5,10 +5,13 @@ export var speed = 20
 export var MIN_CHASE_DISTANCE_PIXELS = 1
 export var player_node_path = "/root/MobTest/PlayerController"
 
-onready var player = get_node(player_node_path)
+onready var target = get_node(player_node_path)
+
+func _init(target = target):
+	self.target = target
 
 func _physics_process(_delta):
-	chase_target(player)
+	chase_target(target)
 
 func chase_target(target: Node2D):
 	var distance = target.global_position - global_position

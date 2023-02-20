@@ -35,12 +35,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Mob" type="KinematicBody2D"]
+[node name="Mob" type="KinematicBody2D" groups=["mobs"]]
+collision/safe_margin = 0.001
 script = ExtResource( 2 )
 
 [node name="MobAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Move"
+frame = 1
 speed_scale = 2.0
 playing = true
 
