@@ -1,2 +1,3 @@
 snapper_walk - 16x18px
+bottlecap - 6x6px
 player_walk - 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/terrain_12.png-7f7fd53bf7920d8ffc6b8071adb80f68.stex"
+path="res://.import/snapper_walk.png-d499ae1c4df0ee075e0de4add7c20219.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/terrain_12.png"
-dest_files=[ "res://.import/terrain_12.png-7f7fd53bf7920d8ffc6b8071adb80f68.stex" ]
+source_file="res://assets/char/snapper_walk.png"
+dest_files=[ "res://.import/snapper_walk.png-d499ae1c4df0ee075e0de4add7c20219.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
