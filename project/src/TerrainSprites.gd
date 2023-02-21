@@ -4,12 +4,13 @@ extends Node2D
 export var terrain_textures: Array
 export var NUM_TERRAIN_SPRITES: int = 15
 
-const SCREEN_SPACE = Vector2(512, 448)
-const HALF_SCREEN_SPACE = Vector2(SCREEN_SPACE.x / 2, SCREEN_SPACE.y / 2)
-const QUART_SCREEN_SPACE = Vector2(SCREEN_SPACE.x / 4, SCREEN_SPACE.y / 4)
 const CHUNK_SIZE = Vector2(1024, 896)
 const HALF_CHUNK_SIZE = Vector2(CHUNK_SIZE.x / 2, CHUNK_SIZE.y / 2)
 const QUART_CHUNK_SIZE = Vector2(CHUNK_SIZE.x / 4, CHUNK_SIZE.y / 4)
+
+var SCREEN_SPACE = get_viewport_rect().size
+var HALF_SCREEN_SPACE = Vector2(SCREEN_SPACE.x / 2, SCREEN_SPACE.y / 2)
+var QUART_SCREEN_SPACE = Vector2(SCREEN_SPACE.x / 4, SCREEN_SPACE.y / 4)
 
 func _ready() -> void:
 	draw_terrain_sprites(NUM_TERRAIN_SPRITES)
@@ -47,9 +48,8 @@ func get_sprite_size(sprite: Sprite) -> Vector2:
 	return sprite_size
 
 func generate_random_number(minimum: int, maximum: int) -> int:
-	var rand: int
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	rand = rng.randi_range(minimum, maximum)
+	var rand = rng.randi_range(minimum, maximum)
 	
 	return rand

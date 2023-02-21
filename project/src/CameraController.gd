@@ -2,8 +2,6 @@ extends Position2D
 
 export(float) var speed = 10.5
 
-var frame: int
-
 func _physics_process(delta: float) -> void:
 	signal_cam_pos_updated()
 	move(delta)
@@ -19,6 +17,5 @@ func move(delta) -> void:
 		position.x += speed * delta
 
 func signal_cam_pos_updated() -> void:
-	frame = ++frame
-	if frame % 15 == 0:
+	if Engine.get_physics_frames() % 15 == 0:
 		Signals.emit_signal("updated_camera_pos", global_position)
