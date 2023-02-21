@@ -1,0 +1,3 @@
+extends Node
+
+signal updated_camera_pos

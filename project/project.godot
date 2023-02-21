@@ -14,6 +14,10 @@ config/name="Wasteland-Warrior"
 run/main_scene="res://src/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Signals="*res://src/Signals.gd"
+
 [display]
 
 window/size/width=512
@@ -67,4 +71,5 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.321569, 0.2, 0.247059, 1 )
 environment/default_environment="res://default_env.tres"
