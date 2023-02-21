@@ -36,15 +36,16 @@ animations = [ {
 } ]
 
 [node name="Mob" type="KinematicBody2D" groups=["mobs"]]
+z_index = 2
 collision/safe_margin = 0.001
 script = ExtResource( 2 )
 
 [node name="MobAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Move"
-frame = 1
+frame = 4
 speed_scale = 2.0
 playing = true
 
 [node name="MobCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 8, 8, 8, -8, -7, -8, -8, 9 )
+polygon = PoolVector2Array( 6, 8, 8, -4, -4, -4, -6, 8 )
