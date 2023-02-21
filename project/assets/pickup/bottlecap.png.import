@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/terrain_07.png-f9238cbbdd717fb71a4f0c8559fbce69.stex"
+path="res://.import/bottlecap.png-1e9237ec09e366ffcf65204162294a80.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/env/terrain_07.png"
-dest_files=[ "res://.import/terrain_07.png-f9238cbbdd717fb71a4f0c8559fbce69.stex" ]
+source_file="res://assets/pickup/bottlecap.png"
+dest_files=[ "res://.import/bottlecap.png-1e9237ec09e366ffcf65204162294a80.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
