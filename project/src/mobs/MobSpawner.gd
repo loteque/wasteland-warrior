@@ -1,5 +1,4 @@
 extends Node2D
-class_name MobSpawner
 
 var RandomUtils = preload("res://src/RandomUtils.gd").new()
 
@@ -26,7 +25,7 @@ func spawn_mob_group():
 func is_below_max_mob_count():
 	return get_mob_count() < MAX_MOB_COUNT
 
-func instance_mob(position: Vector2) -> Mob:
+func instance_mob(position: Vector2) -> Node2D:
 	var mob = mob_scene.instance()
 	mob.global_position = position
 	return mob

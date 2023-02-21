@@ -1,5 +1,4 @@
 extends KinematicBody2D
-class_name Mob
 
 export var speed = 20
 export var MIN_CHASE_DISTANCE_PIXELS = 1

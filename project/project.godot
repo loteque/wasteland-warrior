@@ -9,24 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "Mob",
-"language": "GDScript",
-"path": "res://src/mobs/Mob.gd"
-}, {
-"base": "Node2D",
-"class": "MobSpawner",
-"language": "GDScript",
-"path": "res://src/mobs/MobSpawner.gd"
-}, {
 "base": "Object",
 "class": "RandomUtils",
 "language": "GDScript",
 "path": "res://src/RandomUtils.gd"
 } ]
 _global_script_class_icons={
-"Mob": "",
-"MobSpawner": "",
 "RandomUtils": ""
 }
 
