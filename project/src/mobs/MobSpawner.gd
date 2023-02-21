@@ -3,8 +3,7 @@ class_name MobSpawner
 
 var RandomUtils = preload("res://src/RandomUtils.gd").new()
 
-export var spawn_interval: int = 60
-export var spawn_group_size: int = 80
+export var spawn_group_size: int = 8
 export var mob_scene: PackedScene
 export var MAX_MOB_COUNT := 50
 
