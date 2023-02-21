@@ -23,7 +23,7 @@ func draw_chunks(updated_camera_pos) -> void:
 
 func get_chunks(updated_camera_pos) -> Array:
 	var tiles: Array = []
-	var current_tile = grid.world_to_map(camera_pos)
+	var current_tile = grid.world_to_map(updated_camera_pos)
 	tiles.push_back(Vector2(current_tile.x + 1, current_tile.y + 1))
 	tiles.push_back(Vector2(current_tile.x - 1, current_tile.y + 1))
 	tiles.push_back(Vector2(current_tile.x - 1, current_tile.y - 1))
