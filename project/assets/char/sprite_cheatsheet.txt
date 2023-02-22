@@ -2,3 +2,4 @@ snapper_walk - 18x20px
 bottlecap - 8x8px
 player_run - 22x28px
 player_idle - 19x27px
+projectile - 6x6px
