@@ -25,3 +25,18 @@ position = Vector2( 49, 75 )
 
 [node name="Mob6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 86, 91 )
+
+[node name="Mob7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 98, 3 )
+
+[node name="Mob8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 129, 4 )
+
+[node name="Mob9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 170, 8 )
+
+[node name="Mob10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 186, 70 )
+
+[node name="Mob11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 147, 38 )
