@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var speed = 20
 export var MIN_CHASE_DISTANCE_PIXELS = 1
+var damage := 1
 
 onready var target = get_tree().get_nodes_in_group("player")[0]
 

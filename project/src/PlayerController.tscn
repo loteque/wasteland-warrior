@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://assets/char/warrior-temp.jpg" type="Texture" id=2]
 [ext_resource path="res://src/PlayerCamera.gd" type="Script" id=3]
 [ext_resource path="res://src/mobs/MobSpawner.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 5.0
+height = 8.0
 
 [node name="PlayerController" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 1 )
@@ -17,3 +21,14 @@ current = true
 script = ExtResource( 3 )
 
 [node name="MobSpawner" parent="." instance=ExtResource( 4 )]
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2( -2, 0 )
+shape = SubResource( 1 )
+
+[node name="IFrameTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]
+[connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
