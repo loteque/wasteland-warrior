@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/mobs/MobSpawner.gd" type="Script" id=1]
+[ext_resource path="res://src/mobs/Mob.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -39, -103, 0, 0, 0, 0, 130.198, -108.756, 0, 0, 0, 0, 309.733, -110.877, 0, 0, 0, 0, 568, -111, 0, 0, 0, 0, 571, 450, 0, 0, 0, 0, -59, 461, 0, 0, 0, 0, -46, -93 )
+}
+
+[node name="MobSpawner" type="Node2D"]
+script = ExtResource( 1 )
+mob_scene = ExtResource( 2 )
+
+[node name="SpawnerPath2D" type="Path2D" parent="."]
+modulate = Color( 1, 1, 1, 0.329412 )
+position = Vector2( -249, -177 )
+curve = SubResource( 1 )
+
+[node name="SpawnInterval" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="SpawnInterval" to="." method="_on_SpawnInterval_timeout"]
