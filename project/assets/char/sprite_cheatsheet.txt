@@ -1,3 +1,4 @@
-snapper_walk - 16x18px
-bottlecap - 6x6px
-player_walk - 
+snapper_walk - 18x20px
+bottlecap - 8x8px
+player_run - 22x28px
+player_idle - 19x27px
