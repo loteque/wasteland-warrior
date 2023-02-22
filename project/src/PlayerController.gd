@@ -5,6 +5,12 @@ export var health := 10
 
 var is_invincible = false
 onready var iframe_timer = $IFrameTimer 
+onready var sprite = $Sprite
+onready var sprite_fx_animations = sprite.get_node("AnimationPlayer")
+
+
+func _ready():
+	$Sprite.self_modulate = Color(1, 1, 1)
 
 func _physics_process(delta):
 	var motion = Vector2.ZERO
@@ -30,6 +36,7 @@ func _on_HurtBox_body_entered(body):
 		make_temporarily_invincible()
 
 func take_damage(amount):
+	sprite_fx_animations.play("Hit Flash")
 	health -= amount
 
 func make_temporarily_invincible():
