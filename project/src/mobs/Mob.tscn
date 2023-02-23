@@ -43,9 +43,16 @@ script = ExtResource( 2 )
 [node name="MobAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Move"
-frame = 4
+frame = 5
 speed_scale = 2.0
 playing = true
 
 [node name="MobCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 6, 8, 8, -4, -4, -4, -6, 8 )
+
+[node name="HurtBox" type="Area2D" parent="." groups=["Mobs"]]
+
+[node name="MobHurtShape" type="CollisionPolygon2D" parent="HurtBox" groups=["Mobs"]]
+polygon = PoolVector2Array( 7, 6, 6, -5, -2, -5, -7, 7 )
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
