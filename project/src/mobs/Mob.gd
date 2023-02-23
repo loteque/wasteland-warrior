@@ -28,6 +28,7 @@ func die():
 	queue_free()
 
 func take_damage(value: float):
+	Signals.emit_signal("mob_hit")
 	health -= value
 	if health <= death_health_value:
 		die()
