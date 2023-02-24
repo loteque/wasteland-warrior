@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var speed = 20
 export var MIN_CHASE_DISTANCE_PIXELS = 1
 export var death_health_value := 0
+export var item_dropped: PackedScene = preload("res://src/pickups/BottleCap.tscn")
 var damage := 1
 var health := 2
 
@@ -25,7 +26,13 @@ func chase_target(target: Node2D):
 		var direction = distance.normalized()
 		move_and_slide(direction * speed)
 
+func drop_item():
+	var bottlecap = item_dropped.instance()
+	bottlecap.global_position = global_position
+	get_tree().root.add_child(bottlecap)
+
 func die():
+	drop_item()
 	queue_free()
 
 func take_damage(value: float):

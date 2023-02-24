@@ -6,10 +6,10 @@ export var STEP_DURATION := 2.0
 export var MOVE_SEQUENCE := POSSIBLE_ACTIONS
 export var MAX_ITERATIONS = 100
 
-var sequence_length = len(MOVE_SEQUENCE)
+onready var sequence_length = len(MOVE_SEQUENCE)
 
 func _ready():
-	start_sequence(POSSIBLE_ACTIONS)
+	start_sequence(MOVE_SEQUENCE)
 
 func start_sequence(moves: Array):
 	var iteration = 0
