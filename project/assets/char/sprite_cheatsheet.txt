@@ -1,5 +1,17 @@
-snapper_walk - 18x20px
-bottlecap - 8x8px
-player_run - 22x28px
-player_idle - 19x27px
-projectile - 6x6px
+Pickups
+-----------------------------------------------
+bottlecap - 8x8px		(padded)
+
+
+Character
+-----------------------------------------------
+player_idle - 22x28px	(padded)
+player_run - 22x28px	(padded)
+projectile - 6x6px		(padded)
+snapper_walk - 18x20px	(padded)
+
+User Interface
+-----------------------------------------------
+xp_bar - 69x8px
+xp_bar_endcaps - 2x6px
+xp_bubbles - 7x7px	(padded)
