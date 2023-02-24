@@ -13,7 +13,6 @@ onready var sprite_fx_animations = sprite.get_node("FXAnimationPlayer")
 onready var projectile_start = $ProjectileStart
 onready var projectile_target = $ProjectileTarget
 
-
 func _ready():
 	$Sprite.self_modulate = Color(1, 1, 1)
 
@@ -58,6 +57,7 @@ func _on_HurtBox_body_entered(body):
 		make_temporarily_invincible()
 
 func take_damage(amount):
+	Signals.emit_signal("player_hit")
 	sprite_fx_animations.play("Hit Flash")
 	health -= amount
 
@@ -86,3 +86,4 @@ func attack():
 	bullet.update(projectile_speed, facing_angle)
 	bullet.global_position = projectile_start.global_position
 	get_tree().root.add_child(bullet)
+	Signals.emit_signal("projectile_shot")
