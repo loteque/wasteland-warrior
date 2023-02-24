@@ -1,7 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/char/snapper_walk.png" type="Texture" id=1]
 [ext_resource path="res://src/mobs/Mob.gd" type="Script" id=2]
+[ext_resource path="res://src/mobs/hit_flash_white.gdshader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=11]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/active = false
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -35,17 +41,75 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="Animation" id=9]
+resource_name = "Hit Flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
 [node name="Mob" type="KinematicBody2D" groups=["CanHurtPlayer", "Mobs"]]
 z_index = 2
 collision/safe_margin = 0.001
 script = ExtResource( 2 )
 
 [node name="MobAnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 11 )
 frames = SubResource( 1 )
 animation = "Move"
-frame = 5
 speed_scale = 2.0
 playing = true
+
+[node name="FXAnimationPlayer" type="AnimationPlayer" parent="MobAnimatedSprite"]
+"anims/Hit Flash" = SubResource( 9 )
+anims/RESET = SubResource( 10 )
 
 [node name="MobCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 6, 8, 8, -4, -4, -4, -6, 8 )
