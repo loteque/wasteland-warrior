@@ -52,7 +52,7 @@ func face_right():
 	global_transform.x.x = 1
 
 func _on_HurtBox_body_entered(body):
-	if !is_invincible:
+	if body.is_in_group("CanHurtPlayer") and !is_invincible:
 		take_damage(body.damage)
 		make_temporarily_invincible()
 
