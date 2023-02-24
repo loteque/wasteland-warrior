@@ -6,8 +6,9 @@ export var death_health_value := 0
 var damage := 1
 var health := 2
 
-
 onready var target = get_tree().get_nodes_in_group("player")[0]
+onready var sprite = $MobAnimatedSprite
+onready var sprite_fx_animations = sprite.get_node("FXAnimationPlayer")
 
 func _ready():
 	pass
@@ -29,6 +30,7 @@ func die():
 
 func take_damage(value: float):
 	Signals.emit_signal("mob_hit")
+	sprite_fx_animations.play("Hit Flash")
 	health -= value
 	if health <= death_health_value:
 		die()
