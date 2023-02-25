@@ -6,10 +6,6 @@
 
 [node name="TestCapCount" instance=ExtResource( 1 )]
 
-[node name="PlayerSimulator" parent="PlayerController" index="8" instance=ExtResource( 3 )]
-STEP_DURATION = 4.0
-MOVE_SEQUENCE = [ "ui_right" ]
-
 [node name="BottleCap" parent="." index="3" instance=ExtResource( 4 )]
 position = Vector2( 20, 7 )
 
@@ -27,3 +23,7 @@ position = Vector2( 127, 6 )
 
 [node name="BottleCap6" parent="." index="8" instance=ExtResource( 4 )]
 position = Vector2( 156, 6 )
+
+[node name="PlayerSimulator" parent="PlayerController" index="8" instance=ExtResource( 3 )]
+STEP_DURATION = 4.0
+MOVE_SEQUENCE = [ "ui_right" ]

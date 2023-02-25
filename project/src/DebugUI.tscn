@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://test/DebugUI.gd" type="Script" id=1]
+
+[node name="DebugUI" type="Control"]
+margin_right = 512.0
+margin_bottom = 448.0
+script = ExtResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 79.0
+margin_bottom = 40.0
+
+[node name="CapCountName" type="Label" parent="HBoxContainer"]
+margin_top = 13.0
+margin_right = 67.0
+margin_bottom = 27.0
+text = "Cap count:"
+
+[node name="CapCountLabel" type="Label" parent="HBoxContainer"]
+margin_left = 71.0
+margin_top = 13.0
+margin_right = 79.0
+margin_bottom = 27.0
+text = "0"
