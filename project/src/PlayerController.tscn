@@ -1,11 +1,11 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://assets/char/player_run.png" type="Texture" id=2]
 [ext_resource path="res://src/PlayerCamera.gd" type="Script" id=3]
 [ext_resource path="res://src/mobs/MobSpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/char/player_idle.png" type="Texture" id=5]
-[ext_resource path="res://src/mobs/hit_flash_red.gdshader" type="Shader" id=5]
+[ext_resource path="res://src/mobs/hit_flash_red.gdshader" type="Shader" id=6]
 
 [sub_resource type="CapsuleShape2D" id=9]
 radius = 5.0
@@ -16,30 +16,30 @@ radius = 3.0
 
 [sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
-shader = ExtResource( 5 )
+shader = ExtResource( 6 )
 shader_param/active = false
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 19, 27 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 5 )
 region = Rect2( 19, 0, 19, 27 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 5 )
 region = Rect2( 38, 0, 19, 27 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 5 )
 region = Rect2( 57, 0, 19, 27 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 5 )
 region = Rect2( 76, 0, 19, 27 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 5 )
 region = Rect2( 95, 0, 19, 27 )
 
@@ -69,7 +69,7 @@ region = Rect2( 110, 0, 22, 28 )
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
