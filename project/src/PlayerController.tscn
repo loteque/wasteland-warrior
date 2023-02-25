@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://assets/char/player_run.png" type="Texture" id=2]
 [ext_resource path="res://src/PlayerCamera.gd" type="Script" id=3]
 [ext_resource path="res://src/mobs/MobSpawner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/mobs/hit_flash_red.gdshader" type="Shader" id=5]
+[ext_resource path="res://assets/char/player_idle.png" type="Texture" id=5]
+[ext_resource path="res://src/mobs/hit_flash_red.gdshader" type="Shader" id=6]
 
 [sub_resource type="CapsuleShape2D" id=9]
 radius = 5.0
@@ -15,8 +16,73 @@ radius = 3.0
 
 [sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
-shader = ExtResource( 5 )
+shader = ExtResource( 6 )
 shader_param/active = false
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 19, 27 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 5 )
+region = Rect2( 19, 0, 19, 27 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 5 )
+region = Rect2( 38, 0, 19, 27 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 5 )
+region = Rect2( 57, 0, 19, 27 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 5 )
+region = Rect2( 76, 0, 19, 27 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 5 )
+region = Rect2( 95, 0, 19, 27 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 22, 28 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 2 )
+region = Rect2( 22, 0, 22, 28 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 2 )
+region = Rect2( 44, 0, 22, 28 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 66, 0, 22, 28 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 2 )
+region = Rect2( 88, 0, 22, 28 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 2 )
+region = Rect2( 110, 0, 22, 28 )
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="AnimationNodeStateMachine" id=22]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=23]
 
 [sub_resource type="Animation" id=4]
 resource_name = "Hit Flash"
@@ -72,27 +138,6 @@ tracks/2/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "RunLeft"
-
-[sub_resource type="Animation" id=6]
-resource_name = "RunRight"
-length = 0.6
-loop = true
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5 ]
-}
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
 height = 8.0
@@ -116,19 +161,19 @@ position = Vector2( 20, -3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileTarget/Area"]
 shape = SubResource( 8 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 material = SubResource( 3 )
-texture = ExtResource( 2 )
-hframes = 6
+frames = SubResource( 21 )
+animation = "idle"
+playing = true
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite"]
+tree_root = SubResource( 22 )
+parameters/playback = SubResource( 23 )
 
 [node name="FXAnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 "anims/Hit Flash" = SubResource( 4 )
 anims/RESET = SubResource( 5 )
-
-[node name="MoveAnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-autoplay = "RunRight"
-anims/RunLeft = SubResource( 7 )
-anims/RunRight = SubResource( 6 )
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 current = true

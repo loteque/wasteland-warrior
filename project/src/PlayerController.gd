@@ -17,6 +17,7 @@ func _ready():
 	$Sprite.self_modulate = Color(1, 1, 1)
 
 func _physics_process(delta):
+	
 	if is_attack_frame():
 		attack()
 	
@@ -24,18 +25,24 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_up"):
 		motion.y -= 1
-		
+
 	if Input.is_action_pressed("ui_down"):
 		motion.y += 1
 		
 	if Input.is_action_pressed("ui_left"):
 		motion.x -= 1
 		face_left()
-		
+
 	if Input.is_action_pressed("ui_right"):
 		motion.x += 1
 		face_right()
-		
+
+	if motion.x == 0 and motion.y == 0:
+		sprite.play("idle")
+
+	else:
+		sprite.play("run")
+
 	motion = motion.normalized() * speed
 	move_and_slide(motion)
 
