@@ -146,6 +146,7 @@ height = 8.0
 [node name="PlayerController" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 1 )
 speed = 100
+projectile_speed = 200
 
 [node name="PickupShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 0 )
