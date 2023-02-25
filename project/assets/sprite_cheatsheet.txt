@@ -15,3 +15,4 @@ User Interface
 xp_bar - 69x8px
 xp_bar_endcaps - 2x6px
 xp_bubbles - 7x7px	(padded)
+xp_bar_9slice3x3px
