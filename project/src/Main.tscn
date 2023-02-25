@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/PlayerController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/BackgroundGenerator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/GlobalAudioStreamPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/GameStats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/FollowCamera.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
 
@@ -11,7 +12,10 @@
 
 [node name="GameStats" parent="." instance=ExtResource( 4 )]
 
+[node name="GlobalAudioStreamPlayer" parent="." instance=ExtResource( 3 )]
+
 [node name="PlayerController" parent="." instance=ExtResource( 1 )]
 z_index = 1
 
-[node name="GlobalAudioStreamPlayer" parent="." instance=ExtResource( 3 )]
+[node name="PlayerFollowCamera" parent="." instance=ExtResource( 5 )]
+target_node_path = NodePath("../PlayerController")
