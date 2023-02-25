@@ -24,18 +24,25 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_up"):
 		motion.y -= 1
-		
+		sprite.play("run")
+
 	if Input.is_action_pressed("ui_down"):
 		motion.y += 1
+		sprite.play("run")
 		
 	if Input.is_action_pressed("ui_left"):
 		motion.x -= 1
 		face_left()
-		
+		sprite.play("run")
+
 	if Input.is_action_pressed("ui_right"):
 		motion.x += 1
 		face_right()
-		
+		sprite.play("run")
+
+	if motion.x == 0 and motion.y == 0:
+		sprite.play("idle")
+
 	motion = motion.normalized() * speed
 	move_and_slide(motion)
 
