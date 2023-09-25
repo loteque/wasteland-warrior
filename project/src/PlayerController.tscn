@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/PlayerController.gd" type="Script" id=1]
-[ext_resource path="res://assets/char/player_run.png" type="Texture" id=2]
+[ext_resource path="res://assets/char/player_run.png" type="Texture2D" id=2]
+[ext_resource path="res://src/components/HealthComponent.gd" type="Script" id=3]
 [ext_resource path="res://src/mobs/MobSpawner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/char/player_idle.png" type="Texture" id=5]
+[ext_resource path="res://assets/char/player_idle.png" type="Texture2D" id=5]
 [ext_resource path="res://src/mobs/hit_flash_red.gdshader" type="Shader" id=6]
 [ext_resource path="res://src/DebugUI.tscn" type="PackedScene" id=7]
 
@@ -93,8 +94,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2, 0.4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, false ]
 }
@@ -108,8 +109,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ false ]
 }
@@ -120,8 +121,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 6 ]
 }
@@ -132,8 +133,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0 ]
 }
@@ -141,7 +142,7 @@ tracks/2/keys = {
 [sub_resource type="GDScript" id=30]
 script/source = "extends Camera2D
 
-export var update_period := 15
+@export var update_period := 15
 
 func _physics_process(delta: float) -> void:
 	if is_update_frame():
@@ -155,37 +156,42 @@ func is_update_frame():
 radius = 5.0
 height = 8.0
 
-[node name="PlayerController" type="KinematicBody2D" groups=["player"]]
+[node name="PlayerController" type="CharacterBody2D" groups=["player"]]
 script = ExtResource( 1 )
 speed = 100
 projectile_speed = 200
+health_component_path = NodePath("HealthComponent")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource( 3 )
+MAX_HEALTH = 20.0
 
 [node name="PickupShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 0 )
 shape = SubResource( 9 )
 
-[node name="ProjectileStart" type="Position2D" parent="."]
+[node name="ProjectileStart" type="Marker2D" parent="."]
 position = Vector2( 7, -3 )
 
-[node name="ProjectileTarget" type="Position2D" parent="."]
+[node name="ProjectileTarget" type="Marker2D" parent="."]
 position = Vector2( 20, -3 )
 
-[node name="Area" type="Area2D" parent="ProjectileTarget"]
+[node name="Area3D" type="Area2D" parent="ProjectileTarget"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileTarget/Area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileTarget/Area3D"]
 shape = SubResource( 8 )
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource( 3 )
 frames = SubResource( 21 )
 animation = "idle"
 playing = true
 
-[node name="AnimationTree" type="AnimationTree" parent="Sprite"]
+[node name="AnimationTree" type="AnimationTree" parent="Sprite2D"]
 tree_root = SubResource( 22 )
 parameters/playback = SubResource( 23 )
 
-[node name="FXAnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+[node name="FXAnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 "anims/Hit Flash" = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 
@@ -194,10 +200,10 @@ script = SubResource( 30 )
 
 [node name="DebugUI" parent="PlayerCamera" instance=ExtResource( 7 )]
 visible = false
-margin_left = -255.0
-margin_top = -223.0
-margin_right = 256.0
-margin_bottom = 224.0
+offset_left = -255.0
+offset_top = -223.0
+offset_right = 256.0
+offset_bottom = 224.0
 
 [node name="MobSpawner" parent="." instance=ExtResource( 4 )]
 

@@ -2,11 +2,11 @@ extends Node
 
 const POSSIBLE_ACTIONS = ["ui_up", "ui_left", "ui_down", "ui_right"]
 
-export var STEP_DURATION := 2.0
-export var MOVE_SEQUENCE := POSSIBLE_ACTIONS
-export var MAX_ITERATIONS = 100
+@export var STEP_DURATION := 2.0
+@export var MOVE_SEQUENCE := POSSIBLE_ACTIONS
+@export var MAX_ITERATIONS = 100
 
-onready var sequence_length = len(MOVE_SEQUENCE)
+@onready var sequence_length = len(MOVE_SEQUENCE)
 
 func _ready():
 	start_sequence(MOVE_SEQUENCE)
@@ -17,7 +17,7 @@ func start_sequence(moves: Array):
 		var index = iteration % sequence_length
 		var move = moves[index]
 		press_action(move)
-		yield(get_tree().create_timer(STEP_DURATION), "timeout")
+		await get_tree().create_timer(STEP_DURATION).timeout
 		release_action(move)
 		iteration += 1
 

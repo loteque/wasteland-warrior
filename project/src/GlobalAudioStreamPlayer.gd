@@ -2,19 +2,19 @@ extends Node
 
 var current_channel_index = 0
 
-export var audios := {
+@export var audios := {
 	"shoot": preload("res://assets/audio/shoot.wav"),
 	"hit": preload("res://assets/audio/hit.wav")
 }
 
-onready var channels = get_children()
-onready var channel_count = channels.size()
+@onready var channels = get_children()
+@onready var channel_count = channels.size()
 
 func _ready():
-	Signals.connect("sound_fx", self, "play_by_name")
-	Signals.connect("projectile_shot", self, "_on_sfx_event", ["shoot"])
-	Signals.connect("player_hit", self, "_on_sfx_event", ["hit"])
-	Signals.connect("mob_hit", self, "_on_sfx_event", ["hit"])
+	Signals.connect("sound_fx", Callable(self, "play_by_name"))
+	Signals.connect("projectile_shot", Callable(self, "_on_sfx_event").bind("shoot"))
+	Signals.connect("player_hit", Callable(self, "_on_sfx_event").bind("hit"))
+	Signals.connect("mob_hit", Callable(self, "_on_sfx_event").bind("hit"))
 
 func _on_sfx_event(name: String):
 	play_by_name(name)
