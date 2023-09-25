@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "HealthComponent",
+"language": "GDScript",
+"path": "res://src/components/HealthComponent.gd"
+}, {
 "base": "Object",
 "class": "RandomUtils",
 "language": "GDScript",
 "path": "res://src/RandomUtils.gd"
 } ]
 _global_script_class_icons={
+"HealthComponent": "",
 "RandomUtils": ""
 }
 
@@ -27,6 +33,11 @@ config/icon="res://icon.png"
 [autoload]
 
 Signals="*res://src/Signals.gd"
+
+[debug]
+
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
