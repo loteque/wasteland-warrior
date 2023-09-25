@@ -5,6 +5,7 @@ export var health := 10 # todo remove
 export var projectile: PackedScene = preload("res://src/Projectile.tscn")
 export var attack_interval := 30
 export var projectile_speed := 100
+export var health_component_path: NodePath
 
 var is_invincible = false
 onready var iframe_timer = $IFrameTimer 
@@ -12,6 +13,8 @@ onready var sprite = $Sprite
 onready var sprite_fx_animations = sprite.get_node("FXAnimationPlayer")
 onready var projectile_start = $ProjectileStart
 onready var projectile_target = $ProjectileTarget
+onready var health_component: HealthComponent = get_node(health_component_path)
+
 
 func _ready():
 	$Sprite.self_modulate = Color(1, 1, 1)
