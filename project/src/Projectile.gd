@@ -1,9 +1,9 @@
 extends Node2D
 
-export var speed := 100
-export var angle := 0
-export var damage := 1
-export var penetration_max := 2
+@export var speed := 100
+@export var angle := 0
+@export var damage := 1
+@export var penetration_max := 2
 
 var penetration_count = 0
 

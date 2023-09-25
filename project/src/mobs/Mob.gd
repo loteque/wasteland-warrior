@@ -1,15 +1,15 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export var speed = 20
-export var MIN_CHASE_DISTANCE_PIXELS = 1
-export var death_health_value := 0
-export var item_dropped: PackedScene = preload("res://src/pickups/BottleCap.tscn")
+@export var speed = 20
+@export var MIN_CHASE_DISTANCE_PIXELS = 1
+@export var death_health_value := 0
+@export var item_dropped: PackedScene = preload("res://src/pickups/BottleCap.tscn")
 var damage := 1
 var health := 2
 
-onready var target = get_tree().get_nodes_in_group("player")[0]
-onready var sprite = $MobAnimatedSprite
-onready var sprite_fx_animations = sprite.get_node("FXAnimationPlayer")
+@onready var target = get_tree().get_nodes_in_group("player")[0]
+@onready var sprite = $MobAnimatedSprite
+@onready var sprite_fx_animations = sprite.get_node("FXAnimationPlayer")
 
 func _ready():
 	pass
@@ -24,10 +24,11 @@ func chase_target(target: Node2D):
 	var distance = target.global_position - global_position
 	if distance.length() > MIN_CHASE_DISTANCE_PIXELS:
 		var direction = distance.normalized()
-		move_and_slide(direction * speed)
+		set_velocity(direction * speed)
+		move_and_slide()
 
 func drop_item():
-	var bottlecap = item_dropped.instance()
+	var bottlecap = item_dropped.instantiate()
 	bottlecap.global_position = global_position
 	get_tree().root.add_child(bottlecap)
 

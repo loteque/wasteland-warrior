@@ -1,9 +1,9 @@
 extends Camera2D
 
-export var target_node_path: NodePath
-export var update_period := 15
+@export var target_node_path: NodePath
+@export var update_period := 15
 
-onready var target: Node2D = get_node(target_node_path)
+@onready var target: Node2D = get_node(target_node_path)
 
 func _physics_process(delta: float) -> void:
 	follow(target)

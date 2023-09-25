@@ -2,15 +2,15 @@ extends Node2D
 
 var RandomUtils = preload("res://src/RandomUtils.gd").new()
 
-export var spawn_group_size: int = 8
-export var mob_scene: PackedScene
-export var MAX_MOB_COUNT := 50
+@export var spawn_group_size: int = 8
+@export var mob_scene: PackedScene
+@export var MAX_MOB_COUNT := 50
 
-onready var path: Path2D = $SpawnerPath2D
-onready var curve: Curve2D = path.curve
-onready var num_points = len(curve.get_baked_points())
-onready var mob_parent = get_node("/root/")
-onready var timer = $SpawnInterval
+@onready var path: Path2D = $SpawnerPath2D
+@onready var curve: Curve2D = path.curve
+@onready var num_points = len(curve.get_baked_points())
+@onready var mob_parent = get_node("/root/")
+@onready var timer = $SpawnInterval
 
 func _ready():
 	spawn_mob_group()
@@ -26,7 +26,7 @@ func is_below_max_mob_count():
 	return get_mob_count() < MAX_MOB_COUNT
 
 func instance_mob(position: Vector2) -> Node2D:
-	var mob = mob_scene.instance()
+	var mob = mob_scene.instantiate()
 	mob.global_position = position
 	return mob
 

@@ -1,10 +1,10 @@
 extends Node
 class_name HealthComponent
 
-export var MAX_HEALTH: float setget set_max_health
-export var MIN_HEALTH := 0.0
+@export var MAX_HEALTH: float: set = set_max_health
+@export var MIN_HEALTH := 0.0
 
-onready var health := MAX_HEALTH setget set_health, get_health
+@onready var health := MAX_HEALTH: get = get_health, set = set_health
 
 func set_max_health(value):
 	if value > MIN_HEALTH:
