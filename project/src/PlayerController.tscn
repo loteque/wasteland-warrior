@@ -1,145 +1,185 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=30 format=3 uid="uid://durlan6er57t1"]
 
-[ext_resource path="res://src/PlayerController.gd" type="Script" id=1]
-[ext_resource path="res://assets/char/player_run.png" type="Texture2D" id=2]
-[ext_resource path="res://src/components/HealthComponent.gd" type="Script" id=3]
-[ext_resource path="res://src/mobs/MobSpawner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/char/player_idle.png" type="Texture2D" id=5]
-[ext_resource path="res://src/mobs/hit_flash_red.gdshader" type="Shader" id=6]
-[ext_resource path="res://src/DebugUI.tscn" type="PackedScene" id=7]
+[ext_resource type="Script" path="res://src/PlayerController.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://yxvs6h2o2bsu" path="res://assets/char/player_run.png" id="2"]
+[ext_resource type="Script" path="res://src/components/HealthComponent.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://criibbapbai6v" path="res://src/mobs/MobSpawner.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://duhs8mf25anhv" path="res://assets/char/player_idle.png" id="5"]
+[ext_resource type="Shader" path="res://src/mobs/hit_flash_red.gdshader" id="6"]
+[ext_resource type="PackedScene" path="res://src/DebugUI.tscn" id="7"]
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id="9"]
 radius = 5.0
 height = 16.0
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id="8"]
 radius = 3.0
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id="3"]
 resource_local_to_scene = true
-shader = ExtResource( 6 )
-shader_param/active = false
+shader = ExtResource("6")
+shader_parameter/active = false
 
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 19, 27 )
+[sub_resource type="AtlasTexture" id="24"]
+atlas = ExtResource("5")
+region = Rect2(0, 0, 19, 27)
 
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 5 )
-region = Rect2( 19, 0, 19, 27 )
+[sub_resource type="AtlasTexture" id="25"]
+atlas = ExtResource("5")
+region = Rect2(19, 0, 19, 27)
 
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 5 )
-region = Rect2( 38, 0, 19, 27 )
+[sub_resource type="AtlasTexture" id="26"]
+atlas = ExtResource("5")
+region = Rect2(38, 0, 19, 27)
 
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 5 )
-region = Rect2( 57, 0, 19, 27 )
+[sub_resource type="AtlasTexture" id="27"]
+atlas = ExtResource("5")
+region = Rect2(57, 0, 19, 27)
 
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 5 )
-region = Rect2( 76, 0, 19, 27 )
+[sub_resource type="AtlasTexture" id="28"]
+atlas = ExtResource("5")
+region = Rect2(76, 0, 19, 27)
 
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 5 )
-region = Rect2( 95, 0, 19, 27 )
+[sub_resource type="AtlasTexture" id="29"]
+atlas = ExtResource("5")
+region = Rect2(95, 0, 19, 27)
 
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 22, 28 )
+[sub_resource type="AtlasTexture" id="15"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 22, 28)
 
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 2 )
-region = Rect2( 22, 0, 22, 28 )
+[sub_resource type="AtlasTexture" id="16"]
+atlas = ExtResource("2")
+region = Rect2(22, 0, 22, 28)
 
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 2 )
-region = Rect2( 44, 0, 22, 28 )
+[sub_resource type="AtlasTexture" id="17"]
+atlas = ExtResource("2")
+region = Rect2(44, 0, 22, 28)
 
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 2 )
-region = Rect2( 66, 0, 22, 28 )
+[sub_resource type="AtlasTexture" id="18"]
+atlas = ExtResource("2")
+region = Rect2(66, 0, 22, 28)
 
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 2 )
-region = Rect2( 88, 0, 22, 28 )
+[sub_resource type="AtlasTexture" id="19"]
+atlas = ExtResource("2")
+region = Rect2(88, 0, 22, 28)
 
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 2 )
-region = Rect2( 110, 0, 22, 28 )
+[sub_resource type="AtlasTexture" id="20"]
+atlas = ExtResource("2")
+region = Rect2(110, 0, 22, 28)
 
-[sub_resource type="SpriteFrames" id=21]
-animations = [ {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+[sub_resource type="SpriteFrames" id="21"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("24")
+}, {
+"duration": 1.0,
+"texture": SubResource("25")
+}, {
+"duration": 1.0,
+"texture": SubResource("26")
+}, {
+"duration": 1.0,
+"texture": SubResource("27")
+}, {
+"duration": 1.0,
+"texture": SubResource("28")
+}, {
+"duration": 1.0,
+"texture": SubResource("29")
+}],
 "loop": true,
-"name": "idle",
+"name": &"idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("15")
+}, {
+"duration": 1.0,
+"texture": SubResource("16")
+}, {
+"duration": 1.0,
+"texture": SubResource("17")
+}, {
+"duration": 1.0,
+"texture": SubResource("18")
+}, {
+"duration": 1.0,
+"texture": SubResource("19")
+}, {
+"duration": 1.0,
+"texture": SubResource("20")
+}],
 "loop": true,
-"name": "run",
+"name": &"run",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="AnimationNodeStateMachine" id=22]
+[sub_resource type="AnimationNodeStateMachine" id="22"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=23]
-
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 resource_name = "Hit Flash"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:material:shader_param/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2, 0.4 ),
-"transitions": PackedFloat32Array( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ true, false, false ]
+"values": [true, false, false]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id="5"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:material:shader_param/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ false ]
+"values": [false]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ 6 ]
+"values": [6]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ 0 ]
+"values": [0]
 }
 
-[sub_resource type="GDScript" id=30]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1qsx0"]
+_data = {
+"Hit Flash": SubResource("4"),
+"RESET": SubResource("5")
+}
+
+[sub_resource type="GDScript" id="30"]
 script/source = "extends Camera2D
 
 @export var update_period := 15
@@ -152,68 +192,69 @@ func is_update_frame():
 	return Engine.get_physics_frames() % update_period == 0
 "
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 2.0
 height = 8.0
 
 [node name="PlayerController" type="CharacterBody2D" groups=["player"]]
-script = ExtResource( 1 )
+script = ExtResource("1")
 speed = 100
 projectile_speed = 200
-health_component_path = NodePath("HealthComponent")
 
 [node name="HealthComponent" type="Node" parent="."]
-script = ExtResource( 3 )
+script = ExtResource("3")
 MAX_HEALTH = 20.0
 
 [node name="PickupShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 0 )
-shape = SubResource( 9 )
+position = Vector2(-1, 0)
+shape = SubResource("9")
 
 [node name="ProjectileStart" type="Marker2D" parent="."]
-position = Vector2( 7, -3 )
+position = Vector2(7, -3)
 
 [node name="ProjectileTarget" type="Marker2D" parent="."]
-position = Vector2( 20, -3 )
+position = Vector2(20, -3)
 
 [node name="Area3D" type="Area2D" parent="ProjectileTarget"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileTarget/Area3D"]
-shape = SubResource( 8 )
+shape = SubResource("8")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource( 3 )
-frames = SubResource( 21 )
-animation = "idle"
-playing = true
+material = SubResource("3")
+sprite_frames = SubResource("21")
+animation = &"idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D"]
-tree_root = SubResource( 22 )
-parameters/playback = SubResource( 23 )
+tree_root = SubResource("22")
 
 [node name="FXAnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-"anims/Hit Flash" = SubResource( 4 )
-anims/RESET = SubResource( 5 )
+libraries = {
+"": SubResource("AnimationLibrary_1qsx0")
+}
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-script = SubResource( 30 )
+script = SubResource("30")
 
-[node name="DebugUI" parent="PlayerCamera" instance=ExtResource( 7 )]
+[node name="DebugUI" parent="PlayerCamera" instance=ExtResource("7")]
 visible = false
+layout_mode = 3
+anchors_preset = 0
 offset_left = -255.0
 offset_top = -223.0
 offset_right = 256.0
 offset_bottom = 224.0
 
-[node name="MobSpawner" parent="." instance=ExtResource( 4 )]
+[node name="MobSpawner" parent="." instance=ExtResource("4")]
 
 [node name="IFrameTimer" type="Timer" parent="."]
 
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2( -2, 0 )
-shape = SubResource( 1 )
+position = Vector2(-2, 0)
+scale = Vector2(3, 3)
+shape = SubResource("1")
 
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]
