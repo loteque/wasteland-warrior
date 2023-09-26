@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bxg5lk8be38y7"]
 
-[ext_resource type="PackedScene" path="res://src/PlayerController.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://durlan6er57t1" path="res://src/PlayerController.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dreerbkagrdui" path="res://src/BackgroundGenerator.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://src/GlobalAudioStreamPlayer.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://src/GameStats.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://src/FollowCamera.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://dvsr6kjsg6d6h" path="res://src/GlobalAudioStreamPlayer.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://c54ogxchunnr3" path="res://src/GameStats.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://nfa2qbimwtnh" path="res://src/FollowCamera.tscn" id="5"]
 
 [node name="Main" type="Node2D"]
 
