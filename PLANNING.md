@@ -31,4 +31,10 @@
 * When the level is over, total_caps_collected x time_multiplier = caps (persistent)
 * When the level is over, they go to title screen
 
+## CORE EMOTIONS
+
 ![CORE EMOTION](docs/images/core_emotion.excalidraw.png)
+
+## UPGRADES
+
+![UPGRADES](docs/images/upgrades_plan.excalidraw.png)
