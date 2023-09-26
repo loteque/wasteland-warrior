@@ -1,11 +1,9 @@
 extends CharacterBody2D
 
 @export var speed := 50
-@export var health := 10 # todo remove
 @export var projectile: PackedScene = preload("res://src/Projectile.tscn")
 @export var attack_interval := 30
 @export var projectile_speed := 100
-@export var health_component_path: NodePath
 
 var is_invincible = false
 @onready var iframe_timer = $IFrameTimer 
@@ -13,7 +11,7 @@ var is_invincible = false
 @onready var sprite_fx_animations = sprite.get_node("FXAnimationPlayer")
 @onready var projectile_start = $ProjectileStart
 @onready var projectile_target = $ProjectileTarget
-@onready var health_component: HealthComponent = get_node(health_component_path)
+@onready var health_component: HealthComponent = $HealthComponent
 
 
 func _ready():
@@ -64,13 +62,13 @@ func face_right():
 
 func _on_HurtBox_body_entered(body):
 	if body.is_in_group("CanHurtPlayer") and !is_invincible:
-		take_damage(body.damage) # todo remove
+		take_damage(body.damage)
 		make_temporarily_invincible()
 
 func take_damage(amount):
 	Signals.emit_signal("player_hit")
 	sprite_fx_animations.play("Hit Flash")
-	health -= amount
+	health_component.damage(amount)
 
 func make_temporarily_invincible():
 	is_invincible = true

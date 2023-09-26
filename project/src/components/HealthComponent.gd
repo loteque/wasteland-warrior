@@ -23,4 +23,5 @@ func heal(value):
 	set_health(health + value)
 
 func damage(value):
+	print("Took damage: " + str(value))
 	set_health(health - value)
