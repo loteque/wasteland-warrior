@@ -5,8 +5,8 @@
   "elements": [
     {
       "type": "text",
-      "version": 2537,
-      "versionNonce": 1635565529,
+      "version": 2551,
+      "versionNonce": 2082498518,
       "isDeleted": false,
       "id": "1CO9EWxgmowaNJul8TgFb",
       "fillStyle": "hachure",
@@ -15,27 +15,29 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 450.9033112334363,
+      "x": 443.76045409057895,
       "y": 299.3149002364753,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 838,
+      "width": 838.4192504882812,
       "height": 750,
       "seed": 654628907,
       "groupIds": [],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1676840000413,
+      "updated": 1695695036708,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "* Title screen (Start, Options, Upgrades)\n* On upgrade screen, they can purchase attribute upgrades with persistent caps\n* On options screen player can set SFX and Music levels\n* Press start\n* Player select character (one character)\n* Character starts with pipe gun\n* Player loads into level\n* Player character can move\n* The world infinitely scrolls. (Impassables: Old dead trees, rocks, barrels)\n* A trash enemy spawns. (Snapper)\n* Enemy follows player.\n* Player takes damage when hit by enemy.\n* Player has a weapon that auto fires projectile.\n* Projectile damages enemy when it collides with enemy and projectile despawns.\n* Many of the same enemy type spawn.\n* Enemies spawn of screen continuously during a wave.\n* Enemies drop bottle caps when they die.\n    * trash: 1 cap, elite: 3 caps, boss: 5 caps\n* Player collects caps by walking over them\n* Caps fill up experience meter\n* Each successive level up requires increasing number of caps\n* When player levels up game pauses and a shop opens\n* In the shop, ephemeral upgrade options appear\n* Player selects 1 of three upgrades\n* At the end of n minutes, if the player is still alive, they beat the level\n\n* If player runs out of health, they die and the level is over\n\n* When the level is over, total_caps_collected x time_multiplier = caps (persistent)\n* When the level is over, they go to title screen",
-      "baseline": 743,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "* Title screen (Start, Options, Upgrades)\n* On upgrade screen, they can purchase attribute upgrades with persistent caps\n* On options screen player can set SFX and Music levels\n* Press start\n* Player select character (one character)\n* Character starts with pipe gun\n* Player loads into level\n* Player character can move\n* The world infinitely scrolls. (Impassables: Old dead trees, rocks, barrels)\n* A trash enemy spawns. (Snapper)\n* Enemy follows player.\n* Player takes damage when hit by enemy.\n* Player has a weapon that auto fires projectile.\n* Projectile damages enemy when it collides with enemy and projectile despawns.\n* Many of the same enemy type spawn.\n* Enemies spawn of screen continuously during a wave.\n* Enemies drop bottle caps when they die.\n    * trash: 1 cap, elite: 3 caps, boss: 5 caps\n* Player collects caps by walking over them\n* Caps fill up experience meter\n* Each successive level up requires increasing number of caps\n* When player levels up game pauses and a shop opens\n* In the shop, ephemeral upgrade options appear\n* Player selects 1 of three upgrades\n* At the end of n minutes, if the player is still alive, they beat the level\n\n* If player runs out of health, they die and the level is over\n\n* When the level is over, total_caps_collected x time_multiplier = caps (persistent)\n* When the level is over, they go to title screen"
+      "originalText": "* Title screen (Start, Options, Upgrades)\n* On upgrade screen, they can purchase attribute upgrades with persistent caps\n* On options screen player can set SFX and Music levels\n* Press start\n* Player select character (one character)\n* Character starts with pipe gun\n* Player loads into level\n* Player character can move\n* The world infinitely scrolls. (Impassables: Old dead trees, rocks, barrels)\n* A trash enemy spawns. (Snapper)\n* Enemy follows player.\n* Player takes damage when hit by enemy.\n* Player has a weapon that auto fires projectile.\n* Projectile damages enemy when it collides with enemy and projectile despawns.\n* Many of the same enemy type spawn.\n* Enemies spawn of screen continuously during a wave.\n* Enemies drop bottle caps when they die.\n    * trash: 1 cap, elite: 3 caps, boss: 5 caps\n* Player collects caps by walking over them\n* Caps fill up experience meter\n* Each successive level up requires increasing number of caps\n* When player levels up game pauses and a shop opens\n* In the shop, ephemeral upgrade options appear\n* Player selects 1 of three upgrades\n* At the end of n minutes, if the player is still alive, they beat the level\n\n* If player runs out of health, they die and the level is over\n\n* When the level is over, total_caps_collected x time_multiplier = caps (persistent)\n* When the level is over, they go to title screen",
+      "lineHeight": 1.25,
+      "baseline": 743
     },
     {
       "type": "rectangle",
@@ -59,6 +61,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -110,6 +113,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -149,6 +153,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -188,6 +193,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -227,6 +233,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -266,6 +273,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1677026663672,
@@ -274,11 +282,12 @@
       "fontSize": 14.013108958576375,
       "fontFamily": 1,
       "text": "POWER\nFANTASY",
-      "baseline": 29,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "I8IL73RwkRHh7b15hfn3e",
-      "originalText": "POWER\nFANTASY"
+      "originalText": "POWER\nFANTASY",
+      "lineHeight": 1.2131497764167154,
+      "baseline": 31
     },
     {
       "type": "text",
@@ -302,6 +311,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1677026663673,
@@ -310,11 +320,12 @@
       "fontSize": 14.013108958576375,
       "fontFamily": 1,
       "text": "Feeling Smart",
-      "baseline": 12,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "8sDfBnQfm9ttrnoqHzG7G",
-      "originalText": "Feeling Smart"
+      "originalText": "Feeling Smart",
+      "lineHeight": 1.2131497764167154,
+      "baseline": 14
     },
     {
       "type": "text",
@@ -338,6 +349,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1677026663679,
@@ -346,11 +358,12 @@
       "fontSize": 14.013108958576375,
       "fontFamily": 1,
       "text": "cheating death",
-      "baseline": 12,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "P-etrzbce9tz5DhPMuorO",
-      "originalText": "cheating death"
+      "originalText": "cheating death",
+      "lineHeight": 1.2131497764167154,
+      "baseline": 14
     },
     {
       "type": "text",
@@ -374,6 +387,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1677026663681,
@@ -382,11 +396,12 @@
       "fontSize": 14.013108958576375,
       "fontFamily": 1,
       "text": "Awesome \nDestruction",
-      "baseline": 29,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "6EkJanUvo-Vg8DFYcq4DJ",
-      "originalText": "Awesome Destruction"
+      "originalText": "Awesome Destruction",
+      "lineHeight": 1.2131497764167154,
+      "baseline": 31
     },
     {
       "type": "text",
@@ -410,6 +425,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1677026663684,
@@ -418,11 +434,12 @@
       "fontSize": 14.163508621453001,
       "fontFamily": 1,
       "text": "Feeling a power \nincrease both\ntemporary and \npersistant",
-      "baseline": 63,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "XyBSiw5L9Nddl-cJmmMUn",
-      "originalText": "Feeling a power increase both\ntemporary and persistant"
+      "originalText": "Feeling a power increase both\ntemporary and persistant",
+      "lineHeight": 1.2002675646520706,
+      "baseline": 65
     },
     {
       "type": "arrow",
@@ -446,6 +463,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 2
       },
@@ -499,6 +517,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 2
       },
@@ -552,6 +571,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 2
       },
@@ -605,6 +625,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -644,6 +665,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 2
       },
@@ -689,6 +711,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 2
       },
@@ -734,6 +757,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -769,6 +793,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -804,6 +829,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -839,6 +865,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -874,6 +901,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -913,6 +941,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -948,6 +977,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -987,6 +1017,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -1030,6 +1061,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1676840051782,
@@ -1038,11 +1070,12 @@
       "fontSize": 9.981052512321154,
       "fontFamily": 1,
       "text": "Player is in control of\nall decisions",
-      "baseline": 20,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "xYOyF_ZTdLLIzkvl4xg8J",
-      "originalText": "Player is in control of all decisions"
+      "originalText": "Player is in control of all decisions",
+      "lineHeight": 1.2022780147871728,
+      "baseline": 22
     },
     {
       "type": "text",
@@ -1066,6 +1099,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1676840051782,
@@ -1074,11 +1108,12 @@
       "fontSize": 9.981052512321154,
       "fontFamily": 1,
       "text": "Player is in control of\nposition, movement, \nboard impact",
-      "baseline": 32,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "fOlObgvfabLFpStjy5W46",
-      "originalText": "Player is in control of position, movement, board impact"
+      "originalText": "Player is in control of position, movement, board impact",
+      "lineHeight": 1.2022780147871728,
+      "baseline": 34
     },
     {
       "type": "text",
@@ -1102,6 +1137,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1676840051782,
@@ -1110,11 +1146,12 @@
       "fontSize": 9.981052512321154,
       "fontFamily": 1,
       "text": "Player must put \neffort into controlling \nthe board state",
-      "baseline": 32,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "l3cU30tYB9SNdKIxP6hKp",
-      "originalText": "Player must put effort into controlling the board state"
+      "originalText": "Player must put effort into controlling the board state",
+      "lineHeight": 1.2022780147871728,
+      "baseline": 34
     },
     {
       "type": "text",
@@ -1138,6 +1175,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1676840051782,
@@ -1146,11 +1184,12 @@
       "fontSize": 9.984874714510061,
       "fontFamily": 1,
       "text": "Risk reward assement \nthat leads to risk \ntaking for apropriatly \nscaled rewards",
-      "baseline": 44,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "zfyi0Ab5IUA9yAQsGUioG",
-      "originalText": "Risk reward assement that leads to risk taking for apropriatly scaled rewards"
+      "originalText": "Risk reward assement that leads to risk taking for apropriatly scaled rewards",
+      "lineHeight": 1.2018177837085477,
+      "baseline": 46
     },
     {
       "type": "text",
@@ -1174,6 +1213,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1676840051782,
@@ -1182,11 +1222,12 @@
       "fontSize": 9.981052512321154,
       "fontFamily": 1,
       "text": "Player can Identify \nsynergies in power-ups",
-      "baseline": 32,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "UBNfGyjD6bKArMOqDlVvV",
-      "originalText": "Player can Identify synergies in power-ups"
+      "originalText": "Player can Identify synergies in power-ups",
+      "lineHeight": 1.803417022180759,
+      "baseline": 31
     },
     {
       "type": "text",
@@ -1210,6 +1251,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1676840051782,
@@ -1218,11 +1260,12 @@
       "fontSize": 9.982972145116914,
       "fontFamily": 1,
       "text": "Player can learn from \npast mistakes",
-      "baseline": 20,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "5FdRCu3CvbhzFXJ-IaAjf",
-      "originalText": "Player can learn from past mistakes"
+      "originalText": "Player can learn from past mistakes",
+      "lineHeight": 1.2020468278948067,
+      "baseline": 22
     },
     {
       "type": "text",
@@ -1246,6 +1289,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1676840051782,
@@ -1254,11 +1298,12 @@
       "fontSize": 10.013168526564067,
       "fontFamily": 1,
       "text": "Player choice always \nproduces a noticeable \neffect",
-      "baseline": 32,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "SMeaGCOPgU42f1xU3UR15",
-      "originalText": "Player choice always produces a noticeable effect"
+      "originalText": "Player choice always produces a noticeable effect",
+      "lineHeight": 1.1984218549967516,
+      "baseline": 34
     },
     {
       "type": "text",
@@ -1282,6 +1327,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1676840051782,
@@ -1290,16 +1336,17 @@
       "fontSize": 10.014812665952537,
       "fontFamily": 1,
       "text": "Some choices can have \nnegative effects which \ncan synergize to be \nbenficial",
-      "baseline": 44,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "4rGLW7yQ-EV_MP7ev2a7I",
-      "originalText": "Some choices can have negative effects which can synergize to be benficial"
+      "originalText": "Some choices can have negative effects which can synergize to be benficial",
+      "lineHeight": 1.1982251091721892,
+      "baseline": 46
     },
     {
       "type": "text",
-      "version": 185,
-      "versionNonce": 1345644002,
+      "version": 186,
+      "versionNonce": 1175816662,
       "isDeleted": false,
       "id": "W0Bg8jKVaUUvTrJuPmmG0",
       "fillStyle": "hachure",
@@ -1312,30 +1359,32 @@
       "y": 870.9892413613611,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 67,
+      "width": 66.20748901367188,
       "height": 13,
       "seed": 182804215,
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1677026663718,
+      "updated": 1695693334588,
       "link": null,
       "locked": false,
       "fontSize": 10.411050258573468,
       "fontFamily": 1,
       "text": "Still moments",
-      "baseline": 9,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Still moments"
+      "originalText": "Still moments",
+      "lineHeight": 1.248673253622471,
+      "baseline": 9
     },
     {
       "type": "text",
-      "version": 263,
-      "versionNonce": 643719486,
+      "version": 264,
+      "versionNonce": 2000758410,
       "isDeleted": false,
       "id": "XRFemzh_8Kg5roL4AS3AL",
       "fillStyle": "hachure",
@@ -1348,25 +1397,27 @@
       "y": 870.481797069496,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 130,
+      "width": 128.99012756347656,
       "height": 13,
       "seed": 131952633,
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1677026663719,
+      "updated": 1695693334588,
       "link": null,
       "locked": false,
       "fontSize": 10.411050258573468,
       "fontFamily": 1,
       "text": "moment to moment action",
-      "baseline": 9,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "moment to moment action"
+      "originalText": "moment to moment action",
+      "lineHeight": 1.248673253622471,
+      "baseline": 9
     },
     {
       "type": "rectangle",
@@ -1390,6 +1441,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -1425,6 +1477,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1676840051782,
@@ -1433,11 +1486,12 @@
       "fontSize": 9.97119017869151,
       "fontFamily": 1,
       "text": "Player can build up \naccount over many \nplaythroughs in a \npersistent manner",
-      "baseline": 44,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "fQgHtU2-8vVqARPX8lWMP",
-      "originalText": "Player can build up account over many playthroughs in a persistent manner"
+      "originalText": "Player can build up account over many playthroughs in a persistent manner",
+      "lineHeight": 1.2034671674043556,
+      "baseline": 46
     },
     {
       "type": "arrow",
@@ -1461,6 +1515,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 2
       },
@@ -1514,6 +1569,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 2
       },
@@ -1567,6 +1623,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 2
       },
@@ -1620,6 +1677,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -1655,6 +1713,7 @@
       "groupIds": [
         "1sYkn9EqdJhCCtNXDj3G-"
       ],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1677026663722,
@@ -1663,11 +1722,12 @@
       "fontSize": 20,
       "fontFamily": 1,
       "text": "ephemeral and \npersistant",
-      "baseline": 39,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "3le5RK9eTNeS5yLK9lVuL",
-      "originalText": "ephemeral and persistant"
+      "originalText": "ephemeral and persistant",
+      "lineHeight": 1.15,
+      "baseline": 43
     },
     {
       "type": "rectangle",
@@ -1689,6 +1749,7 @@
       "height": 190,
       "seed": 16569145,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -1722,6 +1783,7 @@
       "height": 180,
       "seed": 945281239,
       "groupIds": [],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1676840000414,
@@ -1730,16 +1792,17 @@
       "fontSize": 28.1732372184117,
       "fontFamily": 1,
       "text": "spend a lot, \nget a lot; \nthere is no \nmiddle or \nlower.",
-      "baseline": 169,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "-iulALt_GTDYm6lD7LFnb",
-      "originalText": "spend a lot, get a lot; there is no middle or lower."
+      "originalText": "spend a lot, get a lot; there is no middle or lower.",
+      "lineHeight": 1.2778084293583905,
+      "baseline": 173
     },
     {
       "type": "text",
-      "version": 372,
-      "versionNonce": 1950741209,
+      "version": 373,
+      "versionNonce": 1974591254,
       "isDeleted": false,
       "id": "aYaskhPdL8Al267SV90iS",
       "fillStyle": "hachure",
@@ -1752,28 +1815,30 @@
       "y": 386.9544227889654,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 246,
+      "width": 246.4798583984375,
       "height": 300,
       "seed": 1341382553,
       "groupIds": [],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1676840000416,
+      "updated": 1695693334589,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "PERSISTENT UPGADES:\n    # of projectiles\n    Area of effect size\n    Attack Damage\n    Attack Cooldown\n    Projectile Range\n    Max Health\n    Heallth Regen rate\n    Health Regen amount\n    Move Speed\n    \n    ",
-      "baseline": 293,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "PERSISTENT UPGADES:\n    # of projectiles\n    Area of effect size\n    Attack Damage\n    Attack Cooldown\n    Projectile Range\n    Max Health\n    Heallth Regen rate\n    Health Regen amount\n    Move Speed\n    \n    "
+      "originalText": "PERSISTENT UPGADES:\n    # of projectiles\n    Area of effect size\n    Attack Damage\n    Attack Cooldown\n    Projectile Range\n    Max Health\n    Heallth Regen rate\n    Health Regen amount\n    Move Speed\n    \n    ",
+      "lineHeight": 1.25,
+      "baseline": 293
     },
     {
       "type": "text",
-      "version": 1307,
-      "versionNonce": 280725886,
+      "version": 1308,
+      "versionNonce": 1580189002,
       "isDeleted": false,
       "id": "_IfoIyn-DsOPjoRByrjYg",
       "fillStyle": "hachure",
@@ -1786,23 +1851,25 @@
       "y": 647.200346996865,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 526,
+      "width": 526.2854614257812,
       "height": 450,
       "seed": 1497371801,
       "groupIds": [],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1677026663739,
+      "updated": 1695693334591,
       "link": null,
       "locked": false,
       "fontSize": 20.02507716049381,
       "fontFamily": 1,
       "text": "EPHEMERAL UPGADES:\n    * Weapon Damage Effects:\n        Circles the player (Boomerang)\n        Slash in arc, front of player (Machette)\n        number of projectiles (Shotgun)\n        projectile penetration (Sniper Rifle)\n        Multiple bullets (machine gun)\n        Damage over time (flame thrower)\n        Area of effect size (explosives) boom stick...\n    * Other effects\n        Increase total health\n        Increase health regen rate\n        Increase health regen amount\n        Increase Move speed\n        Attack cooldown\n        Attack Base damage\n        Projectile speed\n ",
-      "baseline": 443,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "EPHEMERAL UPGADES:\n    * Weapon Damage Effects:\n        Circles the player (Boomerang)\n        Slash in arc, front of player (Machette)\n        number of projectiles (Shotgun)\n        projectile penetration (Sniper Rifle)\n        Multiple bullets (machine gun)\n        Damage over time (flame thrower)\n        Area of effect size (explosives) boom stick...\n    * Other effects\n        Increase total health\n        Increase health regen rate\n        Increase health regen amount\n        Increase Move speed\n        Attack cooldown\n        Attack Base damage\n        Projectile speed\n "
+      "originalText": "EPHEMERAL UPGADES:\n    * Weapon Damage Effects:\n        Circles the player (Boomerang)\n        Slash in arc, front of player (Machette)\n        number of projectiles (Shotgun)\n        projectile penetration (Sniper Rifle)\n        Multiple bullets (machine gun)\n        Damage over time (flame thrower)\n        Area of effect size (explosives) boom stick...\n    * Other effects\n        Increase total health\n        Increase health regen rate\n        Increase health regen amount\n        Increase Move speed\n        Attack cooldown\n        Attack Base damage\n        Projectile speed\n ",
+      "lineHeight": 1.2484346402080735,
+      "baseline": 443
     },
     {
       "type": "rectangle",
@@ -1824,6 +1891,7 @@
       "height": 55.71468777126744,
       "seed": 1925113113,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -1852,6 +1920,7 @@
       "height": 55.71468777126744,
       "seed": 1576565497,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -1880,6 +1949,7 @@
       "height": 55.71468777126744,
       "seed": 60180151,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -1908,6 +1978,7 @@
       "height": 55.71468777126744,
       "seed": 1876601687,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -1936,6 +2007,7 @@
       "height": 55.71468777126744,
       "seed": 2015071511,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -1964,6 +2036,7 @@
       "height": 55.71468777126744,
       "seed": 1558176825,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -1992,6 +2065,7 @@
       "height": 55.71468777126744,
       "seed": 693418455,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -2020,6 +2094,7 @@
       "height": 55.71468777126744,
       "seed": 1392554969,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -2048,6 +2123,7 @@
       "height": 55.71468777126744,
       "seed": 1286232023,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -2076,6 +2152,7 @@
       "height": 38.32465277777783,
       "seed": 771041079,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -2104,6 +2181,7 @@
       "height": 24.250590006510436,
       "seed": 1546951321,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -2132,6 +2210,7 @@
       "height": 23.50982666015625,
       "seed": 1569124665,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -2160,6 +2239,7 @@
       "height": 23.50982666015625,
       "seed": 845475927,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -2188,6 +2268,7 @@
       "height": 23.50982666015625,
       "seed": 546526777,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -2216,6 +2297,7 @@
       "height": 23.50982666015625,
       "seed": 429317273,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -2244,6 +2326,7 @@
       "height": 423.3333333333333,
       "seed": 1436498551,
       "groupIds": [],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1676840000419,
@@ -2276,6 +2359,7 @@
       "height": 59,
       "seed": 2054906873,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -2309,6 +2393,7 @@
       "height": 23,
       "seed": 692178007,
       "groupIds": [],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
       "updated": 1677026663740,
@@ -2317,11 +2402,12 @@
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Player Story",
-      "baseline": 16,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "C16wZIgIGPE8GbdbdWytf",
-      "originalText": "Player Story"
+      "originalText": "Player Story",
+      "lineHeight": 1.15,
+      "baseline": 20
     },
     {
       "type": "rectangle",
@@ -2343,6 +2429,7 @@
       "height": 820.6510772705078,
       "seed": 276748121,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -2353,36 +2440,8 @@
     },
     {
       "type": "rectangle",
-      "version": 249,
-      "versionNonce": 254947289,
-      "isDeleted": false,
-      "id": "crYxLuzs9FtdVaNuAzhq6",
-      "fillStyle": "hachure",
-      "strokeWidth": 1,
-      "strokeStyle": "solid",
-      "roughness": 1,
-      "opacity": 100,
-      "angle": 0,
-      "x": 2757.584578684169,
-      "y": 284.588213123031,
-      "strokeColor": "#000000",
-      "backgroundColor": "transparent",
-      "width": 1149.3228759765623,
-      "height": 820.6510772705078,
-      "seed": 280052633,
-      "groupIds": [],
-      "roundness": {
-        "type": 3
-      },
-      "boundElements": [],
-      "updated": 1676840013025,
-      "link": null,
-      "locked": false
-    },
-    {
-      "type": "rectangle",
-      "version": 260,
-      "versionNonce": 106835193,
+      "version": 267,
+      "versionNonce": 1874056330,
       "isDeleted": false,
       "id": "HjRBK2KpGrpjuf78Vc-du",
       "fillStyle": "hachure",
@@ -2392,13 +2451,14 @@
       "opacity": 100,
       "angle": 0,
       "x": 1376.9075156958884,
-      "y": 190.23933616990598,
+      "y": 177.38219331276315,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 395.9895019531248,
       "height": 93.98435974121094,
       "seed": 2037157527,
       "groupIds": [],
+      "frameId": null,
       "roundness": {
         "type": 3
       },
@@ -2408,47 +2468,14 @@
           "id": "gZTtoMvwnDiZSNTcYMRlz"
         }
       ],
-      "updated": 1676840000419,
-      "link": null,
-      "locked": false
-    },
-    {
-      "type": "rectangle",
-      "version": 564,
-      "versionNonce": 933362455,
-      "isDeleted": false,
-      "id": "R-u0OaVZlVlRd4eMcKPmG",
-      "fillStyle": "hachure",
-      "strokeWidth": 1,
-      "strokeStyle": "solid",
-      "roughness": 1,
-      "opacity": 100,
-      "angle": 0,
-      "x": 2765.865828684169,
-      "y": 187.55702415818723,
-      "strokeColor": "#000000",
-      "backgroundColor": "transparent",
-      "width": 395.9895019531248,
-      "height": 93.98435974121094,
-      "seed": 63513593,
-      "groupIds": [],
-      "roundness": {
-        "type": 3
-      },
-      "boundElements": [
-        {
-          "type": "text",
-          "id": "on8jscb4vK8A69h78IsV-"
-        }
-      ],
-      "updated": 1676840000419,
+      "updated": 1695695156416,
       "link": null,
       "locked": false
     },
     {
       "type": "text",
-      "version": 198,
-      "versionNonce": 1036626366,
+      "version": 205,
+      "versionNonce": 1344058186,
       "isDeleted": false,
       "id": "gZTtoMvwnDiZSNTcYMRlz",
       "fillStyle": "hachure",
@@ -2458,60 +2485,98 @@
       "opacity": 100,
       "angle": 0,
       "x": 1529.9022666724507,
-      "y": 224.73151604051145,
+      "y": 211.87437318336862,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 90,
       "height": 23,
       "seed": 2114188343,
       "groupIds": [],
+      "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1677026663741,
+      "updated": 1695695156416,
       "link": null,
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Upgrades",
-      "baseline": 16,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "HjRBK2KpGrpjuf78Vc-du",
-      "originalText": "Upgrades"
+      "originalText": "Upgrades",
+      "lineHeight": 1.15,
+      "baseline": 20
     },
     {
-      "type": "text",
-      "version": 520,
-      "versionNonce": 474831138,
-      "isDeleted": false,
-      "id": "on8jscb4vK8A69h78IsV-",
+      "id": "L8j9IYH2iE7yj5SzzjRVy",
+      "type": "rectangle",
+      "x": -13.926735768877506,
+      "y": 282.88113939045536,
+      "width": 204,
+      "height": 45,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
       "fillStyle": "hachure",
       "strokeWidth": 1,
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "angle": 0,
-      "x": 2890.3605796607317,
-      "y": 222.0492040287927,
-      "strokeColor": "#000000",
-      "backgroundColor": "transparent",
-      "width": 147,
-      "height": 23,
-      "seed": 1405482007,
       "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 3
+      },
+      "seed": 1477445322,
+      "version": 154,
+      "versionNonce": 1507097110,
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "b67vJHosdoAn0ZL0JtFc8"
+        }
+      ],
+      "updated": 1695695583079,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "b67vJHosdoAn0ZL0JtFc8",
+      "type": "text",
+      "x": 24.66332160416937,
+      "y": 292.88113939045536,
+      "width": 126.81988525390625,
+      "height": 25,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
       "roundness": null,
-      "boundElements": [],
-      "updated": 1677026663741,
+      "seed": 1174821322,
+      "version": 72,
+      "versionNonce": 1286129494,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1695695583079,
       "link": null,
       "locked": false,
+      "text": "Core Emotion",
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "Enemy Spawning",
-      "baseline": 16,
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "R-u0OaVZlVlRd4eMcKPmG",
-      "originalText": "Enemy Spawning"
+      "baseline": 18,
+      "containerId": "L8j9IYH2iE7yj5SzzjRVy",
+      "originalText": "Core Emotion",
+      "lineHeight": 1.25
     }
   ],
   "appState": {
