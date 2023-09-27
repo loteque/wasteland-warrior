@@ -1,0 +1,3 @@
+[submodule "engine/wasteland-warrior-engine"]
+	path = engine/wasteland-warrior-engine
+	url = https://github.com/loteque/wasteland-warrior-engine.git
