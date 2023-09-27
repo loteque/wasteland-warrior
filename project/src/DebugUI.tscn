@@ -21,3 +21,18 @@ text = "Cap count:"
 [node name="CapCountLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 text = "0"
+
+[node name="CommitHashContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 266.0
+offset_right = 403.0
+offset_bottom = 40.0
+alignment = 2
+
+[node name="CommitHashName" type="Label" parent="CommitHashContainer"]
+layout_mode = 2
+text = "Commmit hash:"
+
+[node name="CommitHashLabel" type="Label" parent="CommitHashContainer"]
+layout_mode = 2
+text = "0"
