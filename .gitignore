@@ -117,7 +117,7 @@ platform/web/node_modules/
 
 # Misc
 *.debug
-/assets
+asset*/
 #############################
 ### IDE and tool specific ###
 #############################
