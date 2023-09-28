@@ -1,0 +1,1 @@
+Assets are currently stored in a Google Drive. To access them contact a project admin. Once access is granted add the assets directory from Google Drive to the project/ directory.
