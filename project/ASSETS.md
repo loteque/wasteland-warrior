@@ -35,8 +35,8 @@ Quit config
 
 Once you have the remote setup you can sync the assets directory with the following command:
 
-`./sync.sh`
+`./sync`
 
 ## To sync
 
-`./sync.sh`
+`./sync`
