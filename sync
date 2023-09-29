@@ -1,18 +1,29 @@
 #!/bin/bash
 
-# get the directory this file is in
+# Get the directory this file is in
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 Help()
 {
-    echo "sync the project assets with google drive"
+    echo "Sync the project assets with google drive"
     echo
-    echo "Syntax: sync [-d|u]"
+    echo "Syntax: sync [-h|u|d|s|c]"
     echo "Options:"
-    echo "h        print this help"
-    echo "u        sync \"up\" from local drive to google drive"
-    echo "d        sync \"down\" from google drive to local drive"
-    echo "c        Check if the files in source and destination match"   
+    echo "h        print this Help"
+    echo "u        sync \"Up\" from local drive to google drive"
+    echo "d        sync \"Down\" from google drive to local drive"
+    echo "s        Status of the matched files in source and destination"
+    echo "c        (re)Configure remote access"
+}
+
+ConfigureRemote()
+{
+    # When the remote already exists delete it
+    rclone config delete wasteland-warrior
+    # Set up the remote
+    rclone config create wasteland-warrior drive config_is_local=false
+    # Authenticate the remote with web browser passing in defaults
+    echo -e; printf '%s\n' y n | rclone config reconnect wasteland-warrior:
 }
 
 CheckStatus()
@@ -34,25 +45,29 @@ SyncUp()
     rclone sync --interactive $DIR/project/assets wasteland-warrior:assets;$SHELL
 }
 
+# Check for args, if no args, then show help and exit with general error
 if [ -z "$1" ] 
     then Help
     exit 1
 fi
 
-while getopts ":hduc" option; do
+while getopts ":hudsc" option; do
    case $option in
-      h) # display Help
+      h) # Display Help
          Help
          exit;;
-      u) #upload
+      u) # Upload
          SyncUp
          exit;;
-      d) #download
+      d) # Download
          SyncDown
          exit;;
-      c) #check
+      s) # Check
          CheckStatus
          exit;;
+      c) # (re)Configure Remote
+         ConfigureRemote
+         exit;;         
      \?) # Invalid option
          echo "Error: Invalid option"
          echo "use -h for a list of options"

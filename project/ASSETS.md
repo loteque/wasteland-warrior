@@ -1,42 +1,36 @@
 # Assets
 
-Assets are currently stored in a Google Drive. To access them contact a project admin. Once access is granted add the assets directory from Google Drive to the project/ directory.
+Assets are currently stored in a Google Drive. To access them contact a project admin. Once access is granted follow the steps below.
 
-https://rclone.org/downloads/
+## Configure sync
 
-Follow this guide: https://rclone.org/drive/
+1. Download and install rclone: https://rclone.org/downloads/
 
-For the remote name use "wasteland-warrior"
+2. Set the execution bit on the `sync` script: 
+    
+    `chmod +x sync`
 
-enter the number for "google drive", eg. 18
+3. Run the `sync` script with the configure flag. It will open a browser window to authenticate. Make sure you select the google account that has access to the project assets:
+    
+    `./sync -c`
 
-Leave these empty:
-Option client_id.
-Google Application Client Id
-client_secret
+4. Run the sync script with the apropriate sync flag.
+   
+   * To sync local assets to the Google drive:
 
-Option scope: 1
+        `./sync -u`
+   
+   * To sync Google Drive to the local directory:
 
-For the root folder ID use "assets"
+        `./sync -d`
 
-For the service account file, press enter.
+5. At anytime you can use `./sync -h` to see a list of all options.
 
-Edit advanced config? No
+## Sync from Google Drive to local
+`./sync -d`
 
-Use web browser to automatically authenticate rclone with remote? Yes
+## Sync from local to Google Drive
+`./sync -u`
 
-Shared drive? No
-
-Keep this wastland-warrior remote? Yes
-
-Quit config
-
-## Now setup sync directory
-
-Once you have the remote setup you can sync the assets directory with the following command:
-
-`./sync`
-
-## To sync
-
-`./sync`
+## Get a list of sync options
+`./sync -h`
