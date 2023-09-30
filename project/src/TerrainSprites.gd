@@ -23,8 +23,8 @@ func draw_terrain_sprites(num_of_sprites) -> void:
 
 func generate_draw_space_pos(draw_space, half_draw_space) -> Vector2:
 	var terrain_pos: Vector2
-	var pos_x = (draw_space.x / 2) + generate_random_number(-half_draw_space.x, half_draw_space.x) 
-	var pos_y = (draw_space.y / 2) + generate_random_number(-half_draw_space.y, half_draw_space.y)
+	var pos_x = (draw_space.x / -64) + generate_random_number(-half_draw_space.x, half_draw_space.x) 
+	var pos_y = (draw_space.y / -64) + generate_random_number(-half_draw_space.y, half_draw_space.y)
 
 	terrain_pos = Vector2(pos_x, pos_y)
 	return terrain_pos
