@@ -14,12 +14,13 @@ func _on_updated_camera_pos(updated_camera_pos) -> void:
 func draw_chunks(updated_camera_pos) -> void:
 	var tile_bg: Node2D
 	var tiles = get_chunks(updated_camera_pos)
-#	for tile in tiles:
-#		if grid.get_cell(tile.x, tile.y) == -1:
-#			grid.set_cell(tile.x, tile.y, 0)
-#			tile_bg = tile_background.instantiate()
-#			tile_bg.global_position = grid.map_to_local(tile)
-#			add_child(tile_bg)
+	for tile in tiles:
+		var cell_source_id = grid.get_cell_source_id(0, Vector2i(tile.x, tile.y))
+		if cell_source_id == -1:
+			grid.set_cell(0, Vector2i(tile.x, tile.y), 0, Vector2i(0,0), 0)
+			tile_bg = tile_background.instantiate()
+			tile_bg.global_position = grid.map_to_local(tile)
+			add_child(tile_bg)
 
 func get_chunks(updated_camera_pos) -> Array:
 	var tiles: Array = []
