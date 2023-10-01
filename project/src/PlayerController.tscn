@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://src/PlayerController.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://yxvs6h2o2bsu" path="res://assets/char/player_run.png" id="2"]
+[ext_resource type="Script" path="res://src/ObjectPool.gd" id="2_pic7l"]
 [ext_resource type="Script" path="res://src/components/HealthComponent.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://4p6uskj2qvhv" path="res://src/mobs/MobSpawner.tscn" id="4"]
 [ext_resource type="Texture2D" uid="uid://duhs8mf25anhv" path="res://assets/char/player_idle.png" id="5"]
 [ext_resource type="Shader" path="res://src/mobs/hit_flash_red.gdshader" id="6"]
-[ext_resource type="Script" path="res://src/ProjectileObjectPool.gd" id="7_jtp7g"]
 [ext_resource type="PackedScene" uid="uid://bk3scw1w2hue1" path="res://src/Projectile.tscn" id="8_dxdn3"]
 
 [sub_resource type="CapsuleShape2D" id="9"]
@@ -184,14 +184,13 @@ _data = {
 radius = 2.0
 height = 8.0
 
-[node name="PlayerController" type="CharacterBody2D" node_paths=PackedStringArray("projectile_pool") groups=["player"]]
+[node name="PlayerController" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1")
 speed = 100
-projectile_pool = NodePath("ProjectilePool")
 projectile_speed = 200
 
 [node name="ProjectilePool" type="Node" parent="."]
-script = ExtResource("7_jtp7g")
+script = ExtResource("2_pic7l")
 object_scene = ExtResource("8_dxdn3")
 
 [node name="HealthComponent" type="Node" parent="."]
