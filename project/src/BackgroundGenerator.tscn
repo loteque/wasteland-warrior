@@ -30,14 +30,13 @@ texture_region_size = Vector2i(64, 64)
 0:0/7/transpose = true
 
 [sub_resource type="TileSet" id="1"]
-tile_size = Vector2i(64, 64)
+tile_size = Vector2i(512, 448)
 sources/1 = SubResource("TileSetAtlasSource_p300u")
 
 [node name="BackgroundGenerator" type="Node2D"]
 script = ExtResource("14")
 
 [node name="TileMap" type="TileMap" parent="."]
-visible = false
 tile_set = SubResource("1")
 cell_quadrant_size = 9
 format = 2
