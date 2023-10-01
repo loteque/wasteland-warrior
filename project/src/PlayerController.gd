@@ -95,5 +95,5 @@ func attack():
 	
 	bullet.update(projectile_speed, facing_angle)
 	bullet.global_position = projectile_start.global_position
-	get_tree().root.add_child(bullet)
+#	get_tree().root.add_child(bullet)
 	Signals.emit_signal("projectile_shot")
