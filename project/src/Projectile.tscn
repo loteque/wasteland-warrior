@@ -6,9 +6,13 @@
 [sub_resource type="CircleShape2D" id="1"]
 radius = 2.0
 
-[node name="Projectile" type="Area2D" groups=["CanDamageMob"]]
+[node name="Projectile" type="Area2D" node_paths=PackedStringArray("on_screen_notifier") groups=["CanDamageMob"]]
 z_index = 2
 script = ExtResource("2")
+on_screen_notifier = NodePath("OnScreenNotifier")
+
+[node name="OnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1")
@@ -17,3 +21,5 @@ texture = ExtResource("1")
 shape = SubResource("1")
 
 [connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
+[connection signal="screen_entered" from="OnScreenNotifier" to="." method="_on_on_screen_notifier_screen_entered"]
+[connection signal="screen_exited" from="OnScreenNotifier" to="." method="_on_on_screen_notifier_screen_exited"]
