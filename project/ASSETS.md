@@ -6,9 +6,9 @@ Assets are currently stored in a Google Drive. To access them contact a project 
 
 1. Download and install rclone: https://rclone.org/downloads/
 
-2. Set the execution bit on the `sync` script: 
-    
-    `chmod +x sync`
+    a. Windows users need to put 'rclone.exe' inside the 'Windows/System32' directory.
+
+2. Open a bash terminal in the root directory of the project.
 
 3. Run the `sync` script with the configure flag. It will open a browser window to authenticate. Make sure you select the google account that has access to the project assets:
     
