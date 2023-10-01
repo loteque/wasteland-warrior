@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://durlan6er57t1"]
+[gd_scene load_steps=28 format=3 uid="uid://durlan6er57t1"]
 
 [ext_resource type="Script" path="res://src/PlayerController.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://yxvs6h2o2bsu" path="res://assets/char/player_run.png" id="2"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://4p6uskj2qvhv" path="res://src/mobs/MobSpawner.tscn" id="4"]
 [ext_resource type="Texture2D" uid="uid://duhs8mf25anhv" path="res://assets/char/player_idle.png" id="5"]
 [ext_resource type="Shader" path="res://src/mobs/hit_flash_red.gdshader" id="6"]
-[ext_resource type="PackedScene" uid="uid://js7b4calkbkj" path="res://src/DebugUI.tscn" id="7"]
 
 [sub_resource type="CapsuleShape2D" id="9"]
 radius = 5.0
@@ -179,19 +178,6 @@ _data = {
 "RESET": SubResource("5")
 }
 
-[sub_resource type="GDScript" id="30"]
-script/source = "extends Camera2D
-
-@export var update_period := 15
-
-func _physics_process(delta: float) -> void:
-	if is_update_frame():
-		Signals.emit_signal(\"updated_camera_pos\", global_position)
-
-func is_update_frame():
-	return Engine.get_physics_frames() % update_period == 0
-"
-
 [sub_resource type="CapsuleShape2D" id="1"]
 radius = 2.0
 height = 8.0
@@ -232,16 +218,6 @@ tree_root = SubResource("22")
 libraries = {
 "": SubResource("AnimationLibrary_1qsx0")
 }
-
-[node name="PlayerCamera" type="Camera2D" parent="."]
-script = SubResource("30")
-
-[node name="DebugUI" parent="PlayerCamera" instance=ExtResource("7")]
-visible = false
-offset_left = -255.0
-offset_top = -223.0
-offset_right = 256.0
-offset_bottom = 224.0
 
 [node name="MobSpawner" parent="." instance=ExtResource("4")]
 
