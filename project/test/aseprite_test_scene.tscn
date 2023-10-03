@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://i4i2sxv0l6jf"]
+
+[ext_resource type="PackedScene" uid="uid://uquva0gv7p82" path="res://assets/Master.aseprite" id="1_87myq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Master" parent="." instance=ExtResource("1_87myq")]
+position = Vector2(411, 317)
+animation = &"Loop"
