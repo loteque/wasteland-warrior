@@ -15,6 +15,14 @@ run/main_scene="res://src/Main.tscn"
 config/features=PackedStringArray("4.1")
 config/icon="res://icon.png"
 
+[aseprite]
+
+wizard/history/cache_file_path="D:/projects/godot/wasteland-warrior/project/addons/AsepriteWizard/.aseprite_wizard_history"
+
+[aseprite_importers]
+
+aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite/Aseprite.exe"
+
 [autoload]
 
 Signals="*res://src/Signals.gd"
@@ -32,6 +40,10 @@ window/size/viewport_height=448
 window/size/borderless=true
 window/stretch/mode="viewport"
 window/size/fullscreen=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 
 [gui]
 
