@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed := 50
-@export var projectile: PackedScene = preload("res://src/Projectile.tscn")
+@export var projectile_pool: ObjectPool
 @export var attack_interval := 30
 @export var projectile_speed := 100
 
@@ -87,12 +87,13 @@ func rotate_180(radians: float):
 	return radians + PI
 
 func attack():
-	var bullet = projectile.instantiate()
+	var bullet = projectile_pool.get_object()
+	bullet.visible = true
 	var facing_angle = projectile_start.get_angle_to(projectile_target.global_position)
 	if is_facing_left():
 		facing_angle = rotate_180(facing_angle)
 	
 	bullet.update(projectile_speed, facing_angle)
 	bullet.global_position = projectile_start.global_position
-	get_tree().root.add_child(bullet)
+#	get_tree().root.add_child(bullet)
 	Signals.emit_signal("projectile_shot")

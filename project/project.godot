@@ -37,7 +37,6 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/viewport_width=512
 window/size/viewport_height=448
-window/size/borderless=true
 window/stretch/mode="viewport"
 window/size/fullscreen=true
 

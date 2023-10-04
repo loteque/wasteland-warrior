@@ -5,11 +5,16 @@ extends Node2D
 @export var damage := 1
 @export var penetration_max := 2
 
+@export var on_screen_notifier: VisibleOnScreenNotifier2D
+@onready var collision_shape = $CollisionShape2D
+
 var penetration_count = 0
 
 var velocity = Vector2(speed, 0).rotated(angle)
 
 func _physics_process(delta):
+	if not visible:
+		return
 	transform.origin += velocity * delta
 
 func update(speed: float = self.speed, angle: float = self.angle):
@@ -23,8 +28,16 @@ func on_hit_enemy():
 		die()
 	
 func die():
-	queue_free()
+	self.visible = false
+	collision_shape.disabled = true
+	
 
 func _on_Projectile_area_entered(area):
 	if area.is_in_group("Mobs"):
 		on_hit_enemy()
+
+func _on_on_screen_notifier_screen_exited():
+	die()
+
+func _on_on_screen_notifier_screen_entered():
+	collision_shape.disabled = false
