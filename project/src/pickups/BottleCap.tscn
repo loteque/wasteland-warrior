@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://d0wkfefa3q5yu"]
 
 [ext_resource type="Texture2D" uid="uid://dbbfttu4vkyfq" path="res://assets/pickup/bottlecap.png" id="1"]
-[ext_resource type="Script" path="res://src/pickups/BottleCap.gd" id="2"]
+[ext_resource type="Script" path="res://src/pickups/PickupComponent.gd" id="2_2oee3"]
 
 [sub_resource type="AtlasTexture" id="1"]
 atlas = ExtResource("1")
@@ -58,15 +58,17 @@ radius = 3.0
 
 [node name="BottleCap" type="Node2D"]
 z_index = 1
-script = ExtResource("2")
 
 [node name="CapAnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("7")
 frame = 1
 
-[node name="PickupArea" type="Area2D" parent="."]
+[node name="PickupComponent" type="Area2D" parent="." node_paths=PackedStringArray("deletion_target")]
+script = ExtResource("2_2oee3")
+signal_name = "cap_collected"
+deletion_target = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupComponent"]
 shape = SubResource("8")
 
-[connection signal="body_entered" from="PickupArea" to="." method="_on_PickupArea_body_entered"]
+[connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_PickupArea_body_entered"]
