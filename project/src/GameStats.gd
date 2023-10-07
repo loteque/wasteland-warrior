@@ -7,4 +7,4 @@ func _ready():
 
 func _on_cap_collected():
 	cap_count += 1
-	Signals.emit_signal("cap_count_updated", cap_count)
+	Signals.emit_signal("count_updated", cap_count)

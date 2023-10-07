@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbl8oioargh0c"]
+
+[ext_resource type="Script" path="res://src/ui/CapCount.gd" id="1_6a1l0"]
+
+[node name="UIDebugMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CapCount" type="Control" parent="." node_paths=PackedStringArray("count_name_node", "count_amount_node")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6a1l0")
+count_name_node = NodePath("HBoxContainer/CountName")
+count_amount_node = NodePath("HBoxContainer/CountValue")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CapCount"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CountName" type="Label" parent="CapCount/HBoxContainer"]
+layout_mode = 2
+text = "Cap Count"
+
+[node name="CountValue" type="Label" parent="CapCount/HBoxContainer"]
+layout_mode = 2
+text = "0"

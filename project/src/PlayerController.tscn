@@ -239,6 +239,10 @@ _data = {
 "RESET": SubResource("5")
 }
 
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 2.0
+height = 8.0
+
 [node name="PlayerController" type="CharacterBody2D" node_paths=PackedStringArray("projectile_pool") groups=["player"]]
 script = ExtResource("1")
 speed = 100
