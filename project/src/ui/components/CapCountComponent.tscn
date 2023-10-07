@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwoyb0cjmj7v4"]
+
+[ext_resource type="Script" path="res://src/ui/components/CapCountComponent.gd" id="1_6qw5m"]
+[ext_resource type="Resource" uid="uid://bxfmck1444ul5" path="res://src/GameStats.tres" id="2_o2gjr"]
+
+[node name="CapCountComponent" type="Control" node_paths=PackedStringArray("count_name_node", "count_amount_node")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6qw5m")
+game_stats = ExtResource("2_o2gjr")
+count_name_node = NodePath("")
+count_amount_node = NodePath("")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CountName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Cap Count"
+
+[node name="CountValue" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "0"
