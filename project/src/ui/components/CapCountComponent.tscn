@@ -3,15 +3,15 @@
 [ext_resource type="Script" path="res://src/ui/components/CapCountComponent.gd" id="1_6qw5m"]
 [ext_resource type="Resource" uid="uid://bxfmck1444ul5" path="res://src/GameStats.tres" id="2_o2gjr"]
 
-[node name="CapCountComponent" type="Control" node_paths=PackedStringArray("count_name_node", "count_amount_node")]
+[node name="CapCountComponent" type="Control" node_paths=PackedStringArray("key", "value")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_6qw5m")
 game_stats = ExtResource("2_o2gjr")
-count_name_node = NodePath("")
-count_amount_node = NodePath("")
+key = NodePath("HBoxContainer/CountName")
+value = NodePath("HBoxContainer/CountValue")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
