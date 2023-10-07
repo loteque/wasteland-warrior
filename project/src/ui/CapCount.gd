@@ -1,2 +1,1 @@
-extends CountComponent
-
+extends Control

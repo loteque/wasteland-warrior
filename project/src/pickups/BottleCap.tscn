@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0wkfefa3q5yu"]
+[gd_scene load_steps=12 format=3 uid="uid://d0wkfefa3q5yu"]
 
 [ext_resource type="Texture2D" uid="uid://dbbfttu4vkyfq" path="res://assets/pickup/bottlecap.png" id="1"]
 [ext_resource type="Script" path="res://src/pickups/PickupComponent.gd" id="2_2oee3"]
+[ext_resource type="Resource" uid="uid://bxfmck1444ul5" path="res://src/GameStats.tres" id="3_ox11s"]
 
 [sub_resource type="AtlasTexture" id="1"]
 atlas = ExtResource("1")
@@ -65,6 +66,7 @@ frame = 1
 
 [node name="PickupComponent" type="Area2D" parent="." node_paths=PackedStringArray("deletion_target")]
 script = ExtResource("2_2oee3")
+game_stats = ExtResource("3_ox11s")
 signal_name = "cap_collected"
 deletion_target = NodePath("..")
 

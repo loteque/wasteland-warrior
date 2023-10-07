@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbl8oioargh0c"]
+[gd_scene load_steps=3 format=3 uid="uid://cbl8oioargh0c"]
 
-[ext_resource type="Script" path="res://src/ui/CapCount.gd" id="1_6a1l0"]
+[ext_resource type="Resource" uid="uid://bxfmck1444ul5" path="res://src/GameStats.tres" id="1_kun3b"]
+
+[sub_resource type="GDScript" id="GDScript_5caud"]
+script/source = "extends CountComponent
+
+func _ready():
+	Signals.connect(\"cap_collected\", Callable(self, \"_on_cap_collected\"))
+
+func _on_cap_collected():
+	count_amount_node.text = str(game_stats.cap_count)
+"
 
 [node name="UIDebugMenu" type="Control"]
 layout_mode = 3
@@ -14,7 +24,8 @@ grow_vertical = 2
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_6a1l0")
+script = SubResource("GDScript_5caud")
+game_stats = ExtResource("1_kun3b")
 count_name_node = NodePath("HBoxContainer/CountName")
 count_amount_node = NodePath("HBoxContainer/CountValue")
 
