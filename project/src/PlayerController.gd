@@ -4,18 +4,10 @@ extends CharacterBody2D
 @export var projectile_pool: ObjectPool
 @export var attack_interval := 30
 @export var projectile_speed := 100
-
-var is_invincible = false
-@onready var iframe_timer = $IFrameTimer 
-@onready var sprite = $Sprite2D
+@onready var sprite = $PlayerSpriteComponent 
 @onready var sprite_fx_animations = sprite.get_node("FXAnimationPlayer")
 @onready var projectile_start = $ProjectileStart
 @onready var projectile_target = $ProjectileTarget
-@onready var health_component: HealthComponent = $HealthComponent
-
-
-func _ready():
-	$Sprite2D.self_modulate = Color(1, 1, 1)
 
 func _physics_process(_delta):
 	
@@ -60,29 +52,6 @@ func is_facing_left():
 func face_right():
 	global_transform.x.x = 1
 
-func _on_HurtBox_body_entered(body):
-	if body.is_in_group("CanHurtPlayer") and !is_invincible:
-		take_damage(body.damage)
-		make_temporarily_invincible()
-
-func take_damage(amount):
-	Signals.emit_signal("player_hit")
-	sprite_fx_animations.play("Hit Flash")
-	health_component.damage(amount)
-
-func make_temporarily_invincible():
-	is_invincible = true
-	start_iframe_timer()
-
-func start_iframe_timer():
-	iframe_timer.start()
-	
-func _on_IFrameTimer_timeout():
-	make_vincible()
-
-func make_vincible():
-	is_invincible = false
-
 func rotate_180(radians: float):
 	return radians + PI
 
@@ -95,5 +64,4 @@ func attack():
 	
 	bullet.update(projectile_speed, facing_angle)
 	bullet.global_position = projectile_start.global_position
-#	get_tree().root.add_child(bullet)
 	Signals.emit_signal("projectile_shot")

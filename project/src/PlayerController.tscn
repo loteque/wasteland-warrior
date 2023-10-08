@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://durlan6er57t1"]
+[gd_scene load_steps=39 format=3 uid="uid://durlan6er57t1"]
 
 [ext_resource type="Script" path="res://src/PlayerController.gd" id="1"]
 [ext_resource type="Script" path="res://src/ObjectPool.gd" id="2_pic7l"]
@@ -7,6 +7,15 @@
 [ext_resource type="Shader" path="res://src/mobs/hit_flash_red.gdshader" id="6"]
 [ext_resource type="Texture2D" uid="uid://bwei2t7nq51h6" path="res://assets/char/onehanded.png" id="6_dfkmd"]
 [ext_resource type="PackedScene" uid="uid://bk3scw1w2hue1" path="res://src/Projectile.tscn" id="8_dxdn3"]
+[ext_resource type="Script" path="res://src/PlayerSpriteComponent.gd" id="8_wrtxp"]
+[ext_resource type="Script" path="res://src/HurtBox.gd" id="9_2l243"]
+[ext_resource type="PackedScene" uid="uid://bwv73goppw5ma" path="res://src/components/InvincibilityComponent.tscn" id="10_x4bqf"]
+[ext_resource type="Script" path="res://src/SoundComponent.gd" id="12_vlh10"]
+[ext_resource type="AudioStream" uid="uid://6x8gja2ue1ql" path="res://assets/audio/hit.wav" id="13_8dqs5"]
+
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 2.0
+height = 8.0
 
 [sub_resource type="CapsuleShape2D" id="9"]
 radius = 5.0
@@ -170,8 +179,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="AnimationNodeStateMachine" id="22"]
-
 [sub_resource type="Animation" id="4"]
 resource_name = "Hit Flash"
 tracks/0/type = "value"
@@ -232,15 +239,20 @@ _data = {
 "RESET": SubResource("5")
 }
 
-[sub_resource type="CapsuleShape2D" id="1"]
-radius = 2.0
-height = 8.0
-
 [node name="PlayerController" type="CharacterBody2D" node_paths=PackedStringArray("projectile_pool") groups=["player"]]
 script = ExtResource("1")
 speed = 100
 projectile_pool = NodePath("ProjectilePool")
 projectile_speed = 200
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("9_2l243")
+hurt_group = "CanHurtPlayer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-2, 0)
+scale = Vector2(3, 3)
+shape = SubResource("1")
 
 [node name="ProjectilePool" type="Node" parent="."]
 script = ExtResource("2_pic7l")
@@ -248,7 +260,7 @@ object_scene = ExtResource("8_dxdn3")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3")
-MAX_HEALTH = 20.0
+MAX_HEALTH = 3.0
 
 [node name="PickupShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
@@ -265,13 +277,14 @@ position = Vector2(20, -3)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileTarget/Area3D"]
 shape = SubResource("8")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PlayerSpriteComponent" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 material = SubResource("3")
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_uprer")
 animation = &"death"
 offset = Vector2(-10, 0)
+script = ExtResource("8_wrtxp")
 metadata/_aseprite_wizard_config_ = {
 "layer": "onehanded",
 "o_ex_p": "",
@@ -282,24 +295,24 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://assets/Player.aseprite"
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="Sprite2D"]
-tree_root = SubResource("22")
-
-[node name="FXAnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+[node name="FXAnimationPlayer" type="AnimationPlayer" parent="PlayerSpriteComponent"]
 libraries = {
 "": SubResource("AnimationLibrary_1qsx0")
 }
 
 [node name="MobSpawner" parent="." instance=ExtResource("4")]
 
-[node name="IFrameTimer" type="Timer" parent="."]
+[node name="InvincibilityComponent" parent="." instance=ExtResource("10_x4bqf")]
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="SoundComponent" type="Node" parent="."]
+script = ExtResource("12_vlh10")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-2, 0)
-scale = Vector2(3, 3)
-shape = SubResource("1")
+[node name="HitSound2D" type="AudioStreamPlayer2D" parent="SoundComponent"]
+stream = ExtResource("13_8dqs5")
 
-[connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
-[connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]
+[connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_HurtBox_body_entered"]
+[connection signal="took_damage" from="HurtBox" to="HealthComponent" method="_on_hurt_box_took_damage"]
+[connection signal="took_damage" from="HurtBox" to="PlayerSpriteComponent" method="_on_hurt_box_took_damage"]
+[connection signal="took_damage" from="HurtBox" to="InvincibilityComponent" method="_on_hurt_box_took_damage"]
+[connection signal="took_damage" from="HurtBox" to="SoundComponent" method="_on_hurt_box_took_damage"]
+[connection signal="invincibility_toggled" from="InvincibilityComponent" to="HurtBox" method="_on_invincibility_component_invincibility_toggled"]

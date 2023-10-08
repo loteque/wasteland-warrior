@@ -23,5 +23,13 @@ func heal(value):
 	set_health(health + value)
 
 func damage(value):
-	print("Took damage: " + str(value))
 	set_health(health - value)
+	if health <= 0:
+		die()
+	print("Took damage: " + str(value))
+	
+func die():
+	print("died")
+
+func _on_hurt_box_took_damage(value):
+	damage(value)
