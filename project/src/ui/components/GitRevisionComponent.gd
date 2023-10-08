@@ -1,9 +1,9 @@
 extends KeyValueComponent
 
 func _ready():
-	value.text = get_current_git_revision()
+	set_value_text(get_current_git_revision())
 
-func get_current_git_revision():
+func get_current_git_revision() -> String:
 	var output = []
 	var exit_code = OS.execute("git", ["rev-parse", "--short", "HEAD"], output)
 	if exit_code == 0 and output.size() > 0:

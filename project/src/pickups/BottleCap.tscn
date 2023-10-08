@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://d0wkfefa3q5yu"]
 
 [ext_resource type="Texture2D" uid="uid://dbbfttu4vkyfq" path="res://assets/pickup/bottlecap.png" id="1"]
-[ext_resource type="PackedScene" uid="uid://by8m6u0eq8kam" path="res://src/pickups/pickup_component.tscn" id="2_fdjbl"]
+[ext_resource type="PackedScene" uid="uid://by8m6u0eq8kam" path="res://src/pickups/PickupComponent.tscn" id="2_fdjbl"]
 
 [sub_resource type="AtlasTexture" id="1"]
 atlas = ExtResource("1")

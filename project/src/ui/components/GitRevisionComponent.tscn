@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmrso3l1exxp2"]
+[gd_scene load_steps=2 format=3 uid="uid://dmrso3l1exxp2"]
 
 [ext_resource type="Script" path="res://src/ui/components/GitRevisionComponent.gd" id="1_cih05"]
-[ext_resource type="Resource" uid="uid://bxfmck1444ul5" path="res://src/GameStats.tres" id="2_6stjl"]
 
 [node name="GitRevisionComponent" type="Control" node_paths=PackedStringArray("key", "value")]
 layout_mode = 3
@@ -13,7 +12,6 @@ offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cih05")
-game_stats = ExtResource("2_6stjl")
 key = NodePath("HBoxContainer/Key")
 value = NodePath("HBoxContainer/Value")
 
