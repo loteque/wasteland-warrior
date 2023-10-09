@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GameStatsResource" load_steps=2 format=3 uid="uid://bxfmck1444ul5"]
+
+[ext_resource type="Script" path="res://src/GameStatsResource.gd" id="1_ccb4a"]
+
+[resource]
+script = ExtResource("1_ccb4a")
+cap_count = 0

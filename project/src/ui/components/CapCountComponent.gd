@@ -1,10 +1,7 @@
-extends Node
-
-@export var cap_count := 0
+extends KeyValueComponent
 
 func _ready():
 	Signals.connect("cap_collected", Callable(self, "_on_cap_collected"))
 
 func _on_cap_collected():
-	cap_count += 1
-	Signals.emit_signal("cap_count_updated", cap_count)
+	set_value_text_from_resource(resource, "cap_count")
