@@ -6,6 +6,8 @@ class_name HealthComponent
 
 @onready var health := MAX_HEALTH: get = get_health, set = set_health
 
+signal died
+
 func set_max_health(value):
 	if value > MIN_HEALTH:
 		MAX_HEALTH = value
@@ -29,7 +31,7 @@ func damage(value):
 	print("Took damage: " + str(value))
 	
 func die():
-	print("died")
+	emit_signal("died")
 
 func _on_hurt_box_took_damage(value):
 	damage(value)

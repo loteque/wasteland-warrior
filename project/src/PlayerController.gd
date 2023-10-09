@@ -65,3 +65,6 @@ func attack():
 	bullet.update(projectile_speed, facing_angle)
 	bullet.global_position = projectile_start.global_position
 	Signals.emit_signal("projectile_shot")
+
+func _on_health_component_died():
+	set_physics_process(false)

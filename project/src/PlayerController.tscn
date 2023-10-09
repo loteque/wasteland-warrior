@@ -128,7 +128,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wrhyu")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -315,4 +315,6 @@ stream = ExtResource("13_8dqs5")
 [connection signal="took_damage" from="HurtBox" to="PlayerSpriteComponent" method="_on_hurt_box_took_damage"]
 [connection signal="took_damage" from="HurtBox" to="InvincibilityComponent" method="_on_hurt_box_took_damage"]
 [connection signal="took_damage" from="HurtBox" to="SoundComponent" method="_on_hurt_box_took_damage"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="died" from="HealthComponent" to="PlayerSpriteComponent" method="_on_health_component_died"]
 [connection signal="invincibility_toggled" from="InvincibilityComponent" to="HurtBox" method="_on_invincibility_component_invincibility_toggled"]
