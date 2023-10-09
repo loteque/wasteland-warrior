@@ -16,7 +16,7 @@ func _ready():
 	spawn_mob_group()
 
 func get_mob_count():
-	return len(get_tree().get_nodes_in_group("mobs"))
+	return len(get_tree().get_nodes_in_group("Mobs"))
 
 func spawn_mob_group():
 	for i in spawn_group_size:

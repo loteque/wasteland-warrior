@@ -68,3 +68,4 @@ func attack():
 
 func _on_health_component_died():
 	set_physics_process(false)
+	Signals.emit_signal("player_died")

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmdk8clyw5edi"]
+
+[ext_resource type="Script" path="res://src/ui/PlayerUI.gd" id="1_f8vwn"]
+[ext_resource type="PackedScene" uid="uid://dnpeqeld84ayk" path="res://src/GameOverDialog.tscn" id="2_l1xan"]
+
+[node name="PlayerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f8vwn")
+metadata/_edit_vertical_guides_ = [256.0]
+
+[node name="GameOverDialog" parent="." instance=ExtResource("2_l1xan")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -112.0
+offset_right = 92.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
