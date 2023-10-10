@@ -1,9 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://durlan6er57t1"]
+[gd_scene load_steps=38 format=3 uid="uid://durlan6er57t1"]
 
 [ext_resource type="Script" path="res://src/PlayerController.gd" id="1"]
 [ext_resource type="Script" path="res://src/ObjectPool.gd" id="2_pic7l"]
 [ext_resource type="Script" path="res://src/components/HealthComponent.gd" id="3"]
-[ext_resource type="PackedScene" uid="uid://4p6uskj2qvhv" path="res://src/mobs/MobSpawner.tscn" id="4"]
 [ext_resource type="Shader" path="res://src/mobs/hit_flash_red.gdshader" id="6"]
 [ext_resource type="Texture2D" uid="uid://bwei2t7nq51h6" path="res://assets/char/onehanded.png" id="6_dfkmd"]
 [ext_resource type="PackedScene" uid="uid://bk3scw1w2hue1" path="res://src/Projectile.tscn" id="8_dxdn3"]
@@ -299,8 +298,6 @@ metadata/_aseprite_wizard_config_ = {
 libraries = {
 "": SubResource("AnimationLibrary_1qsx0")
 }
-
-[node name="MobSpawner" parent="." instance=ExtResource("4")]
 
 [node name="InvincibilityComponent" parent="." instance=ExtResource("10_x4bqf")]
 

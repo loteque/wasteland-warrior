@@ -10,6 +10,7 @@ var health := 2
 @onready var target = get_tree().get_nodes_in_group("player")[0]
 @onready var sprite = $MobAnimatedSprite
 @onready var sprite_fx_animations = sprite.get_node("FXAnimationPlayer")
+@onready var cap_parent = get_node("/root/Main")
 
 func _ready():
 	pass
@@ -30,7 +31,7 @@ func chase_target(target: Node2D):
 func drop_item():
 	var bottlecap = item_dropped.instantiate()
 	bottlecap.global_position = global_position
-	get_tree().root.add_child(bottlecap)
+	cap_parent.add_child(bottlecap)
 
 func die():
 	drop_item()
