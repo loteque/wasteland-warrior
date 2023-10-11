@@ -253,6 +253,9 @@ position = Vector2(-2, 0)
 scale = Vector2(3, 3)
 shape = SubResource("1")
 
+[node name="InvincibilityComponent" parent="." node_paths=PackedStringArray("hurt_box_component") instance=ExtResource("10_x4bqf")]
+hurt_box_component = NodePath("../HurtBox")
+
 [node name="ProjectilePool" type="Node" parent="."]
 script = ExtResource("2_pic7l")
 object_scene = ExtResource("8_dxdn3")
@@ -299,8 +302,6 @@ libraries = {
 "": SubResource("AnimationLibrary_1qsx0")
 }
 
-[node name="InvincibilityComponent" parent="." instance=ExtResource("10_x4bqf")]
-
 [node name="SoundComponent" type="Node" parent="."]
 script = ExtResource("12_vlh10")
 
@@ -308,10 +309,10 @@ script = ExtResource("12_vlh10")
 stream = ExtResource("13_8dqs5")
 
 [connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_HurtBox_body_entered"]
+[connection signal="took_damage" from="HurtBox" to="InvincibilityComponent" method="_on_hurt_box_took_damage"]
 [connection signal="took_damage" from="HurtBox" to="HealthComponent" method="_on_hurt_box_took_damage"]
 [connection signal="took_damage" from="HurtBox" to="PlayerSpriteComponent" method="_on_hurt_box_took_damage"]
-[connection signal="took_damage" from="HurtBox" to="InvincibilityComponent" method="_on_hurt_box_took_damage"]
 [connection signal="took_damage" from="HurtBox" to="SoundComponent" method="_on_hurt_box_took_damage"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="died" from="HealthComponent" to="HurtBox" method="_on_health_component_died"]
 [connection signal="died" from="HealthComponent" to="PlayerSpriteComponent" method="_on_health_component_died"]
-[connection signal="invincibility_toggled" from="InvincibilityComponent" to="HurtBox" method="_on_invincibility_component_invincibility_toggled"]
