@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0wkfefa3q5yu"]
+[gd_scene load_steps=11 format=3 uid="uid://d0wkfefa3q5yu"]
 
 [ext_resource type="Texture2D" uid="uid://dbbfttu4vkyfq" path="res://assets/pickup/bottlecap.png" id="1"]
+[ext_resource type="Script" path="res://src/pickups/BottleCap.gd" id="1_1j4mu"]
 [ext_resource type="PackedScene" uid="uid://by8m6u0eq8kam" path="res://src/pickups/PickupComponent.tscn" id="2_fdjbl"]
 
 [sub_resource type="AtlasTexture" id="1"]
@@ -55,6 +56,8 @@ animations = [{
 
 [node name="BottleCap" type="Node2D"]
 z_index = 1
+texture_filter = 1
+script = ExtResource("1_1j4mu")
 
 [node name="CapAnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("7")
