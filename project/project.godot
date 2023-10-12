@@ -27,6 +27,8 @@ aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite
 
 Signals="*res://src/Signals.gd"
 GlobalSettings="*res://src/GlobalSettings.gd"
+ComponentUtils="*res://src/utils/ComponentUtils.gd"
+RandomUtils="*res://src/utils/RandomUtils.gd"
 
 [debug]
 

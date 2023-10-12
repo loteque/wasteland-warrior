@@ -1,4 +1,3 @@
-class_name ComponentUtils
 extends Node
 
 func has_component(component) -> bool:

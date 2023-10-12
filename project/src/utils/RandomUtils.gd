@@ -1,5 +1,4 @@
 extends Object
-class_name RandomUtils
 
 var rand = RandomNumberGenerator.new()
 
