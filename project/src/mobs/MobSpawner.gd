@@ -1,7 +1,5 @@
 extends Node2D
 
-var RandomUtils = preload("res://src/RandomUtils.gd").new()
-
 @export var spawn_group_size: int = 8
 @export var mob_scene: PackedScene
 @export var MAX_MOB_COUNT := 50
