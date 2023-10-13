@@ -6,7 +6,7 @@ func has_component(component) -> bool:
 
 	return false
 
-func set_component_property(component, property: String, value, deferred: bool = true) -> String:
+func set_component_property(component, property: String, value, deferred: bool = true) -> void:
 	var defer: String = " "
 
 	if has_component(component) and property in component:
@@ -16,5 +16,4 @@ func set_component_property(component, property: String, value, deferred: bool =
 		else:
 			component.set(property, value)
 	
-	var err: String = "ComponentUtils: set " + defer + " value: " + str(value) + " on property " + property + " in component " + str(component)
-	return err
+		print("ComponentUtils: set " + defer + " value: " + str(value) + " on property " + property + " in component " + str(component))

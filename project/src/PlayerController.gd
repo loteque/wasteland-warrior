@@ -70,17 +70,17 @@ func attack():
 
 func _on_health_component_died():
 	set_physics_process(false)
-	print(ComponentUtils.set_component_property(hurt_box_component, "monitoring", false))
+	ComponentUtils.set_component_property(hurt_box_component, "monitoring", false)
 	Signals.emit_signal("player_died")
 
 func _on_hurt_box_compnent_body_entered(body:Node2D):
-		if body.is_in_group("CanHurtPlayer"):
-			hurt_box_component.took_damage.emit(body.damage)
-			print(ComponentUtils.set_component_property(invulnerability_component, "is_invulnerable", true, false))
-			print(ComponentUtils.set_component_property(hurt_box_component, "monitoring", false))
+	if body.is_in_group(hurt_box_component.hurt_group):
+		hurt_box_component.took_damage.emit(body.damage)
+		ComponentUtils.set_component_property(invulnerability_component, "is_invulnerable", true, false)
+		ComponentUtils.set_component_property(hurt_box_component, "monitoring", false)
 
 func _on_hurt_box_compnent_took_damage(_value):
 	sprite_component.fx.play("hit_flash")
 
 func _on_invulnerability_component_invulnerability_ended():
-	print(ComponentUtils.set_component_property(hurt_box_component, "monitoring", true))
+	ComponentUtils.set_component_property(hurt_box_component, "monitoring", true)
