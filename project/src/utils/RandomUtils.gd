@@ -1,8 +1,9 @@
-extends Object
+extends Node
 
-var rand = RandomNumberGenerator.new()
+var rand: RandomNumberGenerator
 
-func _ready():
+func _init():
+	rand = RandomNumberGenerator.new()
 	rand.randomize()
 
 func generate_random_binary() -> int:

@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 @export var speed := 50
-@export var projectile_pool: ObjectPool
 @export var attack_interval := 30
 @export var projectile_speed := 100
-@onready var sprite = $PlayerSpriteComponent 
-@onready var sprite_fx_animations = sprite.get_node("FXAnimationPlayer")
+@export var sprite_component: CharSpriteComponent
+@export var projectile_pool: ObjectPool
+@export var hurt_box_component: HurtBoxComponent
+@export var invulnerability_component: InvulnerabilityComponent
+
 @onready var projectile_start = $ProjectileStart
 @onready var projectile_target = $ProjectileTarget
 
@@ -31,10 +33,10 @@ func _physics_process(_delta):
 		face_right()
 
 	if motion.x == 0 and motion.y == 0:
-		sprite.play("idle")
+		sprite_component.play("idle")
 
 	else:
-		sprite.play("run")
+		sprite_component.play("run")
 
 	motion = motion.normalized() * speed
 	set_velocity(motion)
@@ -68,4 +70,17 @@ func attack():
 
 func _on_health_component_died():
 	set_physics_process(false)
+	print(ComponentUtils.set_component_property(hurt_box_component, "monitoring", false))
 	Signals.emit_signal("player_died")
+
+func _on_hurt_box_compnent_body_entered(body:Node2D):
+		if body.is_in_group("CanHurtPlayer"):
+			hurt_box_component.took_damage.emit(body.damage)
+			print(ComponentUtils.set_component_property(invulnerability_component, "is_invulnerable", true, false))
+			print(ComponentUtils.set_component_property(hurt_box_component, "monitoring", false))
+
+func _on_hurt_box_compnent_took_damage(_value):
+	sprite_component.fx.play("hit_flash")
+
+func _on_invulnerability_component_invulnerability_ended():
+	print(ComponentUtils.set_component_property(hurt_box_component, "monitoring", true))
