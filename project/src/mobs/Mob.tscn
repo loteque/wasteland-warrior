@@ -136,7 +136,7 @@ libraries = {
 }
 
 [node name="MobCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(6, 8, 8, -4, -4, -4, -6, 8)
+polygon = PackedVector2Array(7, 5, 8, -4, -4, -4, -7, 6)
 
 [node name="HurtBox" type="Area2D" parent="." groups=["Mobs"]]
 

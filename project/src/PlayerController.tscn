@@ -9,18 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://b4xp22aygegm6" path="res://src/components/CharSoundComponent.tscn" id="9_p65x4"]
 [ext_resource type="PackedScene" uid="uid://bwv73goppw5ma" path="res://src/components/InvulnerabilityComponent.tscn" id="10_x4bqf"]
 
-[sub_resource type="CapsuleShape2D" id="9"]
-radius = 5.0
-height = 16.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ruxg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bc7ic"]
 resource_local_to_scene = true
 shader = ExtResource("6")
 shader_parameter/active = false
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snp6l"]
-radius = 2.0
-height = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc1eo"]
+size = Vector2(4, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3dhu"]
+size = Vector2(2, 7.66667)
 
 [node name="PlayerController" type="CharacterBody2D" node_paths=PackedStringArray("sprite_component", "hurt_box_component", "invulnerability_component", "health_component", "char_sound_component", "gun_component") groups=["player"]]
 script = ExtResource("1")
@@ -32,19 +30,20 @@ health_component = NodePath("HealthComponent")
 char_sound_component = NodePath("CharSoundComponent")
 gun_component = NodePath("GunComponent")
 
-[node name="PlayerColisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-shape = SubResource("9")
-
 [node name="CharSpriteComponent" parent="." instance=ExtResource("2_q0te6")]
-material = SubResource("ShaderMaterial_5ruxg")
+material = SubResource("ShaderMaterial_bc7ic")
+
+[node name="PlayerColisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 1.5)
+shape = SubResource("RectangleShape2D_vc1eo")
 
 [node name="HurtBoxCompnent" parent="." instance=ExtResource("2_7ao4s")]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxCompnent"]
-position = Vector2(-2, 0)
+position = Vector2(-2, 1.5)
 scale = Vector2(3, 3)
-shape = SubResource("CapsuleShape2D_snp6l")
+shape = SubResource("RectangleShape2D_r3dhu")
 
 [node name="InvulnerabilityComponent" parent="." instance=ExtResource("10_x4bqf")]
 invulnerable_duration = 2.0
