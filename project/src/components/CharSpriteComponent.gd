@@ -3,5 +3,8 @@ class_name CharSpriteComponent
 
 @export var fx: AnimationPlayer
 
-func _on_health_component_died():
+func play_hit_flash():
+	fx.play("hit_flash")
+
+func play_death():
 	play("death")

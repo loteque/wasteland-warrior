@@ -54,20 +54,20 @@ func face_right():
 
 func _on_health_component_died():
 	set_physics_process(false)
-	ComponentUtils.set_component_property(hurt_box_component, "monitoring", false)
+	sprite_component.play_death()
+	hurt_box_component.stop_monitoring()
 	Signals.emit_signal("player_died")
 
 func _on_hurt_box_compnent_body_entered(body:Node2D):
 	if body.is_in_group(hurt_box_component.hurt_group):
-		hurt_box_component.took_damage.emit(body.damage)
-		ComponentUtils.set_component_property(invulnerability_component, "is_invulnerable", true, false)
-		ComponentUtils.set_component_property(hurt_box_component, "monitoring", false)
+		hurt_box_component.take_damage(body.damage)
+		invulnerability_component.set_invulnerable(true)
+		hurt_box_component.stop_monitoring()
 
 func _on_hurt_box_compnent_took_damage(value):
 	health_component.damage(value)
-	char_sound_component.hit_sound.play()
-	sprite_component.fx.play("hit_flash")
-
+	char_sound_component.play_hit_sound()
+	sprite_component.play_hit_flash()
 
 func _on_invulnerability_component_invulnerability_ended():
-	ComponentUtils.set_component_property(hurt_box_component, "monitoring", true)
+	hurt_box_component.start_monitoring()
