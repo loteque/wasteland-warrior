@@ -28,10 +28,7 @@ func damage(value):
 	set_health(health - value)
 	if health <= 0:
 		die()
-	print("Took damage: " + str(value))
+	print("Took damage: " + str(value) + ": " + str(health))
 	
 func die():
 	emit_signal("died")
-
-func _on_hurt_box_took_damage(value):
-	damage(value)

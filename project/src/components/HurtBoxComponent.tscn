@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://jbcspp38l2ph"]
+
+[ext_resource type="Script" path="res://src/components/HurtBoxCompopnent.gd" id="1_b8780"]
+
+[node name="HurtBoxCompnent" type="Area2D"]
+script = ExtResource("1_b8780")
+hurt_group = "CanHurtPlayer"

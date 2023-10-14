@@ -1,6 +1,7 @@
 extends Node
+class_name CharSoundComponent
 
 @onready var hit_sound = $HitSound2D
 
-func _on_hurt_box_took_damage(value):
+func play_hit_sound():
 	hit_sound.play()

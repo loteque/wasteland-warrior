@@ -1,6 +1,6 @@
 extends TextureButton
 
-var title_screen_scene: PackedScene = load("res://src/TitleScreen.tscn")
+var title_screen_scene: PackedScene = load("res://src/ui/TitleScreen.tscn")
 
 func _ready():
 	grab_focus()

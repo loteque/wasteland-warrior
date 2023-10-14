@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmdk8clyw5edi"]
 
 [ext_resource type="Script" path="res://src/ui/PlayerUI.gd" id="1_f8vwn"]
-[ext_resource type="PackedScene" uid="uid://dnpeqeld84ayk" path="res://src/GameOverDialog.tscn" id="2_l1xan"]
+[ext_resource type="PackedScene" uid="uid://dnpeqeld84ayk" path="res://src/ui/GameOverDialog.tscn" id="2_l1xan"]
 
 [node name="PlayerUI" type="Control"]
 layout_mode = 3

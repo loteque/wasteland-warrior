@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Wasteland-Warrior"
-run/main_scene="res://src/TitleScreen.tscn"
+run/main_scene="res://src/ui/TitleScreen.tscn"
 config/features=PackedStringArray("4.1")
 config/icon="res://icon.png"
 

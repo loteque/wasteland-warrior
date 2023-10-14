@@ -1,20 +1,17 @@
 extends CharacterBody2D
 
 @export var speed := 50
-@export var attack_interval := 30
-@export var projectile_speed := 100
 @export var sprite_component: CharSpriteComponent
-@export var projectile_pool: ObjectPool
 @export var hurt_box_component: HurtBoxComponent
 @export var invulnerability_component: InvulnerabilityComponent
-
-@onready var projectile_start = $ProjectileStart
-@onready var projectile_target = $ProjectileTarget
+@export var health_component: HealthComponent
+@export var char_sound_component: CharSoundComponent
+@export var gun_component: GunComponent
 
 func _physics_process(_delta):
 	
 	if is_attack_frame():
-		attack()
+		gun_component.attack()
 	
 	var motion = Vector2.ZERO
 	
@@ -42,8 +39,9 @@ func _physics_process(_delta):
 	set_velocity(motion)
 	move_and_slide()
 
+#this seems like a global utility function
 func is_attack_frame():
-	return Engine.get_physics_frames() % attack_interval == 0
+	return Engine.get_physics_frames() % gun_component.attack_interval == 0
 
 func face_left():
 	global_transform.x.x = -1
@@ -54,33 +52,22 @@ func is_facing_left():
 func face_right():
 	global_transform.x.x = 1
 
-func rotate_180(radians: float):
-	return radians + PI
-
-func attack():
-	var bullet = projectile_pool.get_object()
-	bullet.visible = true
-	var facing_angle = projectile_start.get_angle_to(projectile_target.global_position)
-	if is_facing_left():
-		facing_angle = rotate_180(facing_angle)
-	
-	bullet.update(projectile_speed, facing_angle)
-	bullet.global_position = projectile_start.global_position
-	Signals.emit_signal("projectile_shot")
-
 func _on_health_component_died():
 	set_physics_process(false)
-	ComponentUtils.set_component_property(hurt_box_component, "monitoring", false)
+	sprite_component.play_death()
+	hurt_box_component.stop_monitoring()
 	Signals.emit_signal("player_died")
 
 func _on_hurt_box_compnent_body_entered(body:Node2D):
 	if body.is_in_group(hurt_box_component.hurt_group):
-		hurt_box_component.took_damage.emit(body.damage)
-		ComponentUtils.set_component_property(invulnerability_component, "is_invulnerable", true, false)
-		ComponentUtils.set_component_property(hurt_box_component, "monitoring", false)
+		hurt_box_component.take_damage(body.damage)
+		invulnerability_component.set_invulnerable(true)
+		hurt_box_component.stop_monitoring()
 
-func _on_hurt_box_compnent_took_damage(_value):
-	sprite_component.fx.play("hit_flash")
+func _on_hurt_box_compnent_took_damage(value):
+	health_component.damage(value)
+	char_sound_component.play_hit_sound()
+	sprite_component.play_hit_flash()
 
 func _on_invulnerability_component_invulnerability_ended():
-	ComponentUtils.set_component_property(hurt_box_component, "monitoring", true)
+	hurt_box_component.start_monitoring()

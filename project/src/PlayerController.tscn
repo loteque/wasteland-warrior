@@ -1,322 +1,61 @@
-[gd_scene load_steps=38 format=3 uid="uid://durlan6er57t1"]
+[gd_scene load_steps=12 format=3 uid="uid://durlan6er57t1"]
 
 [ext_resource type="Script" path="res://src/PlayerController.gd" id="1"]
-[ext_resource type="Script" path="res://src/HurtBoxCompopnent.gd" id="2_c0hf2"]
-[ext_resource type="Script" path="res://src/ObjectPool.gd" id="2_pic7l"]
-[ext_resource type="Script" path="res://src/components/HealthComponent.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://jbcspp38l2ph" path="res://src/components/HurtBoxComponent.tscn" id="2_7ao4s"]
+[ext_resource type="PackedScene" uid="uid://bm7uiq8faybwy" path="res://src/components/CharSpriteComponent.tscn" id="2_q0te6"]
 [ext_resource type="Shader" path="res://src/mobs/hit_flash_red.gdshader" id="6"]
-[ext_resource type="Texture2D" uid="uid://bwei2t7nq51h6" path="res://assets/char/onehanded.png" id="6_dfkmd"]
-[ext_resource type="PackedScene" uid="uid://bk3scw1w2hue1" path="res://src/Projectile.tscn" id="8_dxdn3"]
-[ext_resource type="Script" path="res://src/CharSpriteComponent.gd" id="9_0h6dd"]
+[ext_resource type="PackedScene" uid="uid://bs6jn61nhxn4t" path="res://src/components/HealthComponent.tscn" id="8_5vbbj"]
+[ext_resource type="PackedScene" uid="uid://td3mudn3ntgw" path="res://src/components/GunComponent.tscn" id="8_bq2hw"]
+[ext_resource type="PackedScene" uid="uid://b4xp22aygegm6" path="res://src/components/CharSoundComponent.tscn" id="9_p65x4"]
 [ext_resource type="PackedScene" uid="uid://bwv73goppw5ma" path="res://src/components/InvulnerabilityComponent.tscn" id="10_x4bqf"]
-[ext_resource type="Script" path="res://src/SoundComponent.gd" id="12_vlh10"]
-[ext_resource type="AudioStream" uid="uid://6x8gja2ue1ql" path="res://assets/audio/hit.wav" id="13_8dqs5"]
 
 [sub_resource type="CapsuleShape2D" id="9"]
 radius = 5.0
 height = 16.0
 
-[sub_resource type="CapsuleShape2D" id="1"]
-radius = 2.0
-height = 8.0
-
-[sub_resource type="CircleShape2D" id="8"]
-radius = 3.0
-
-[sub_resource type="ShaderMaterial" id="3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ruxg"]
 resource_local_to_scene = true
 shader = ExtResource("6")
 shader_parameter/active = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5lr5c"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(0, 58, 42, 29)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snp6l"]
+radius = 2.0
+height = 8.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uj4nv"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(42, 58, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c83nw"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(84, 58, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n3gsy"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(126, 58, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7gtsy"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(168, 58, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qtnkf"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(0, 87, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r6xuo"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(42, 87, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wrhyu"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(84, 87, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qudjt"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(0, 0, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vf5yp"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(42, 0, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m3krq"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(84, 0, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2x5c"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(126, 0, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lax6x"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(168, 0, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8p4bt"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(0, 29, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hfjgf"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(42, 29, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o3ba5"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(84, 29, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_672xn"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(126, 29, 42, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fjqv6"]
-atlas = ExtResource("6_dfkmd")
-region = Rect2(168, 29, 42, 29)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uprer"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5lr5c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uj4nv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c83nw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n3gsy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7gtsy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qtnkf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r6xuo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wrhyu")
-}],
-"loop": false,
-"name": &"death",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qudjt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qudjt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vf5yp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m3krq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j2x5c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qudjt")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lax6x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8p4bt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hfjgf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o3ba5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_672xn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fjqv6")
-}],
-"loop": true,
-"name": &"run",
-"speed": 10.0
-}]
-
-[sub_resource type="Animation" id="5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_param/active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [6]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="4"]
-resource_name = "hit_flash"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_param/active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1qsx0"]
-_data = {
-"RESET": SubResource("5"),
-"hit_flash": SubResource("4")
-}
-
-[node name="PlayerController" type="CharacterBody2D" node_paths=PackedStringArray("sprite_component", "projectile_pool", "hurt_box_component", "invulnerability_component") groups=["player"]]
+[node name="PlayerController" type="CharacterBody2D" node_paths=PackedStringArray("sprite_component", "hurt_box_component", "invulnerability_component", "health_component", "char_sound_component", "gun_component") groups=["player"]]
 script = ExtResource("1")
 speed = 100
-projectile_speed = 200
 sprite_component = NodePath("CharSpriteComponent")
-projectile_pool = NodePath("ProjectilePool")
 hurt_box_component = NodePath("HurtBoxCompnent")
 invulnerability_component = NodePath("InvulnerabilityComponent")
+health_component = NodePath("HealthComponent")
+char_sound_component = NodePath("CharSoundComponent")
+gun_component = NodePath("GunComponent")
 
-[node name="PickupShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerColisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("9")
 
-[node name="HurtBoxCompnent" type="Area2D" parent="."]
-script = ExtResource("2_c0hf2")
-hurt_group = "CanHurtPlayer"
+[node name="CharSpriteComponent" parent="." instance=ExtResource("2_q0te6")]
+material = SubResource("ShaderMaterial_5ruxg")
+
+[node name="HurtBoxCompnent" parent="." instance=ExtResource("2_7ao4s")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxCompnent"]
 position = Vector2(-2, 0)
 scale = Vector2(3, 3)
-shape = SubResource("1")
+shape = SubResource("CapsuleShape2D_snp6l")
 
 [node name="InvulnerabilityComponent" parent="." instance=ExtResource("10_x4bqf")]
+invulnerable_duration = 2.0
 
-[node name="ProjectilePool" type="Node" parent="."]
-script = ExtResource("2_pic7l")
-object_scene = ExtResource("8_dxdn3")
+[node name="HealthComponent" parent="." instance=ExtResource("8_5vbbj")]
 
-[node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("3")
-MAX_HEALTH = 3.0
+[node name="CharSoundComponent" parent="." instance=ExtResource("9_p65x4")]
 
-[node name="ProjectileStart" type="Marker2D" parent="."]
-position = Vector2(7, -3)
-
-[node name="ProjectileTarget" type="Marker2D" parent="."]
-position = Vector2(20, -3)
-
-[node name="Area3D" type="Area2D" parent="ProjectileTarget"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileTarget/Area3D"]
-shape = SubResource("8")
-
-[node name="CharSpriteComponent" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("fx")]
-texture_filter = 1
-material = SubResource("3")
-position = Vector2(-1, 0)
-sprite_frames = SubResource("SpriteFrames_uprer")
-animation = &"death"
-offset = Vector2(-10, 0)
-script = ExtResource("9_0h6dd")
-fx = NodePath("FXAnimationPlayer")
-metadata/_aseprite_wizard_config_ = {
-"layer": "onehanded",
-"o_ex_p": "",
-"o_folder": "res://assets/char",
-"o_name": "",
-"only_visible": false,
-"op_exp": false,
-"source": "res://assets/Player.aseprite"
-}
-
-[node name="FXAnimationPlayer" type="AnimationPlayer" parent="CharSpriteComponent"]
-libraries = {
-"": SubResource("AnimationLibrary_1qsx0")
-}
-
-[node name="SoundComponent" type="Node" parent="."]
-script = ExtResource("12_vlh10")
-
-[node name="HitSound2D" type="AudioStreamPlayer2D" parent="SoundComponent"]
-stream = ExtResource("13_8dqs5")
+[node name="GunComponent" parent="." instance=ExtResource("8_bq2hw")]
 
 [connection signal="body_entered" from="HurtBoxCompnent" to="." method="_on_hurt_box_compnent_body_entered"]
 [connection signal="took_damage" from="HurtBoxCompnent" to="." method="_on_hurt_box_compnent_took_damage"]
-[connection signal="took_damage" from="HurtBoxCompnent" to="InvulnerabilityComponent" method="_on_hurt_box_took_damage"]
-[connection signal="took_damage" from="HurtBoxCompnent" to="HealthComponent" method="_on_hurt_box_took_damage"]
-[connection signal="took_damage" from="HurtBoxCompnent" to="SoundComponent" method="_on_hurt_box_took_damage"]
 [connection signal="invulnerability_ended" from="InvulnerabilityComponent" to="." method="_on_invulnerability_component_invulnerability_ended"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
-[connection signal="died" from="HealthComponent" to="HurtBoxCompnent" method="_on_health_component_died"]
-[connection signal="died" from="HealthComponent" to="CharSpriteComponent" method="_on_health_component_died"]
