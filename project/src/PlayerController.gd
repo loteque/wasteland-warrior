@@ -8,9 +8,6 @@ extends CharacterBody2D
 @export var char_sound_component: CharSoundComponent
 @export var gun_component: GunComponent
 
-func _ready():
-	gun_component.player = self
-
 func _physics_process(_delta):
 	
 	if is_attack_frame():
@@ -54,9 +51,6 @@ func is_facing_left():
 
 func face_right():
 	global_transform.x.x = 1
-
-func rotate_180(radians: float):
-	return radians + PI
 
 func _on_health_component_died():
 	set_physics_process(false)

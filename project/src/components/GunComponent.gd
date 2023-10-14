@@ -8,19 +8,14 @@ class_name GunComponent
 @onready var projectile_target = $ProjectileTarget
 @onready var projectile_pool = $ProjectilePool
 
-var player: CharacterBody2D
-
-#this is defined in two places playercontroller and guncomponent
-func rotate_180(radians: float):
-	return radians + PI
+func get_target_angle(start_pos: Vector2, target_pos: Vector2) -> float:
+	var dir_vector = target_pos - start_pos
+	return atan2(dir_vector.y, dir_vector.x)
 
 func attack():
 	var bullet = projectile_pool.get_object()
 	bullet.visible = true
-	var facing_angle = projectile_start.get_angle_to(projectile_target.global_position)
-	if player and player.is_facing_left():
-		facing_angle = rotate_180(facing_angle)
-	
+	var facing_angle = get_target_angle(projectile_start.global_position, projectile_target.global_position)
 	bullet.update(projectile_speed, facing_angle)
 	bullet.global_position = projectile_start.global_position
 	Signals.emit_signal("projectile_shot")
