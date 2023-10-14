@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://jbcspp38l2ph"]
+
+[ext_resource type="Script" path="res://src/components/HurtBoxCompopnent.gd" id="1_b8780"]
+
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 2.0
+height = 8.0
+
+[node name="HurtBoxCompnent" type="Area2D"]
+script = ExtResource("1_b8780")
+hurt_group = "CanHurtPlayer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+scale = Vector2(3, 3)
+shape = SubResource("1")

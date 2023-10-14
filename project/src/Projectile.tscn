@@ -8,6 +8,7 @@ radius = 2.0
 
 [node name="Projectile" type="Area2D" node_paths=PackedStringArray("on_screen_notifier") groups=["CanDamageMob"]]
 z_index = 2
+position = Vector2(-8, 0)
 script = ExtResource("2")
 on_screen_notifier = NodePath("OnScreenNotifier")
 

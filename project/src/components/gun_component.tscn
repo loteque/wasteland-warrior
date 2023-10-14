@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://td3mudn3ntgw"]
+
+[ext_resource type="Script" path="res://src/components/GunComponent.gd" id="1_s3pyl"]
+[ext_resource type="Script" path="res://src/ObjectPool.gd" id="2_igmfi"]
+[ext_resource type="PackedScene" uid="uid://bk3scw1w2hue1" path="res://src/Projectile.tscn" id="3_xr3kd"]
+
+[sub_resource type="CircleShape2D" id="8"]
+radius = 3.0
+
+[node name="GunComponent" type="Node2D"]
+script = ExtResource("1_s3pyl")
+projectile_speed = 200
+
+[node name="ProjectilePool" type="Node" parent="."]
+script = ExtResource("2_igmfi")
+object_scene = ExtResource("3_xr3kd")
+
+[node name="ProjectileStart" type="Marker2D" parent="."]
+position = Vector2(7, -3)
+
+[node name="ProjectileTarget" type="Marker2D" parent="."]
+position = Vector2(20, -3)
+
+[node name="Area3D" type="Area2D" parent="ProjectileTarget"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileTarget/Area3D"]
+shape = SubResource("8")
