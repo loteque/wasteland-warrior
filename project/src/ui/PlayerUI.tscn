@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmdk8clyw5edi"]
+[gd_scene load_steps=4 format=3 uid="uid://cmdk8clyw5edi"]
 
 [ext_resource type="Script" path="res://src/ui/PlayerUI.gd" id="1_f8vwn"]
 [ext_resource type="PackedScene" uid="uid://dnpeqeld84ayk" path="res://src/ui/GameOverDialog.tscn" id="2_l1xan"]
+[ext_resource type="Script" path="res://src/ui/XpBar.gd" id="3_knpyj"]
 
 [node name="PlayerUI" type="Control"]
 layout_mode = 3
@@ -27,3 +28,44 @@ offset_right = 92.0
 offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="XpBar" type="ProgressBar" parent="."]
+modulate = Color(0, 0.556863, 0.890196, 1)
+layout_mode = 0
+offset_left = -91.0
+offset_top = -182.0
+offset_right = 101.0
+offset_bottom = -155.0
+max_value = 5.0
+step = 1.0
+show_percentage = false
+script = ExtResource("3_knpyj")
+
+[node name="ValueLabel" type="Label" parent="XpBar"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 87.0
+offset_bottom = 28.0
+text = "0"
+horizontal_alignment = 2
+
+[node name="Slash" type="Label" parent="XpBar"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 2.0
+offset_right = 100.0
+offset_bottom = 28.0
+text = "/"
+horizontal_alignment = 1
+
+[node name="MaxLabel" type="Label" parent="XpBar"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 2.0
+offset_right = 191.0
+offset_bottom = 28.0
+text = "5"
+
+[connection signal="changed" from="XpBar" to="XpBar" method="_on_max_changed"]
+[connection signal="value_changed" from="XpBar" to="XpBar" method="_on_value_changed"]
