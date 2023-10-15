@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var health_component: HealthComponent
 @export var char_sound_component: CharSoundComponent
 @export var gun_component: GunComponent
+@export var xp_tracker: XpTracker
+
 
 func _physics_process(_delta):
 	
@@ -51,6 +53,9 @@ func is_facing_left():
 
 func face_right():
 	global_transform.x.x = 1
+
+func collect():
+	xp_tracker.collect()
 
 func _on_health_component_died():
 	set_physics_process(false)

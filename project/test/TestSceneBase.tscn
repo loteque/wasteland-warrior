@@ -3,19 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://durlan6er57t1" path="res://src/PlayerController.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dreerbkagrdui" path="res://src/BackgroundGenerator.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://dvsr6kjsg6d6h" path="res://src/GlobalAudioStreamPlayer.tscn" id="3"]
-[ext_resource type="PackedScene" uid="uid://c54ogxchunnr3" path="res://src/GameStats.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://nfa2qbimwtnh" path="res://src/FollowCamera.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://cmdk8clyw5edi" path="res://src/ui/PlayerUI.tscn" id="5_nqo0m"]
 
 [node name="TestSceneBase" type="Node2D"]
 
 [node name="BackgroundGenerator" parent="." instance=ExtResource("2")]
-
-[node name="GameStats" parent="." instance=ExtResource("4")]
 
 [node name="GlobalAudioStreamPlayer" parent="." instance=ExtResource("3")]
 
 [node name="PlayerController" parent="." instance=ExtResource("1")]
 z_index = 2
 
-[node name="FollowCamera" parent="." instance=ExtResource("5")]
+[node name="PlayerFollowCamera" parent="." instance=ExtResource("5")]
 target_node_path = NodePath("../PlayerController")
+
+[node name="PlayerUI" parent="PlayerFollowCamera" instance=ExtResource("5_nqo0m")]
