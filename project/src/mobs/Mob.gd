@@ -12,6 +12,8 @@ var health := 2
 @onready var sprite_fx_animations = sprite.get_node("FXAnimationPlayer")
 @onready var cap_parent = get_node("/root/Main")
 
+var implements = [Interface.Boostable]
+
 func _ready():
 	pass
 
@@ -37,13 +39,14 @@ func die():
 	drop_item()
 	queue_free()
 
-func take_damage(value: float):
-	Signals.emit_signal("mob_hit")
-	sprite_fx_animations.play("Hit Flash")
-	health -= value
-	if health <= death_health_value:
-		die()
+# func take_damage(value: float):
+# 	Signals.emit_signal("mob_hit")
+# 	sprite_fx_animations.play("Hit Flash")
+# 	health -= value
+# 	if health <= death_health_value:
+# 		die()
 
-func _on_HurtBox_area_entered(area):
-	if area.is_in_group("CanDamageMob"):
-		take_damage(area.damage)
+# func _on_HurtBox_area_entered(area):
+# 	if area.is_in_group("CanDamageMob"):
+# 		take_damage(area.damage)
+# 		pass

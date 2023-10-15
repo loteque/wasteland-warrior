@@ -31,10 +31,11 @@ func die():
 	self.visible = false
 	collision_shape.disabled = true
 	
-
 func _on_Projectile_area_entered(area):
+	var body = area.get_parent()
 	if area.is_in_group("Mobs"):
-		on_hit_enemy()
+		if Interface.is_implemented(body, Interface.Damageable):
+			on_hit_enemy()
 
 func _on_on_screen_notifier_screen_exited():
 	die()

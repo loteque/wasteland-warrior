@@ -29,6 +29,7 @@ Signals="*res://src/Signals.gd"
 GlobalSettings="*res://src/GlobalSettings.gd"
 ComponentUtils="*res://src/utils/ComponentUtils.gd"
 RandomUtils="*res://src/utils/RandomUtils.gd"
+Interface="*res://src/utils/Interface.gd"
 
 [debug]
 
