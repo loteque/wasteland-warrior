@@ -1,7 +1,7 @@
 extends Resource
 class_name GameStatsResource
 
-@export var cap_count := 0
+@export var cap_count: int = 0
 
 func _init():
     Signals.connect("cap_collected", Callable(self, "_on_cap_collected"))
