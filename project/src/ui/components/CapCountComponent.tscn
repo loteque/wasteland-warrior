@@ -21,7 +21,6 @@ offset_bottom = 40.0
 
 [node name="CountName" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-text = "cap_count"
 
 [node name="CountValue" type="Label" parent="HBoxContainer"]
 layout_mode = 2

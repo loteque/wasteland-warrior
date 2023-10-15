@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_ccb4a")
-cap_count = 0
+cap_count = 1

@@ -1,18 +1,27 @@
 extends Resource
 class_name GameStatsResource
 
+var implements = [Interface.GettableResource]
+
 @export var cap_count: int = 0
 
-func _init():
-    Signals.connect("cap_collected", Callable(self, "_on_cap_collected"))
+func get_value(property_name: String) -> Variant:
+    if has_value(property_name):
+        var value = get(property_name)
+        return value
+    return null
 
-func get_value(property_name: String):
-    var property_value = get(property_name)
-    if property_value:
-        return property_value
+func get_key(property_name: String) -> String:
+    if has_property(property_name):
+        return property_name
+    return ""
 
-func update_cap_count(count: int):
-    cap_count = cap_count + count
+func has_property(property_name: String) -> bool:
+    if self.get(property_name):
+        return true
+    return false
 
-func _on_cap_collected():
-    update_cap_count(1)
+func has_value(property_name: String) -> bool:
+    if get(property_name):
+        return true
+    return false

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/ui/components/GitRevisionComponent.gd" id="1_cih05"]
 
-[node name="GitRevisionComponent" type="Control"]
+[node name="GitRevisionComponent" type="Control" node_paths=PackedStringArray("key", "value")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 112.0
@@ -12,8 +12,17 @@ offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cih05")
+key = NodePath("HBoxContainer/Key")
+value = NodePath("HBoxContainer/Value")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Key" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Git Hash"
+
+[node name="Value" type="Label" parent="HBoxContainer"]
+layout_mode = 2

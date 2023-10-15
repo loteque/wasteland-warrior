@@ -2,7 +2,7 @@
 extends KeyValueComponent
 
 func _ready():
-	set_value_text(get_current_git_revision())
+	value.text = get_current_git_revision()
 
 func get_current_git_revision() -> String:
 	var output = []

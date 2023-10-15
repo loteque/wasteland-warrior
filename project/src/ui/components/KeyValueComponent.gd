@@ -1,14 +1,18 @@
 class_name KeyValueComponent
 extends Control
 
+var implements =  [Interface.ConfigurableNode]
+
+var resource_warn: String = "Add a GameStatsResource"
 @export var resource: GameStatsResource:
 	get:
 		return resource
-	set(var_value):
-		resource = var_value
+	set(resource_value):
+		resource = resource_value
 		if Engine.is_editor_hint():
 				update_configuration_warnings()
 
+var key_warn: String = "add a Label node for key"
 @export var key: Label:
 	get:
 		return key
@@ -17,6 +21,7 @@ extends Control
 		if Engine.is_editor_hint():
 				update_configuration_warnings()
 
+var value_warn: String = "add a Label node for value"
 @export var value: Label:
 	get:
 		return value
@@ -26,31 +31,16 @@ extends Control
 				update_configuration_warnings()
 
 func _get_configuration_warnings() -> PackedStringArray:
-	var warnings: PackedStringArray = PackedStringArray()
-	var resource_warn: String = "Add a GameStatsResource"
-	var key_warn: String = "add a Label node for key"
-	var value_warn: String = "add a Label node for value"
-
-	if not resource:
-		warnings.append(resource_warn)
-	if not key:
-		warnings.append(key_warn)
-	if not value:
-		warnings.append(value_warn)
-
+	var properties: Array = [resource, key, value]
+	var warning_strings: Array = [resource_warn, key_warn, value_warn]
+	var warnings: PackedStringArray = compile_warnings(properties, warning_strings)
 	return warnings
 
-
-## Sets the text element of the value label given a resource (res) and var member name (res_key) of the resource.
-func set_value_text_from_resource(res: Resource, res_key: String):
-	if res and res.has_method("get_value"):
-		value.text = str(res.get_value(res_key))
-
-## Sets the text element of the key label given a resource (res) and var member name (res_key) of the resource.
-func set_key_text_from_resource(res: Resource, res_key: String):
-	if res and res_key in res:
-		key.text = str(res_key)
-
-func set_value_text(text: String):
-	if value:
-		value.text = text
+func compile_warnings(properties: Array, warning_strings: Array) -> PackedStringArray:
+	var warnings: PackedStringArray = PackedStringArray()
+	var i: int = 0
+	for property in properties:
+		if not property:
+			warnings.append(warning_strings[i])
+			i += 1 
+	return warnings
