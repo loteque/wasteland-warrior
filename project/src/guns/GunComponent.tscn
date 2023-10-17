@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://td3mudn3ntgw"]
 
-[ext_resource type="Script" path="res://src/components/GunComponent.gd" id="1_s3pyl"]
+[ext_resource type="Script" path="res://src/guns/GunComponent.gd" id="1_s3pyl"]
 [ext_resource type="Script" path="res://src/ObjectPool.gd" id="2_igmfi"]
 [ext_resource type="PackedScene" uid="uid://bk3scw1w2hue1" path="res://src/Projectile.tscn" id="3_xr3kd"]
 
