@@ -33,14 +33,5 @@ var value_warn: String = "add a Label node for value"
 func _get_configuration_warnings() -> PackedStringArray:
 	var properties: Array = [resource, key, value]
 	var warning_strings: Array = [resource_warn, key_warn, value_warn]
-	var warnings: PackedStringArray = compile_warnings(properties, warning_strings)
-	return warnings
-
-func compile_warnings(properties: Array, warning_strings: Array) -> PackedStringArray:
-	var warnings: PackedStringArray = PackedStringArray()
-	var i: int = 0
-	for property in properties:
-		if not property:
-			warnings.append(warning_strings[i])
-			i += 1 
+	var warnings: PackedStringArray = ComponentUtils.compile_warnings(properties, warning_strings)
 	return warnings
