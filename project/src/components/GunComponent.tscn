@@ -16,10 +16,10 @@ script = ExtResource("2_igmfi")
 object_scene = ExtResource("3_xr3kd")
 
 [node name="ProjectileStart" type="Marker2D" parent="."]
-position = Vector2(7, -3)
+position = Vector2(7, 0)
 
 [node name="ProjectileTarget" type="Marker2D" parent="."]
-position = Vector2(20, -3)
+position = Vector2(20, 0)
 
 [node name="Area3D" type="Area2D" parent="ProjectileTarget"]
 
