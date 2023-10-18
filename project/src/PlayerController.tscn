@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://bs6jn61nhxn4t" path="res://src/components/HealthComponent.tscn" id="8_5vbbj"]
 [ext_resource type="Script" path="res://src/XpTracker.gd" id="9_arjqf"]
 [ext_resource type="PackedScene" uid="uid://bfijyvtr0ia6e" path="res://src/guns/PipePistol.tscn" id="9_kj7hj"]
+[ext_resource type="PackedScene" uid="uid://bfijyvtr0ia6e" path="res://src/guns/PipePistol.tscn" id="9_kj7hj"]
 [ext_resource type="PackedScene" uid="uid://b4xp22aygegm6" path="res://src/components/CharSoundComponent.tscn" id="9_p65x4"]
 [ext_resource type="PackedScene" uid="uid://bwv73goppw5ma" path="res://src/components/InvulnerabilityComponent.tscn" id="10_x4bqf"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l1y0s"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i80tj"]
 resource_local_to_scene = true
 shader = ExtResource("6")
 shader_parameter/active = false
@@ -33,9 +34,10 @@ gun_component = NodePath("PipePistol")
 xp_tracker = NodePath("XpTracker")
 
 [node name="CharSpriteComponent" parent="." instance=ExtResource("2_q0te6")]
-material = SubResource("ShaderMaterial_l1y0s")
+material = SubResource("ShaderMaterial_i80tj")
 
 [node name="PipePistol" parent="." instance=ExtResource("9_kj7hj")]
+position = Vector2(-6, 1)
 position = Vector2(-6, 1)
 
 [node name="PlayerColisionShape2D" type="CollisionShape2D" parent="."]
