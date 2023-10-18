@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://4iomiunguv2w"]
+
+[ext_resource type="PackedScene" uid="uid://dlxuwdyvd8nmd" path="res://test/TestSceneBase.tscn" id="1_ouaqa"]
+[ext_resource type="PackedScene" uid="uid://c776jtmg3c2rk" path="res://test/PlayerSimulator.tscn" id="2_f2s07"]
+[ext_resource type="PackedScene" uid="uid://d0wkfefa3q5yu" path="res://src/pickups/BottleCap.tscn" id="3_hrbjy"]
+
+[node name="TestCapCount" instance=ExtResource("1_ouaqa")]
+
+[node name="PlayerSimulator" parent="PlayerController" index="8" instance=ExtResource("2_f2s07")]
+STEP_DURATION = 4.0
+MOVE_SEQUENCE = ["ui_right"]
+
+[node name="BottleCap" parent="." index="3" instance=ExtResource("3_hrbjy")]
+position = Vector2(20, 7)
+
+[node name="BottleCap2" parent="." index="4" instance=ExtResource("3_hrbjy")]
+position = Vector2(45, 7)
+
+[node name="BottleCap3" parent="." index="5" instance=ExtResource("3_hrbjy")]
+position = Vector2(73, 6)
+
+[node name="BottleCap4" parent="." index="6" instance=ExtResource("3_hrbjy")]
+position = Vector2(97, 6)
+
+[node name="BottleCap5" parent="." index="7" instance=ExtResource("3_hrbjy")]
+position = Vector2(127, 6)
+
+[node name="BottleCap6" parent="." index="8" instance=ExtResource("3_hrbjy")]
+position = Vector2(156, 6)

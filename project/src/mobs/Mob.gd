@@ -10,7 +10,7 @@ var health := 2
 @onready var target = get_tree().get_nodes_in_group("player")[0]
 @onready var sprite = $MobAnimatedSprite
 @onready var sprite_fx_animations = sprite.get_node("FXAnimationPlayer")
-@onready var cap_parent = get_node("/root/Main")
+@onready var cap_parent = get_parent()
 
 func _ready():
 	pass
