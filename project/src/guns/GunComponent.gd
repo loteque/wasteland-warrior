@@ -19,3 +19,16 @@ func attack():
 	bullet.update(projectile_speed, facing_angle)
 	bullet.global_position = projectile_start.global_position
 	Signals.emit_signal("projectile_shot")
+
+func _get_rotation_angle():
+	var direction_vector = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
+	var rotation_angle = direction_vector.angle()
+	return rotation_angle
+
+func rotate_gun_right():
+		self.rotation = _get_rotation_angle()
+		look_at(get_global_mouse_position())
+
+func rotate_gun_left():
+		self.rotation = -_get_rotation_angle() + PI
+		look_at(get_global_mouse_position())
