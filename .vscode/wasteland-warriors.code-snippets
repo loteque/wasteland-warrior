@@ -1,0 +1,41 @@
+{
+
+    // Place your snippets for gdscript here. Each snippet is defined under a snippet name and has a prefix, body and 
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+    // same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // }
+    "Export editor warnings": {
+        "prefix": "cw",
+        "body": [
+            "var ${TM_SELECTED_TEXT:$1}_warn: String = '$3'",
+            "@export var ${TM_SELECTED_TEXT:$1}: ${Node: $2}:",
+            "   get:",
+            "       return ${TM_SELECTED_TEXT:$1}",
+            "   set(${TM_SELECTED_TEXT:$1}_value):",
+            "       ${TM_SELECTED_TEXT:$1} = ${TM_SELECTED_TEXT:$1}_value",
+            "       if Engine.is_editor_hint():",
+            "           update_configuration_warnings()"
+        ],
+        "description", "add update_configuration_warnings to setget on export var" 
+    },
+    "_get_configuration_warnings": {
+        "prefix": "gcw",
+        "body": [
+            "func _get_configuration_warnings() -> PackedStringArray:"
+	        "   var properties: Array = [$1]"
+	        "   var warning_strings: Array = [$2]"
+	        "   var warnings: PackedStringArray = ComponentUtils.compile_warnings(properties, warning_strings)"
+	        "   return warnings"
+        ],
+        "description": "add _get_configuration_warnings"
+    }
+}
