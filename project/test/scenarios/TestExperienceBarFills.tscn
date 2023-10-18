@@ -1,0 +1,271 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0oasoged7u15"]
+
+[ext_resource type="PackedScene" uid="uid://dlxuwdyvd8nmd" path="res://test/TestSceneBase.tscn" id="1_46ioq"]
+[ext_resource type="PackedScene" uid="uid://c776jtmg3c2rk" path="res://test/PlayerSimulator.tscn" id="2_mbq1w"]
+[ext_resource type="PackedScene" uid="uid://d0wkfefa3q5yu" path="res://src/pickups/BottleCap.tscn" id="3_k4qkl"]
+
+[node name="TestExperienceBarFills" instance=ExtResource("1_46ioq")]
+
+[node name="Timer" type="Timer" parent="." index="0"]
+wait_time = 5.0
+autostart = true
+
+[node name="PlayerSimulator" parent="PlayerController" index="8" instance=ExtResource("2_mbq1w")]
+MOVE_SEQUENCE = ["ui_right"]
+
+[node name="PlayerFollowCamera" parent="." index="4"]
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." index="5"]
+
+[node name="BottleCap" parent="." index="6" instance=ExtResource("3_k4qkl")]
+position = Vector2(105, 6)
+
+[node name="BottleCap2" parent="." index="7" instance=ExtResource("3_k4qkl")]
+position = Vector2(121, 6)
+
+[node name="BottleCap3" parent="." index="8" instance=ExtResource("3_k4qkl")]
+position = Vector2(113, 6)
+
+[node name="BottleCap4" parent="." index="9" instance=ExtResource("3_k4qkl")]
+position = Vector2(129, 6)
+
+[node name="BottleCap5" parent="." index="10" instance=ExtResource("3_k4qkl")]
+position = Vector2(138, 6)
+
+[node name="BottleCap6" parent="." index="11" instance=ExtResource("3_k4qkl")]
+position = Vector2(154, 6)
+
+[node name="BottleCap7" parent="." index="12" instance=ExtResource("3_k4qkl")]
+position = Vector2(168, 6)
+
+[node name="BottleCap8" parent="." index="13" instance=ExtResource("3_k4qkl")]
+position = Vector2(184, 6)
+
+[node name="BottleCap9" parent="." index="14" instance=ExtResource("3_k4qkl")]
+position = Vector2(195, 6)
+
+[node name="BottleCap10" parent="." index="15" instance=ExtResource("3_k4qkl")]
+position = Vector2(211, 6)
+
+[node name="BottleCap11" parent="." index="16" instance=ExtResource("3_k4qkl")]
+position = Vector2(220, 6)
+
+[node name="BottleCap12" parent="." index="17" instance=ExtResource("3_k4qkl")]
+position = Vector2(236, 6)
+
+[node name="BottleCap13" parent="." index="18" instance=ExtResource("3_k4qkl")]
+position = Vector2(249, 6)
+
+[node name="BottleCap14" parent="." index="19" instance=ExtResource("3_k4qkl")]
+position = Vector2(265, 6)
+
+[node name="BottleCap15" parent="." index="20" instance=ExtResource("3_k4qkl")]
+position = Vector2(278, 6)
+
+[node name="BottleCap16" parent="." index="21" instance=ExtResource("3_k4qkl")]
+position = Vector2(294, 6)
+
+[node name="BottleCap17" parent="." index="22" instance=ExtResource("3_k4qkl")]
+position = Vector2(286, 6)
+
+[node name="BottleCap18" parent="." index="23" instance=ExtResource("3_k4qkl")]
+position = Vector2(302, 6)
+
+[node name="BottleCap19" parent="." index="24" instance=ExtResource("3_k4qkl")]
+position = Vector2(311, 6)
+
+[node name="BottleCap20" parent="." index="25" instance=ExtResource("3_k4qkl")]
+position = Vector2(327, 6)
+
+[node name="BottleCap21" parent="." index="26" instance=ExtResource("3_k4qkl")]
+position = Vector2(341, 6)
+
+[node name="BottleCap22" parent="." index="27" instance=ExtResource("3_k4qkl")]
+position = Vector2(357, 6)
+
+[node name="BottleCap23" parent="." index="28" instance=ExtResource("3_k4qkl")]
+position = Vector2(368, 6)
+
+[node name="BottleCap24" parent="." index="29" instance=ExtResource("3_k4qkl")]
+position = Vector2(384, 6)
+
+[node name="BottleCap25" parent="." index="30" instance=ExtResource("3_k4qkl")]
+position = Vector2(393, 6)
+
+[node name="BottleCap26" parent="." index="31" instance=ExtResource("3_k4qkl")]
+position = Vector2(409, 6)
+
+[node name="BottleCap27" parent="." index="32" instance=ExtResource("3_k4qkl")]
+position = Vector2(422, 6)
+
+[node name="BottleCap28" parent="." index="33" instance=ExtResource("3_k4qkl")]
+position = Vector2(438, 6)
+
+[node name="BottleCap29" parent="." index="34" instance=ExtResource("3_k4qkl")]
+position = Vector2(447, 6)
+
+[node name="BottleCap30" parent="." index="35" instance=ExtResource("3_k4qkl")]
+position = Vector2(463, 6)
+
+[node name="BottleCap31" parent="." index="36" instance=ExtResource("3_k4qkl")]
+position = Vector2(455, 6)
+
+[node name="BottleCap32" parent="." index="37" instance=ExtResource("3_k4qkl")]
+position = Vector2(471, 6)
+
+[node name="BottleCap33" parent="." index="38" instance=ExtResource("3_k4qkl")]
+position = Vector2(480, 6)
+
+[node name="BottleCap34" parent="." index="39" instance=ExtResource("3_k4qkl")]
+position = Vector2(496, 6)
+
+[node name="BottleCap35" parent="." index="40" instance=ExtResource("3_k4qkl")]
+position = Vector2(510, 6)
+
+[node name="BottleCap36" parent="." index="41" instance=ExtResource("3_k4qkl")]
+position = Vector2(526, 6)
+
+[node name="BottleCap37" parent="." index="42" instance=ExtResource("3_k4qkl")]
+position = Vector2(537, 6)
+
+[node name="BottleCap38" parent="." index="43" instance=ExtResource("3_k4qkl")]
+position = Vector2(553, 6)
+
+[node name="BottleCap39" parent="." index="44" instance=ExtResource("3_k4qkl")]
+position = Vector2(562, 6)
+
+[node name="BottleCap40" parent="." index="45" instance=ExtResource("3_k4qkl")]
+position = Vector2(578, 6)
+
+[node name="BottleCap41" parent="." index="46" instance=ExtResource("3_k4qkl")]
+position = Vector2(591, 6)
+
+[node name="BottleCap42" parent="." index="47" instance=ExtResource("3_k4qkl")]
+position = Vector2(607, 6)
+
+[node name="BottleCap43" parent="." index="48" instance=ExtResource("3_k4qkl")]
+position = Vector2(620, 6)
+
+[node name="BottleCap44" parent="." index="49" instance=ExtResource("3_k4qkl")]
+position = Vector2(636, 6)
+
+[node name="BottleCap45" parent="." index="50" instance=ExtResource("3_k4qkl")]
+position = Vector2(628, 6)
+
+[node name="BottleCap46" parent="." index="51" instance=ExtResource("3_k4qkl")]
+position = Vector2(644, 6)
+
+[node name="BottleCap47" parent="." index="52" instance=ExtResource("3_k4qkl")]
+position = Vector2(653, 6)
+
+[node name="BottleCap48" parent="." index="53" instance=ExtResource("3_k4qkl")]
+position = Vector2(669, 6)
+
+[node name="BottleCap49" parent="." index="54" instance=ExtResource("3_k4qkl")]
+position = Vector2(683, 6)
+
+[node name="BottleCap50" parent="." index="55" instance=ExtResource("3_k4qkl")]
+position = Vector2(699, 6)
+
+[node name="BottleCap51" parent="." index="56" instance=ExtResource("3_k4qkl")]
+position = Vector2(710, 6)
+
+[node name="BottleCap52" parent="." index="57" instance=ExtResource("3_k4qkl")]
+position = Vector2(726, 6)
+
+[node name="BottleCap53" parent="." index="58" instance=ExtResource("3_k4qkl")]
+position = Vector2(735, 6)
+
+[node name="BottleCap54" parent="." index="59" instance=ExtResource("3_k4qkl")]
+position = Vector2(751, 6)
+
+[node name="BottleCap55" parent="." index="60" instance=ExtResource("3_k4qkl")]
+position = Vector2(764, 6)
+
+[node name="BottleCap56" parent="." index="61" instance=ExtResource("3_k4qkl")]
+position = Vector2(780, 6)
+
+[node name="BottleCap57" parent="." index="62" instance=ExtResource("3_k4qkl")]
+position = Vector2(285, -3)
+
+[node name="BottleCap58" parent="." index="63" instance=ExtResource("3_k4qkl")]
+position = Vector2(301, -3)
+
+[node name="BottleCap59" parent="." index="64" instance=ExtResource("3_k4qkl")]
+position = Vector2(293, -3)
+
+[node name="BottleCap60" parent="." index="65" instance=ExtResource("3_k4qkl")]
+position = Vector2(309, -3)
+
+[node name="BottleCap61" parent="." index="66" instance=ExtResource("3_k4qkl")]
+position = Vector2(318, -3)
+
+[node name="BottleCap62" parent="." index="67" instance=ExtResource("3_k4qkl")]
+position = Vector2(334, -3)
+
+[node name="BottleCap63" parent="." index="68" instance=ExtResource("3_k4qkl")]
+position = Vector2(348, -3)
+
+[node name="BottleCap64" parent="." index="69" instance=ExtResource("3_k4qkl")]
+position = Vector2(364, -3)
+
+[node name="BottleCap65" parent="." index="70" instance=ExtResource("3_k4qkl")]
+position = Vector2(375, -3)
+
+[node name="BottleCap66" parent="." index="71" instance=ExtResource("3_k4qkl")]
+position = Vector2(391, -3)
+
+[node name="BottleCap67" parent="." index="72" instance=ExtResource("3_k4qkl")]
+position = Vector2(400, -3)
+
+[node name="BottleCap68" parent="." index="73" instance=ExtResource("3_k4qkl")]
+position = Vector2(416, -3)
+
+[node name="BottleCap69" parent="." index="74" instance=ExtResource("3_k4qkl")]
+position = Vector2(429, -3)
+
+[node name="BottleCap70" parent="." index="75" instance=ExtResource("3_k4qkl")]
+position = Vector2(445, -3)
+
+[node name="BottleCap71" parent="." index="76" instance=ExtResource("3_k4qkl")]
+position = Vector2(458, -3)
+
+[node name="BottleCap72" parent="." index="77" instance=ExtResource("3_k4qkl")]
+position = Vector2(474, -3)
+
+[node name="BottleCap73" parent="." index="78" instance=ExtResource("3_k4qkl")]
+position = Vector2(466, -3)
+
+[node name="BottleCap74" parent="." index="79" instance=ExtResource("3_k4qkl")]
+position = Vector2(482, -3)
+
+[node name="BottleCap75" parent="." index="80" instance=ExtResource("3_k4qkl")]
+position = Vector2(491, -3)
+
+[node name="BottleCap76" parent="." index="81" instance=ExtResource("3_k4qkl")]
+position = Vector2(507, -3)
+
+[node name="BottleCap77" parent="." index="82" instance=ExtResource("3_k4qkl")]
+position = Vector2(521, -3)
+
+[node name="BottleCap78" parent="." index="83" instance=ExtResource("3_k4qkl")]
+position = Vector2(537, -3)
+
+[node name="BottleCap79" parent="." index="84" instance=ExtResource("3_k4qkl")]
+position = Vector2(548, -3)
+
+[node name="BottleCap80" parent="." index="85" instance=ExtResource("3_k4qkl")]
+position = Vector2(564, -3)
+
+[node name="BottleCap81" parent="." index="86" instance=ExtResource("3_k4qkl")]
+position = Vector2(573, -3)
+
+[node name="BottleCap82" parent="." index="87" instance=ExtResource("3_k4qkl")]
+position = Vector2(589, -3)
+
+[node name="BottleCap83" parent="." index="88" instance=ExtResource("3_k4qkl")]
+position = Vector2(602, -3)
+
+[node name="BottleCap84" parent="." index="89" instance=ExtResource("3_k4qkl")]
+position = Vector2(618, -3)

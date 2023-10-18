@@ -1,18 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbl8oioargh0c"]
+[gd_scene load_steps=4 format=3 uid="uid://cbl8oioargh0c"]
 
 [ext_resource type="PackedScene" uid="uid://cwoyb0cjmj7v4" path="res://src/ui/components/CapCountComponent.tscn" id="1_7h3jt"]
+[ext_resource type="Script" path="res://src/ui/UIDebugMenu.gd" id="1_60dla"]
 [ext_resource type="PackedScene" uid="uid://dmrso3l1exxp2" path="res://src/ui/components/GitRevisionComponent.tscn" id="2_2m4wg"]
 
-[node name="UIDebugMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="UIDebugMenu" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_60dla")
 
 [node name="CapCountComponent" parent="." instance=ExtResource("1_7h3jt")]
-layout_mode = 2
 offset_right = 0.0
 
 [node name="GitRevisionComponent" parent="." instance=ExtResource("2_2m4wg")]

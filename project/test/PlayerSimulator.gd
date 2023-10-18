@@ -9,7 +9,14 @@ const POSSIBLE_ACTIONS = ["ui_up", "ui_left", "ui_down", "ui_right"]
 @onready var sequence_length = len(MOVE_SEQUENCE)
 
 func _ready():
+	release_all_actions()
 	start_sequence(MOVE_SEQUENCE)
+
+func release_all_actions():
+	# Prevents an issue where switching from one test scene
+	# to another causes an input to remain pressed
+	for action in POSSIBLE_ACTIONS:
+		release_action(action)
 
 func start_sequence(moves: Array):
 	var iteration = 0
