@@ -1,0 +1,55 @@
+name: "godot-ci export"
+on: 
+  push:
+    tags: 
+      - "test*"
+  
+env:
+  GODOT_VERSION: 4.1.1
+  EXPORT_NAME: wasteland-test-build
+  PROJECT_PATH: project
+  
+jobs:
+
+
+  export-web:
+    name: Web Export
+    runs-on: ubuntu-20.04
+    container:
+      image: barichello/godot-ci:4.1.1 # https://github.com/abarichello/godot-ci
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2 # https://github.com/actions/checkout
+        with:
+          lfs: false
+      - name: Install rsync and gh 📚
+        run: |
+          apt-get update && apt-get install -y rsync gh
+      - name: Setup 🔧
+        run: |
+          mkdir -v -p ~/.local/share/godot/templates
+          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+      - name: Setup rclone 🔧
+        uses: AnimMouse/setup-rclone@v1
+        with:
+          rclone_config: ${{ secrets.RCLONE_CONFIG }}
+      - name: Sync Assets 📥
+        run: |
+          cd ${PROJECT_PATH}/src
+          mkdir assets
+          rclone copy assets:assets assets
+      - name: Web Build 🛠️
+        run: |
+          mkdir -v -p build/web
+          cd $PROJECT_PATH
+          godot -v --headless --export-debug "HTML5" ../build/web/index.html
+      - name: Upload Artifact 📤
+        uses: actions/upload-artifact@v1
+        with:
+          name: web
+          path: build/web
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v4 # https://github.com/JamesIves/github-pages-deploy-action
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build/web/${{github.ref_name}} # The folder the action should deploy.
