@@ -51,6 +51,7 @@ shape = SubResource("RectangleShape2D_r3dhu")
 invulnerable_duration = 2.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_ppmql")]
+MAX_HEALTH = 6.0
 
 [node name="CharSoundComponent" parent="." instance=ExtResource("7_5mp7y")]
 

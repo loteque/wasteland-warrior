@@ -1,8 +1,8 @@
 extends ProgressBar
 class_name XpBar
 
-@onready var max_label: Label = $MaxLabel
-@onready var value_label: Label = $ValueLabel
+@onready var max_label: Label = %XpMaxLabel
+@onready var value_label: Label = %XpValueLabel
 
 func _ready():
 	Signals.leveled_up.connect(Callable(self, "_on_leveled_up"))
