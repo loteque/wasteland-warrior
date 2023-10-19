@@ -11,7 +11,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="PlayerSimulator" parent="PlayerController" index="8" instance=ExtResource("2_mbq1w")]
-MOVE_SEQUENCE = ["ui_right"]
+MOVE_SEQUENCE = ["move_right"]
 
 [node name="PlayerFollowCamera" parent="." index="4"]
 metadata/_edit_lock_ = true

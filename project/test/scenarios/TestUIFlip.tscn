@@ -8,7 +8,7 @@
 
 [node name="PlayerSimulator" parent="PlayerController" index="8" instance=ExtResource("2_mdcaa")]
 STEP_DURATION = 0.2
-MOVE_SEQUENCE = ["ui_right", "ui_left"]
+MOVE_SEQUENCE = ["move_right", "move_left"]
 
 [node name="PlayerFollowCamera2" parent="." index="3" instance=ExtResource("3_bg15i")]
 target_node_path = NodePath("../PlayerController")

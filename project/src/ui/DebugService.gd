@@ -7,6 +7,7 @@ var scene_selector_window: CanvasLayer = scene_selector.instantiate()
 var debug_ui_active: bool = false
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	scene_selector_window.visible = false
 
 func add_debug_window_to_root():
@@ -22,6 +23,8 @@ func _process(delta):
 
 	if Input.is_action_just_pressed("open_debug"):
 		scene_selector_window.visible = !scene_selector_window.visible
+		if !scene_selector_window.visible:
+			Signals.menu_closed.emit()
 	
 	if Input.is_action_just_pressed("toggle_debug_ui"):
 		debug_menu.visible = !debug_menu.visible
