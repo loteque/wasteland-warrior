@@ -8,7 +8,7 @@
 
 [node name="PlayerSimulator" parent="PlayerController" index="8" instance=ExtResource("2_f2s07")]
 STEP_DURATION = 4.0
-MOVE_SEQUENCE = ["ui_right"]
+MOVE_SEQUENCE = ["move_right"]
 
 [node name="BottleCap" parent="." index="3" instance=ExtResource("3_hrbjy")]
 position = Vector2(20, 7)

@@ -38,4 +38,10 @@ func add_scene_buttons_to_parent(scene_paths: Array, parent_node: Node) -> void:
 func _on_button_pressed(scene_path: String) -> void:
 	get_tree().change_scene_to_file(scene_path)
 	visible = false
-	
+	get_tree().paused = false
+
+func _on_visibility_changed():
+	if visible:
+		var button: Button = scenes_container.get_child(0)
+		button.grab_focus()
+		get_tree().paused = true

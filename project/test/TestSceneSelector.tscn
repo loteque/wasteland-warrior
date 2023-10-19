@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://test/TestSceneSelector.gd" id="1_0oyti"]
 
 [node name="TestSceneSelector" type="CanvasLayer"]
+process_mode = 3
 layer = 2
 script = ExtResource("1_0oyti")
 
@@ -35,3 +36,5 @@ text = "Test Scenes"
 [node name="ScenesContainer" type="HFlowContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

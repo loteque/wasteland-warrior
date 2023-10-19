@@ -1,6 +1,6 @@
 extends Node
 
-const POSSIBLE_ACTIONS = ["ui_up", "ui_left", "ui_down", "ui_right"]
+const POSSIBLE_ACTIONS = ["move_up", "move_left", "move_down", "move_right"]
 
 @export var STEP_DURATION := 2.0
 @export var MOVE_SEQUENCE := POSSIBLE_ACTIONS
