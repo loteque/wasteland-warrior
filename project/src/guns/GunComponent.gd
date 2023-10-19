@@ -8,6 +8,9 @@ class_name GunComponent
 @onready var projectile_target = $ProjectileTarget
 @onready var projectile_pool = $ProjectilePool
 
+enum Controller {JOYPAD, MOUSE}
+var controller: Controller
+
 func get_target_angle(start_pos: Vector2, target_pos: Vector2) -> float:
 	var dir_vector = target_pos - start_pos
 	return atan2(dir_vector.y, dir_vector.x)
@@ -20,15 +23,42 @@ func attack():
 	bullet.global_position = projectile_start.global_position
 	Signals.emit_signal("projectile_shot")
 
-func _get_rotation_angle():
-	var direction_vector = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
-	var rotation_angle = direction_vector.angle()
-	return rotation_angle
+func rotate_gun(is_facing_left: bool):
+	var aim_direction_vector: Vector2 = _get_stick_direction_vector()
+	
+	if aim_direction_vector != Vector2.ZERO:
+		var rotation_angle = aim_direction_vector.angle()
+		if is_facing_left:
+			_rotate_gun_left(rotation_angle)
+		else:
+			_rotate_gun_right(rotation_angle)
 
-func rotate_gun_right():
-		self.rotation = _get_rotation_angle()
-		look_at(get_global_mouse_position())
+func _is_mouse() -> bool:
+	return controller == Controller.MOUSE
 
-func rotate_gun_left():
-		self.rotation = -_get_rotation_angle() + PI
-		look_at(get_global_mouse_position())
+func _is_joypad() -> bool:
+	return controller == Controller.JOYPAD
+
+func _get_stick_direction_vector() -> Vector2:
+	return Vector2(Input.get_axis("aim_left", "aim_right"), Input.get_axis("aim_up", "aim_down"))
+
+func _rotate_gun_right(rotation_angle):
+		if _is_joypad():
+			self.rotation = lerp_angle(self.rotation, rotation_angle, 0.5)
+		if _is_mouse():
+			look_at(get_global_mouse_position())
+		return rotation
+
+func _rotate_gun_left(rotation_angle):
+		if _is_joypad():
+			self.rotation = lerp_angle(self.rotation, -(rotation_angle + PI), 0.5)
+		if _is_mouse():
+			look_at(get_global_mouse_position())
+		return rotation
+
+func _unhandled_input(event):
+	if event is InputEventJoypadMotion:
+		controller = Controller.JOYPAD
+
+	if event is InputEventMouse:
+		controller = Controller.MOUSE

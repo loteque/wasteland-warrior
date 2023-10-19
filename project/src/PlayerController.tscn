@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b4xp22aygegm6" path="res://src/components/CharSoundComponent.tscn" id="9_p65x4"]
 [ext_resource type="PackedScene" uid="uid://bwv73goppw5ma" path="res://src/components/InvulnerabilityComponent.tscn" id="10_x4bqf"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i80tj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_un07t"]
 resource_local_to_scene = true
 shader = ExtResource("6")
 shader_parameter/active = false
@@ -34,7 +34,7 @@ gun_component = NodePath("PipePistol")
 xp_tracker = NodePath("XpTracker")
 
 [node name="CharSpriteComponent" parent="." instance=ExtResource("2_q0te6")]
-material = SubResource("ShaderMaterial_i80tj")
+material = SubResource("ShaderMaterial_un07t")
 
 [node name="PipePistol" parent="." instance=ExtResource("9_kj7hj")]
 position = Vector2(-6, 1)
