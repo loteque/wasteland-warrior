@@ -6,4 +6,11 @@
 [node name="PipePistol" instance=ExtResource("1_jy30h")]
 
 [node name="PipePistol" type="Sprite2D" parent="." index="0"]
+position = Vector2(6, -1)
 texture = ExtResource("2_33i4s")
+
+[node name="ProjectileStart" parent="." index="2"]
+position = Vector2(13, -1)
+
+[node name="ProjectileTarget" parent="." index="3"]
+position = Vector2(26, -1)
