@@ -24,17 +24,26 @@ func attack():
 	Signals.emit_signal("projectile_shot")
 
 func rotate_gun(is_facing_left: bool):
-	var aim_direction_vector: Vector2 = _get_stick_direction_vector()
+	if _is_mouse():
+		_mouse_rotate_gun(is_facing_left)
 	
-	if aim_direction_vector != Vector2.ZERO:
-		var rotation_angle = aim_direction_vector.angle()
-		if is_facing_left:
-			_rotate_gun_left(rotation_angle)
-		else:
-			_rotate_gun_right(rotation_angle)
+	if _is_joypad():
+		_joypad_rotate_gun(is_facing_left)
 
 func _is_mouse() -> bool:
 	return controller == Controller.MOUSE
+
+func _mouse_rotate_gun_right():
+	look_at(get_global_mouse_position())
+
+func _mouse_rotate_gun_left():
+	look_at(get_global_mouse_position())
+
+func _mouse_rotate_gun(is_facing_left: bool):
+	if is_facing_left:
+		_mouse_rotate_gun_left()
+	else:
+		_mouse_rotate_gun_right()
 
 func _is_joypad() -> bool:
 	return controller == Controller.JOYPAD
@@ -42,23 +51,25 @@ func _is_joypad() -> bool:
 func _get_stick_direction_vector() -> Vector2:
 	return Vector2(Input.get_axis("aim_left", "aim_right"), Input.get_axis("aim_up", "aim_down"))
 
-func _rotate_gun_right(rotation_angle):
-		if _is_joypad():
-			self.rotation = lerp_angle(self.rotation, rotation_angle, 0.5)
-		if _is_mouse():
-			look_at(get_global_mouse_position())
-		return rotation
+func _joypad_rotate_gun_right(rotation_angle):
+	self.rotation = lerp_angle(self.rotation, rotation_angle, 0.5)
 
-func _rotate_gun_left(rotation_angle):
-		if _is_joypad():
-			self.rotation = lerp_angle(self.rotation, -(rotation_angle + PI), 0.5)
-		if _is_mouse():
-			look_at(get_global_mouse_position())
-		return rotation
+func _joypad_rotate_gun_left(rotation_angle):
+	self.rotation = lerp_angle(self.rotation, -(rotation_angle + PI), 0.5)
+
+func _joypad_rotate_gun(is_facing_left: bool):
+	var aim_direction_vector: Vector2 = _get_stick_direction_vector()
+	
+	if aim_direction_vector != Vector2.ZERO:
+		var rotation_angle = aim_direction_vector.angle()
+		if is_facing_left:
+			_joypad_rotate_gun_left(rotation_angle)
+		else:
+			_joypad_rotate_gun_right(rotation_angle)
 
 func _unhandled_input(event):
 	if event is InputEventJoypadMotion:
 		controller = Controller.JOYPAD
 
-	if event is InputEventMouse:
+	if event is InputEventKey:
 		controller = Controller.MOUSE
