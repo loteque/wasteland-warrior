@@ -1,0 +1,8 @@
+- change branch to test-deploy
+- rebase test-deploy onto main
+- make test-deploy-issue from test-deploy
+- merge issue branch on test deploy
+- commit to remote with tracking
+- tag commit with "test*" prefix
+- push tag
+- build will fire automatically on tag push.
