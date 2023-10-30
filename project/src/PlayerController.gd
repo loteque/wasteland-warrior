@@ -12,6 +12,8 @@ extends CharacterBody2D
 
 func _physics_process(_delta):
 	
+	gun_component.rotate_gun(is_facing_left())
+
 	if is_attack_frame():
 		gun_component.attack()
 	
