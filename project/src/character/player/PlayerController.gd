@@ -11,6 +11,7 @@ extends CharacterBody2D
 
 var controller_t: Resource = load("res://src/Controller.gd")
 var controller: Controller
+@onready var aim_origin = $AimOrigin
 
 func _init():
 	controller = controller_t.new()
@@ -20,18 +21,25 @@ func _unhandled_input(event):
 	if event is InputEventJoypadMotion:
 		controller.type = controller.JOYPAD
 
-	if event is InputEventKey:
-		controller.type = controller.MOUSE
+	if event is InputEventKey or event is InputEventMouseMotion:
+		controller.type = controller.KEYBOARD_MOUSE
+
+func aim():
+	var attack_angle = controller.aim(aim_origin)
+	if is_facing_left():
+		attack_angle = -attack_angle + PI
+	gun_component.rotation = attack_angle
 
 func _physics_process(_delta):
-	
 	# player actions
-	if is_attack_frame():
-		gun_component.attack()
 	
-	controller.aim(gun_component, is_facing_left())
+	aim()
+	
 	controller.move(self, speed)
 	
+	if is_attack_frame():
+		gun_component.attack()
+		
 	# animations
 	var motion_x = controller.get_motion_vector().x
 	var motion_y = controller.get_motion_vector().y
@@ -50,6 +58,7 @@ func is_attack_frame():
 
 func face_left():
 	global_transform.x.x = -1
+
 
 func is_facing_left():
 	return global_transform.x.x == -1
