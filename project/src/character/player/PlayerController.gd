@@ -9,39 +9,40 @@ extends CharacterBody2D
 @export var gun_component: GunComponent
 @export var xp_tracker: XpTracker
 
+var controller_t: Resource = load("res://Controller.gd")
+var controller: Controller
+
+func _init():
+	controller = controller_t.new()
+
+# should this be in main.gd?
+func _unhandled_input(event):
+	if event is InputEventJoypadMotion:
+		controller.type = controller.JOYPAD
+
+	if event is InputEventKey:
+		controller.type = controller.MOUSE
 
 func _physics_process(_delta):
 	
-	gun_component.rotate_gun(is_facing_left())
-
+	# player actions
 	if is_attack_frame():
 		gun_component.attack()
 	
-	var motion = Vector2.ZERO
+	controller.aim(gun_component, is_facing_left())
+	controller.move(self, speed)
 	
-	if Input.is_action_pressed("move_up"):
-		motion.y -= 1
-
-	if Input.is_action_pressed("move_down"):
-		motion.y += 1
-		
-	if Input.is_action_pressed("move_left"):
-		motion.x -= 1
-		face_left()
-
-	if Input.is_action_pressed("move_right"):
-		motion.x += 1
-		face_right()
-
-	if motion.x == 0 and motion.y == 0:
+	# animations
+	var motion_x = controller.get_motion_vector().x
+	var motion_y = controller.get_motion_vector().y
+	
+	if motion_x > 0 && is_facing_left(): face_right()
+	if motion_x < 0 && !is_facing_left(): face_left()
+	
+	if motion_x == 0 and motion_y == 0:
 		sprite_component.play("idle")
-
 	else:
 		sprite_component.play("run")
-
-	motion = motion.normalized() * speed
-	set_velocity(motion)
-	move_and_slide()
 
 #this seems like a global utility function
 func is_attack_frame():
