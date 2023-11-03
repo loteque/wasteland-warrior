@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var gun_component: GunComponent
 @export var xp_tracker: XpTracker
 
-var controller_t: Resource = load("res://Controller.gd")
+var controller_t: Resource = load("res://src/Controller.gd")
 var controller: Controller
 
 func _init():
