@@ -2,9 +2,11 @@ class_name Controller extends Node
 ## Converts HID inputs into meaningful game intent.
 ## Provides an interface for any kind of game control
 
+var aim_angle_radians := 0.0
+
 ## Gets the rotation in radians needed to aim 
 func get_aim_angle(_origin: Node2D) -> float:
-	return 0.0
+	return aim_angle_radians
 
 ## Gets the vector for directional control
 func get_motion_vector() -> Vector2:
@@ -55,14 +57,14 @@ class Joypad extends Controller:
 	func get_motion_vector():
 		return _get_motion_vector_from_device(LSL, LSR, LSU, LSD)
 
-	func get_stick_direction_vector(neg_x, pos_x, neg_y, pos_y) -> Vector2:
+	func _get_stick_direction_vector(neg_x, pos_x, neg_y, pos_y) -> Vector2:
 		return Vector2(Input.get_axis(neg_x, pos_x), Input.get_axis(neg_y, pos_y))
-
-	func _get_right_stick_angle() -> float:
-		return get_stick_direction_vector(RSL, RSR, RSU, RSD).angle()
 	
-	## Returns new angle of stick rotation for aimed_node if the
-	## current controll vector not ZERO, else returns the current 
-	## angle of the node we are aiming.
+	## Returns new angle of stick rotation if the current
+	## controller vector not ZERO, else returns the previous value.
 	func get_aim_angle(_origin: Node2D) -> float:
-		return get_stick_direction_vector(RSL, RSR, RSU, RSD).angle()
+		var stick_vector = _get_stick_direction_vector(RSL, RSR, RSU, RSD)
+		if stick_vector == Vector2.ZERO:
+			return aim_angle_radians
+		aim_angle_radians = stick_vector.angle()
+		return aim_angle_radians

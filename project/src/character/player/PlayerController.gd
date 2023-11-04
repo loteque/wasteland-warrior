@@ -18,7 +18,7 @@ func is_attack_frame():
 	return Engine.get_physics_frames() % gun_component.attack_interval == 0
 
 func aim():
-	var attack_angle = controller.get_aim(aim_origin)
+	var attack_angle = controller.get_aim_angle(aim_origin)
 	if is_facing_left():
 		attack_angle = -attack_angle + PI
 	gun_component.rotation = attack_angle
