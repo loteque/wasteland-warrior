@@ -64,7 +64,8 @@ class Joypad extends Controller:
 	## controller vector not ZERO, else returns the previous value.
 	func get_aim_angle(_origin: Node2D) -> float:
 		var stick_vector = _get_stick_direction_vector(RSL, RSR, RSU, RSD)
-		if stick_vector == Vector2.ZERO:
-			return aim_angle_radians
-		aim_angle_radians = stick_vector.angle()
+		
+		if stick_vector != Vector2.ZERO:
+			aim_angle_radians = stick_vector.angle()
+		
 		return aim_angle_radians
