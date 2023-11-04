@@ -44,7 +44,7 @@ func _aim():
 
 func _move():
 	var motion: Vector2 = controller.get_motion_vector()
-	motion = motion.normalized() * speed
+	motion = motion * speed
 	set_velocity(motion)
 	move_and_slide()
 

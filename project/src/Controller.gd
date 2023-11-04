@@ -37,7 +37,7 @@ class KeyboardMouse extends Controller:
 	const KBD = "move_down"
 
 	func get_motion_vector() -> Vector2:
-		return _get_motion_vector_from_device(KBL, KBR, KBU, KBD)
+		return _get_motion_vector_from_device(KBL, KBR, KBU, KBD).normalized()
 
 	func get_aim_angle(origin: Node2D) -> float:
 		return origin.get_angle_to(origin.get_global_mouse_position())
@@ -55,15 +55,12 @@ class Joypad extends Controller:
 	const LSD = "move_down"
 
 	func get_motion_vector():
-		return _get_motion_vector_from_device(LSL, LSR, LSU, LSD)
-
-	func _get_stick_direction_vector(neg_x, pos_x, neg_y, pos_y) -> Vector2:
-		return Vector2(Input.get_axis(neg_x, pos_x), Input.get_axis(neg_y, pos_y))
+		return Input.get_vector(LSL, LSR, LSU, LSD)
 	
 	## Returns new angle of stick rotation if the current
 	## controller vector not ZERO, else returns the previous value.
 	func get_aim_angle(_origin: Node2D) -> float:
-		var stick_vector = _get_stick_direction_vector(RSL, RSR, RSU, RSD)
+		var stick_vector = Input.get_vector(RSL, RSR, RSU, RSD)
 		
 		if stick_vector != Vector2.ZERO:
 			aim_angle_radians = stick_vector.angle()
