@@ -1,5 +1,14 @@
 extends CharacterBody2D
 
+class A extends RefCounted:
+	var mum = 9
+	
+class B extends A:
+	pass
+	
+
+
+
 @export var speed := 50
 @export var sprite_component: CharSpriteComponent
 @export var hurt_box_component: HurtBoxComponent
@@ -9,33 +18,30 @@ extends CharacterBody2D
 @export var gun_component: GunComponent
 @export var xp_tracker: XpTracker
 
-var controller_t: Resource = load("res://src/Controller.gd")
 var controller: Controller
 @onready var aim_origin = $AimOrigin
 
 func _init():
-	controller = controller_t.new()
-
-# should this be in main.gd?
-func _unhandled_input(event):
-	if event is InputEventJoypadMotion:
-		controller.type = controller.JOYPAD
-
-	if event is InputEventKey or event is InputEventMouseMotion:
-		controller.type = controller.KEYBOARD_MOUSE
+	controller = ControllerManager.get_controller()
 
 func aim():
-	var attack_angle = controller.aim(aim_origin)
+	var attack_angle = controller.get_aim(aim_origin)
 	if is_facing_left():
 		attack_angle = -attack_angle + PI
 	gun_component.rotation = attack_angle
 
+func move():
+	var motion: Vector2 = controller.get_motion_vector()
+	motion = motion.normalized() * speed
+	set_velocity(motion)
+	move_and_slide()
+	
 func _physics_process(_delta):
+	controller = ControllerManager.get_controller()
 	# player actions
 	
 	aim()
-	
-	controller.move(self, speed)
+	move()
 	
 	if is_attack_frame():
 		gun_component.attack()
@@ -58,7 +64,6 @@ func is_attack_frame():
 
 func face_left():
 	global_transform.x.x = -1
-
 
 func is_facing_left():
 	return global_transform.x.x == -1

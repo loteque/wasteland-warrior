@@ -1,21 +1,22 @@
-extends Node
-class_name Controller
+class_name Controller extends Node
+# Converts HID inputs into meaningful game intent.
+# Provides an interface for any kind of game control
 
-enum {JOYPAD, KEYBOARD_MOUSE}
-var type: int
-var keyboard_mouse: Mouse
-var joypad: Joypad
+func get_move_vector() -> Vector2:
+	return Vector2.ZERO
 
-func _init():
-	type = KEYBOARD_MOUSE
-	keyboard_mouse = Mouse.new()
-	joypad = Joypad.new()
+func get_aim(origin: Node2D) -> float:
+	return 0.0
 
-func is_keyboard_mouse():
-	return type == Controller.KEYBOARD_MOUSE
+func is_keyboard_mouse() -> bool:
+	return false
 
-func is_joypad(): 
-	return type == Controller.JOYPAD
+func is_joypad() -> bool: 
+	return false
+
+# Gets the vector for directional control
+func get_motion_vector() -> Vector2:
+	return Vector2.ZERO
 
 func _get_motion_vector_from_device(neg_x, pos_x, neg_y, pos_y):
 	var motion: Vector2 = Vector2.ZERO
@@ -33,37 +34,46 @@ func _get_motion_vector_from_device(neg_x, pos_x, neg_y, pos_y):
 		
 	return motion
 
-func get_motion_vector():
-	if is_keyboard_mouse():
-		var motion = _get_motion_vector_from_device(
-			keyboard_mouse.KBL, 
-			keyboard_mouse.KBR, 
-			keyboard_mouse.KBU, 
-			keyboard_mouse.KBD
-		)
-		return motion
 
-	if is_joypad():
-		var motion = _get_motion_vector_from_device(
-			joypad.LSL,
-			joypad.LSR,
-			joypad.LSU,
-			joypad.LSD
-		)
-		return motion
+class KeyboardMouse extends Controller:
 
-	return 0
+	const KBL = "move_left"
+	const KBR = "move_right"
+	const KBU = "move_up"
+	const KBD = "move_down"
 
-func move(node: CharacterBody2D, speed):
-	var motion: Vector2 = get_motion_vector()
-	motion = motion.normalized() * speed
-	node.set_velocity(motion)
-	node.move_and_slide()
+	func get_motion_vector() -> Vector2:
+		return _get_motion_vector_from_device(KBL, KBR, KBU, KBD)
 
-func aim(node:Node2D) -> float:
-	if is_joypad():
-		return joypad.get_right_stick_angle()
-	if is_keyboard_mouse():
-		return node.get_angle_to(node.get_global_mouse_position())
-	return 0.0
-	
+	func get_aim(origin: Node2D) -> float:
+		return origin.get_angle_to(origin.get_global_mouse_position())
+
+
+class Joypad extends Controller:
+
+	const RSL = "aim_left"
+	const RSR =	"aim_right"
+	const RSU = "aim_up"
+	const RSD = "aim_down"
+	const LSL = "move_left"
+	const LSR = "move_right"
+	const LSU = "move_up"
+	const LSD = "move_down"
+
+	func is_keyboard_mouse():
+		return false
+
+	func is_joypad():
+		return true
+
+	func get_motion_vector():
+		return _get_motion_vector_from_device(LSL, LSR, LSU, LSD)
+
+	func get_stick_direction_vector(neg_x, pos_x, neg_y, pos_y) -> Vector2:
+		return Vector2(Input.get_axis(neg_x, pos_x), Input.get_axis(neg_y, pos_y))
+
+	func _get_right_stick_angle() -> float:
+		return get_stick_direction_vector(RSL, RSR, RSU, RSD).angle()
+
+	func get_aim(origin: Node2D) -> float:
+		return _get_right_stick_angle()

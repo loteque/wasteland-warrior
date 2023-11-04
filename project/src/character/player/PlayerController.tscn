@@ -1,5 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://durlan6er57t1"]
 
+<<<<<<< HEAD:project/src/character/player/PlayerController.tscn
 [ext_resource type="Script" path="res://src/character/player/PlayerController.gd" id="1_x1if8"]
 [ext_resource type="PackedScene" uid="uid://bm7uiq8faybwy" path="res://src/character/component/CharSpriteComponent.tscn" id="2_sfus1"]
 [ext_resource type="PackedScene" uid="uid://bfijyvtr0ia6e" path="res://src/gun/PipePistol.tscn" id="3_mld12"]
@@ -8,6 +9,23 @@
 [ext_resource type="PackedScene" uid="uid://bs6jn61nhxn4t" path="res://src/character/component/HealthComponent.tscn" id="6_ppmql"]
 [ext_resource type="PackedScene" uid="uid://b4xp22aygegm6" path="res://src/character/component/CharSoundComponent.tscn" id="7_5mp7y"]
 [ext_resource type="Script" path="res://src/character/player/XpTracker.gd" id="8_cfmnx"]
+=======
+[ext_resource type="Script" path="res://src/PlayerController.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://jbcspp38l2ph" path="res://src/components/HurtBoxComponent.tscn" id="2_7ao4s"]
+[ext_resource type="PackedScene" uid="uid://bm7uiq8faybwy" path="res://src/components/CharSpriteComponent.tscn" id="2_q0te6"]
+[ext_resource type="Shader" path="res://src/mobs/hit_flash_red.gdshader" id="6"]
+[ext_resource type="PackedScene" uid="uid://bs6jn61nhxn4t" path="res://src/components/HealthComponent.tscn" id="8_5vbbj"]
+[ext_resource type="Script" path="res://src/XpTracker.gd" id="9_arjqf"]
+[ext_resource type="PackedScene" uid="uid://bfijyvtr0ia6e" path="res://src/guns/PipePistol.tscn" id="9_kj7hj"]
+[ext_resource type="PackedScene" uid="uid://b4xp22aygegm6" path="res://src/components/CharSoundComponent.tscn" id="9_p65x4"]
+[ext_resource type="Script" path="res://src/AimOrigin.gd" id="10_aw00y"]
+[ext_resource type="PackedScene" uid="uid://bwv73goppw5ma" path="res://src/components/InvulnerabilityComponent.tscn" id="10_x4bqf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_56dka"]
+resource_local_to_scene = true
+shader = ExtResource("6")
+shader_parameter/active = false
+>>>>>>> ecac2e8 (Add PlayerManager to handle input switching):project/src/PlayerController.tscn
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vc1eo"]
 size = Vector2(4, 21)
@@ -28,7 +46,14 @@ xp_tracker = NodePath("XpTracker")
 
 [node name="CharSpriteComponent" parent="." instance=ExtResource("2_sfus1")]
 
+<<<<<<< HEAD:project/src/character/player/PlayerController.tscn
 [node name="PipePistol" parent="." instance=ExtResource("3_mld12")]
+=======
+[node name="CharSpriteComponent" parent="." instance=ExtResource("2_q0te6")]
+material = SubResource("ShaderMaterial_56dka")
+
+[node name="PipePistol" parent="." instance=ExtResource("9_kj7hj")]
+>>>>>>> ecac2e8 (Add PlayerManager to handle input switching):project/src/PlayerController.tscn
 position = Vector2(-6, 1)
 
 [node name="PlayerColisionShape2D" type="CollisionShape2D" parent="."]
