@@ -18,5 +18,8 @@ func _unhandled_input(event) -> void:
 	if event is InputEventJoypadMotion:
 		current_controller = joypad
 
-	if event is InputEventKey or event is InputEventMouseMotion:
+	if event is InputEventKey:
+		current_controller = keyboard_mouse
+	
+	if event is InputEventMouseMotion && event.relative != Vector2.ZERO:
 		current_controller = keyboard_mouse
