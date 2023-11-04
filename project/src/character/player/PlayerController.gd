@@ -1,14 +1,5 @@
 extends CharacterBody2D
 
-class A extends RefCounted:
-	var mum = 9
-	
-class B extends A:
-	pass
-	
-
-
-
 @export var speed := 50
 @export var sprite_component: CharSpriteComponent
 @export var hurt_box_component: HurtBoxComponent
@@ -18,11 +9,13 @@ class B extends A:
 @export var gun_component: GunComponent
 @export var xp_tracker: XpTracker
 
-var controller: Controller
 @onready var aim_origin = $AimOrigin
 
-func _init():
-	controller = ControllerManager.get_controller()
+var controller: Controller
+
+#this seems like a global utility function
+func is_attack_frame():
+	return Engine.get_physics_frames() % gun_component.attack_interval == 0
 
 func aim():
 	var attack_angle = controller.get_aim(aim_origin)
@@ -35,32 +28,10 @@ func move():
 	motion = motion.normalized() * speed
 	set_velocity(motion)
 	move_and_slide()
-	
-func _physics_process(_delta):
-	controller = ControllerManager.get_controller()
-	# player actions
-	
-	aim()
-	move()
-	
+
+func attack():
 	if is_attack_frame():
 		gun_component.attack()
-		
-	# animations
-	var motion_x = controller.get_motion_vector().x
-	var motion_y = controller.get_motion_vector().y
-	
-	if motion_x > 0 && is_facing_left(): face_right()
-	if motion_x < 0 && !is_facing_left(): face_left()
-	
-	if motion_x == 0 and motion_y == 0:
-		sprite_component.play("idle")
-	else:
-		sprite_component.play("run")
-
-#this seems like a global utility function
-func is_attack_frame():
-	return Engine.get_physics_frames() % gun_component.attack_interval == 0
 
 func face_left():
 	global_transform.x.x = -1
@@ -73,6 +44,33 @@ func face_right():
 
 func collect():
 	xp_tracker.collect()
+
+func _update_controller():
+	controller = ControllerManager.get_controller()
+
+func _init():
+	_update_controller()
+	
+func _physics_process(_delta):
+	# physics frame setup
+	_update_controller()
+	
+	# player actions
+	aim()
+	move()
+	attack()
+
+	# animations
+	var motion_x = controller.get_motion_vector().x
+	var motion_y = controller.get_motion_vector().y
+	
+	if motion_x > 0 && is_facing_left(): face_right()
+	if motion_x < 0 && !is_facing_left(): face_left()
+	
+	if motion_x == 0 and motion_y == 0:
+		sprite_component.play("idle")
+	else:
+		sprite_component.play("run")
 
 func _on_health_component_died():
 	set_physics_process(false)

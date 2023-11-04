@@ -21,7 +21,7 @@
 [ext_resource type="Script" path="res://src/AimOrigin.gd" id="10_aw00y"]
 [ext_resource type="PackedScene" uid="uid://bwv73goppw5ma" path="res://src/components/InvulnerabilityComponent.tscn" id="10_x4bqf"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_56dka"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_npvy4"]
 resource_local_to_scene = true
 shader = ExtResource("6")
 shader_parameter/active = false
@@ -50,7 +50,7 @@ xp_tracker = NodePath("XpTracker")
 [node name="PipePistol" parent="." instance=ExtResource("3_mld12")]
 =======
 [node name="CharSpriteComponent" parent="." instance=ExtResource("2_q0te6")]
-material = SubResource("ShaderMaterial_56dka")
+material = SubResource("ShaderMaterial_npvy4")
 
 [node name="PipePistol" parent="." instance=ExtResource("9_kj7hj")]
 >>>>>>> ecac2e8 (Add PlayerManager to handle input switching):project/src/PlayerController.tscn

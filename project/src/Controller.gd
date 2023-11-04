@@ -1,20 +1,12 @@
 class_name Controller extends Node
-# Converts HID inputs into meaningful game intent.
-# Provides an interface for any kind of game control
+## Converts HID inputs into meaningful game intent.
+## Provides an interface for any kind of game control
 
-func get_move_vector() -> Vector2:
-	return Vector2.ZERO
-
-func get_aim(origin: Node2D) -> float:
+## Gets the rotation in radians needed to aim 
+func get_aim_angle(_origin: Node2D) -> float:
 	return 0.0
 
-func is_keyboard_mouse() -> bool:
-	return false
-
-func is_joypad() -> bool: 
-	return false
-
-# Gets the vector for directional control
+## Gets the vector for directional control
 func get_motion_vector() -> Vector2:
 	return Vector2.ZERO
 
@@ -45,7 +37,7 @@ class KeyboardMouse extends Controller:
 	func get_motion_vector() -> Vector2:
 		return _get_motion_vector_from_device(KBL, KBR, KBU, KBD)
 
-	func get_aim(origin: Node2D) -> float:
+	func get_aim_angle(origin: Node2D) -> float:
 		return origin.get_angle_to(origin.get_global_mouse_position())
 
 
@@ -60,12 +52,6 @@ class Joypad extends Controller:
 	const LSU = "move_up"
 	const LSD = "move_down"
 
-	func is_keyboard_mouse():
-		return false
-
-	func is_joypad():
-		return true
-
 	func get_motion_vector():
 		return _get_motion_vector_from_device(LSL, LSR, LSU, LSD)
 
@@ -74,6 +60,9 @@ class Joypad extends Controller:
 
 	func _get_right_stick_angle() -> float:
 		return get_stick_direction_vector(RSL, RSR, RSU, RSD).angle()
-
-	func get_aim(origin: Node2D) -> float:
-		return _get_right_stick_angle()
+	
+	## Returns new angle of stick rotation for aimed_node if the
+	## current controll vector not ZERO, else returns the current 
+	## angle of the node we are aiming.
+	func get_aim_angle(_origin: Node2D) -> float:
+		return get_stick_direction_vector(RSL, RSR, RSU, RSD).angle()

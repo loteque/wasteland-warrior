@@ -1,19 +1,20 @@
 extends Node
+## A global that is used to manage controllers.
 
-var current_controller
-var joypad
-var keyboard_mouse
+var current_controller: Controller
+var joypad: Controller.Joypad
+var keyboard_mouse: Controller.KeyboardMouse
 
-func _ready():
+func get_controller() -> Controller:
+	return current_controller
+
+func _ready() -> void:
 	var controller = Controller.new()
 	joypad = controller.Joypad.new()
 	keyboard_mouse = controller.KeyboardMouse.new()
 	current_controller = keyboard_mouse
 
-func get_controller() -> Controller:
-	return current_controller
-
-func _unhandled_input(event):
+func _unhandled_input(event) -> void:
 	if event is InputEventJoypadMotion:
 		current_controller = joypad
 
