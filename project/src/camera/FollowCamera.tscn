@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://nfa2qbimwtnh"]
 
-[ext_resource type="Script" path="res://src/FollowCamera.gd" id="1"]
+[ext_resource type="Script" path="res://src/camera/FollowCamera.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://cbl8oioargh0c" path="res://src/ui/UIDebugMenu.tscn" id="3_n8lsq"]
 
 [node name="FollowCamera" type="Camera2D"]
