@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://67fbvcvqa6wa" path="res://src/hit_flash_red_material.tres" id="1_ttm4f"]
 [ext_resource type="Texture2D" uid="uid://bwei2t7nq51h6" path="res://assets/char/onehanded.png" id="2_h1rvm"]
-[ext_resource type="Script" path="res://src/components/CharSpriteComponent.gd" id="3_0mjf0"]
+[ext_resource type="Script" path="res://src/character/component/CharSpriteComponent.gd" id="3_0mjf0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5lr5c"]
 atlas = ExtResource("2_h1rvm")
