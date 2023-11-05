@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var grid: TileMap = get_node("TileMap")
 
-var tile_background: Resource = load("res://src/BackgroundChunk.tscn")
+var tile_background: Resource = load("res://src/environment/BackgroundChunk.tscn")
 var camera_pos: Vector2
 
 func _ready() -> void:

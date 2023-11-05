@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 20
 @export var MIN_CHASE_DISTANCE_PIXELS = 1
 @export var death_health_value := 0
-@export var item_dropped: PackedScene = preload("res://src/pickups/BottleCap.tscn")
+@export var item_dropped: PackedScene = preload("res://src/pickup/BottleCap.tscn")
 var damage := 1
 var health := 2
 

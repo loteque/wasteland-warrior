@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://58o5nu72leas" path="res://assets/env/terrain_10.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://dd8ickq2ofw8n" path="res://assets/env/terrain_08.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://b6m7am1o50dkq" path="res://assets/env/terrain_04.png" id="8"]
-[ext_resource type="Script" path="res://src/TerrainSprites.gd" id="9"]
+[ext_resource type="Script" path="res://src/environment/TerrainSprites.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://do3k07648mh64" path="res://assets/env/terrain_03.png" id="10"]
 [ext_resource type="Texture2D" uid="uid://byxhb4t3qso6c" path="res://assets/env/terrain_07.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://eqyce3tbkwla" path="res://assets/env/terrain_11.png" id="12"]

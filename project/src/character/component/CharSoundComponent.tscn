@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4xp22aygegm6"]
 
-[ext_resource type="Script" path="res://src/components/CharSoundComponent.gd" id="1_colp4"]
+[ext_resource type="Script" path="res://src/character/component/CharSoundComponent.gd" id="1_colp4"]
 [ext_resource type="AudioStream" uid="uid://6x8gja2ue1ql" path="res://assets/audio/hit.wav" id="2_3rh13"]
 
 [node name="SoundComponent" type="Node"]

@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://durlan6er57t1"]
 
-[ext_resource type="Script" path="res://src/PlayerController.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://jbcspp38l2ph" path="res://src/components/HurtBoxComponent.tscn" id="2_7ao4s"]
-[ext_resource type="PackedScene" uid="uid://bm7uiq8faybwy" path="res://src/components/CharSpriteComponent.tscn" id="2_q0te6"]
-[ext_resource type="PackedScene" uid="uid://bs6jn61nhxn4t" path="res://src/components/HealthComponent.tscn" id="8_5vbbj"]
-[ext_resource type="Script" path="res://src/XpTracker.gd" id="9_arjqf"]
-[ext_resource type="PackedScene" uid="uid://bfijyvtr0ia6e" path="res://src/guns/PipePistol.tscn" id="9_kj7hj"]
-[ext_resource type="PackedScene" uid="uid://b4xp22aygegm6" path="res://src/components/CharSoundComponent.tscn" id="9_p65x4"]
-[ext_resource type="PackedScene" uid="uid://bwv73goppw5ma" path="res://src/components/InvulnerabilityComponent.tscn" id="10_x4bqf"]
+[ext_resource type="Script" path="res://src/character/player/PlayerController.gd" id="1_x1if8"]
+[ext_resource type="PackedScene" uid="uid://bm7uiq8faybwy" path="res://src/character/component/CharSpriteComponent.tscn" id="2_sfus1"]
+[ext_resource type="PackedScene" uid="uid://bfijyvtr0ia6e" path="res://src/gun/PipePistol.tscn" id="3_mld12"]
+[ext_resource type="PackedScene" uid="uid://jbcspp38l2ph" path="res://src/character/component/HurtBoxComponent.tscn" id="4_8tflj"]
+[ext_resource type="PackedScene" uid="uid://bwv73goppw5ma" path="res://src/character/component/InvulnerabilityComponent.tscn" id="5_khggh"]
+[ext_resource type="PackedScene" uid="uid://bs6jn61nhxn4t" path="res://src/character/component/HealthComponent.tscn" id="6_ppmql"]
+[ext_resource type="PackedScene" uid="uid://b4xp22aygegm6" path="res://src/character/component/CharSoundComponent.tscn" id="7_5mp7y"]
+[ext_resource type="Script" path="res://src/character/player/XpTracker.gd" id="8_cfmnx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vc1eo"]
 size = Vector2(4, 21)
@@ -16,7 +16,7 @@ size = Vector2(4, 21)
 size = Vector2(2, 7.66667)
 
 [node name="PlayerController" type="CharacterBody2D" node_paths=PackedStringArray("sprite_component", "hurt_box_component", "invulnerability_component", "health_component", "char_sound_component", "gun_component", "xp_tracker") groups=["player"]]
-script = ExtResource("1")
+script = ExtResource("1_x1if8")
 speed = 100
 sprite_component = NodePath("CharSpriteComponent")
 hurt_box_component = NodePath("HurtBoxCompnent")
@@ -26,16 +26,16 @@ char_sound_component = NodePath("CharSoundComponent")
 gun_component = NodePath("PipePistol")
 xp_tracker = NodePath("XpTracker")
 
-[node name="CharSpriteComponent" parent="." instance=ExtResource("2_q0te6")]
+[node name="CharSpriteComponent" parent="." instance=ExtResource("2_sfus1")]
 
-[node name="PipePistol" parent="." instance=ExtResource("9_kj7hj")]
+[node name="PipePistol" parent="." instance=ExtResource("3_mld12")]
 position = Vector2(-6, 1)
 
 [node name="PlayerColisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1.5)
 shape = SubResource("RectangleShape2D_vc1eo")
 
-[node name="HurtBoxCompnent" parent="." instance=ExtResource("2_7ao4s")]
+[node name="HurtBoxCompnent" parent="." instance=ExtResource("4_8tflj")]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxCompnent"]
@@ -43,15 +43,15 @@ position = Vector2(-2, 1.5)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_r3dhu")
 
-[node name="InvulnerabilityComponent" parent="." instance=ExtResource("10_x4bqf")]
+[node name="InvulnerabilityComponent" parent="." instance=ExtResource("5_khggh")]
 invulnerable_duration = 2.0
 
-[node name="HealthComponent" parent="." instance=ExtResource("8_5vbbj")]
+[node name="HealthComponent" parent="." instance=ExtResource("6_ppmql")]
 
-[node name="CharSoundComponent" parent="." instance=ExtResource("9_p65x4")]
+[node name="CharSoundComponent" parent="." instance=ExtResource("7_5mp7y")]
 
 [node name="XpTracker" type="Node" parent="."]
-script = ExtResource("9_arjqf")
+script = ExtResource("8_cfmnx")
 
 [connection signal="body_entered" from="HurtBoxCompnent" to="." method="_on_hurt_box_compnent_body_entered"]
 [connection signal="took_damage" from="HurtBoxCompnent" to="." method="_on_hurt_box_compnent_took_damage"]

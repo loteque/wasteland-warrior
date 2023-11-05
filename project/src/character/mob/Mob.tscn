@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://cmgljea3mjlf3"]
 
 [ext_resource type="Texture2D" uid="uid://boo0to3wu6pl8" path="res://assets/char/snapper_walk.png" id="1"]
-[ext_resource type="Script" path="res://src/mobs/Mob.gd" id="2"]
-[ext_resource type="Shader" path="res://src/mobs/hit_flash_white.gdshader" id="3"]
+[ext_resource type="Script" path="res://src/character/mob/Mob.gd" id="2"]
+[ext_resource type="Shader" path="res://src/hit_flash_white.gdshader" id="3"]
 
 [sub_resource type="ShaderMaterial" id="11"]
 resource_local_to_scene = true
