@@ -1,13 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://bm7uiq8faybwy"]
+[gd_scene load_steps=26 format=3 uid="uid://bm7uiq8faybwy"]
 
-[ext_resource type="Shader" path="res://src/mobs/hit_flash_red.gdshader" id="1_u6i7o"]
+[ext_resource type="Material" uid="uid://67fbvcvqa6wa" path="res://src/hit_flash_red_material.tres" id="1_ttm4f"]
 [ext_resource type="Texture2D" uid="uid://bwei2t7nq51h6" path="res://assets/char/onehanded.png" id="2_h1rvm"]
 [ext_resource type="Script" path="res://src/components/CharSpriteComponent.gd" id="3_0mjf0"]
-
-[sub_resource type="ShaderMaterial" id="3"]
-resource_local_to_scene = true
-shader = ExtResource("1_u6i7o")
-shader_parameter/active = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5lr5c"]
 atlas = ExtResource("2_h1rvm")
@@ -221,7 +216,7 @@ _data = {
 
 [node name="CharSpriteComponent" type="AnimatedSprite2D" node_paths=PackedStringArray("fx")]
 texture_filter = 1
-material = SubResource("3")
+material = ExtResource("1_ttm4f")
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_uprer")
 animation = &"death"
