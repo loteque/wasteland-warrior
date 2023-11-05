@@ -1,24 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxg5lk8be38y7"]
+[gd_scene load_steps=7 format=3 uid="uid://gbvxj02o3ayj"]
 
 [ext_resource type="PackedScene" uid="uid://durlan6er57t1" path="res://src/character/player/PlayerController.tscn" id="1"]
-[ext_resource type="PackedScene" uid="uid://dreerbkagrdui" path="res://src/BackgroundGenerator.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dreerbkagrdui" path="res://src/environment/BackgroundGenerator.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://dvsr6kjsg6d6h" path="res://src/GlobalAudioStreamPlayer.tscn" id="3"]
-[ext_resource type="PackedScene" uid="uid://nfa2qbimwtnh" path="res://src/FollowCamera.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://nfa2qbimwtnh" path="res://src/camera/FollowCamera.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://cmdk8clyw5edi" path="res://src/ui/PlayerUI.tscn" id="5_8nvi7"]
-[ext_resource type="PackedScene" uid="uid://4p6uskj2qvhv" path="res://src/mobs/MobSpawner.tscn" id="6_0474r"]
+[ext_resource type="PackedScene" uid="uid://4p6uskj2qvhv" path="res://src/character/mob/MobSpawner.tscn" id="6_0474r"]
 
 [node name="Main" type="Node2D"]
 
 [node name="BackgroundGenerator" parent="." instance=ExtResource("2")]
 
-[node name="GlobalAudioStreamPlayer" parent="." instance=ExtResource("3")]
-
 [node name="PlayerController" parent="." instance=ExtResource("1")]
 z_index = 1
 
-[node name="PlayerFollowCamera" parent="." instance=ExtResource("5")]
+[node name="GlobalAudioStreamPlayer" parent="." instance=ExtResource("3")]
+
+[node name="FollowCamera" parent="." instance=ExtResource("5")]
 target_node_path = NodePath("../PlayerController")
 
-[node name="PlayerUI" parent="PlayerFollowCamera" instance=ExtResource("5_8nvi7")]
+[node name="PlayerUI" parent="FollowCamera" instance=ExtResource("5_8nvi7")]
 
 [node name="MobSpawner" parent="." instance=ExtResource("6_0474r")]
