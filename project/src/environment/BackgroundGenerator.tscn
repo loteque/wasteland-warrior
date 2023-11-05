@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dreerbkagrdui"]
 
-[ext_resource type="PackedScene" uid="uid://cl5jbabhgyumm" path="res://src/BackgroundChunk.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cl5jbabhgyumm" path="res://src/environment/BackgroundChunk.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://ycy8csjud2vc" path="res://icon.png" id="2"]
-[ext_resource type="Script" path="res://src/BackgroundGenerator.gd" id="14"]
+[ext_resource type="Script" path="res://src/environment/BackgroundGenerator.gd" id="14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p300u"]
 texture = ExtResource("2")
