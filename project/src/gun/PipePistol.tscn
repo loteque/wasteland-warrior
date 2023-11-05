@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfijyvtr0ia6e"]
 
-[ext_resource type="PackedScene" uid="uid://td3mudn3ntgw" path="res://src/guns/GunComponent.tscn" id="1_jy30h"]
+[ext_resource type="PackedScene" uid="uid://td3mudn3ntgw" path="res://src/gun/GunComponent.tscn" id="1_jy30h"]
 [ext_resource type="Texture2D" uid="uid://dccx67jl35qgd" path="res://assets/char/guns/pipe_pistol.png" id="2_33i4s"]
 
 [node name="PipePistol" instance=ExtResource("1_jy30h")]
