@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/character/player/PlayerController.gd" id="1_x1if8"]
 [ext_resource type="PackedScene" uid="uid://bm7uiq8faybwy" path="res://src/character/component/CharSpriteComponent.tscn" id="2_sfus1"]
-[ext_resource type="PackedScene" uid="uid://bfijyvtr0ia6e" path="res://src/guns/PipePistol.tscn" id="3_mld12"]
+[ext_resource type="PackedScene" uid="uid://bfijyvtr0ia6e" path="res://src/gun/PipePistol.tscn" id="3_mld12"]
 [ext_resource type="PackedScene" uid="uid://jbcspp38l2ph" path="res://src/character/component/HurtBoxComponent.tscn" id="4_8tflj"]
 [ext_resource type="PackedScene" uid="uid://bwv73goppw5ma" path="res://src/character/component/InvulnerabilityComponent.tscn" id="5_khggh"]
 [ext_resource type="PackedScene" uid="uid://bs6jn61nhxn4t" path="res://src/character/component/HealthComponent.tscn" id="6_ppmql"]
