@@ -9,55 +9,68 @@ extends CharacterBody2D
 @export var gun_component: GunComponent
 @export var xp_tracker: XpTracker
 
+@onready var aim_origin = $AimOrigin
 
-func _physics_process(_delta):
-	
-	gun_component.rotate_gun(is_facing_left())
+var controller: Controller
 
-	if is_attack_frame():
+## Interface for collectable items
+func collect():
+	xp_tracker.collect()
+
+func _should_attack():
+	return Engine.get_physics_frames() % gun_component.attack_interval == 0
+
+func _attack():
+	if _should_attack():
 		gun_component.attack()
-	
-	var motion = Vector2.ZERO
-	
-	if Input.is_action_pressed("move_up"):
-		motion.y -= 1
 
-	if Input.is_action_pressed("move_down"):
-		motion.y += 1
-		
-	if Input.is_action_pressed("move_left"):
-		motion.x -= 1
-		face_left()
+func _face_left():
+	global_transform.x.x = -1
 
-	if Input.is_action_pressed("move_right"):
-		motion.x += 1
-		face_right()
+func _is_facing_left():
+	return global_transform.x.x == -1
 
-	if motion.x == 0 and motion.y == 0:
-		sprite_component.play("idle")
+func _face_right():
+	global_transform.x.x = 1
 
-	else:
-		sprite_component.play("run")
+func _update_controller():
+	controller = ControllerManager.get_controller()
 
-	motion = motion.normalized() * speed
+func _aim():
+	var attack_angle = controller.get_aim_angle(aim_origin)
+	if _is_facing_left():
+		attack_angle = -attack_angle + PI
+	gun_component.rotation = attack_angle
+
+func _move():
+	var motion: Vector2 = controller.get_motion_vector()
+	motion = motion * speed
 	set_velocity(motion)
 	move_and_slide()
 
-#this seems like a global utility function
-func is_attack_frame():
-	return Engine.get_physics_frames() % gun_component.attack_interval == 0
+func _init():
+	_update_controller()
+	
+func _physics_process(_delta):
+	# physics frame setup
+	_update_controller()
+	
+	# player actions
+	_aim()
+	_move()
+	_attack()
 
-func face_left():
-	global_transform.x.x = -1
-
-func is_facing_left():
-	return global_transform.x.x == -1
-
-func face_right():
-	global_transform.x.x = 1
-
-func collect():
-	xp_tracker.collect()
+	# animations
+	var motion_x = controller.get_motion_vector().x
+	var motion_y = controller.get_motion_vector().y
+	
+	if motion_x > 0 && _is_facing_left(): _face_right()
+	if motion_x < 0 && !_is_facing_left(): _face_left()
+	
+	if motion_x == 0 and motion_y == 0:
+		sprite_component.play("idle")
+	else:
+		sprite_component.play("run")
 
 func _on_health_component_died():
 	set_physics_process(false)

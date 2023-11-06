@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://durlan6er57t1"]
+[gd_scene load_steps=12 format=3 uid="uid://durlan6er57t1"]
 
 [ext_resource type="Script" path="res://src/character/player/PlayerController.gd" id="1_x1if8"]
+[ext_resource type="Script" path="res://src/character/player/AimOrigin.gd" id="2_ng06f"]
 [ext_resource type="PackedScene" uid="uid://bm7uiq8faybwy" path="res://src/character/component/CharSpriteComponent.tscn" id="2_sfus1"]
 [ext_resource type="PackedScene" uid="uid://bfijyvtr0ia6e" path="res://src/gun/PipePistol.tscn" id="3_mld12"]
 [ext_resource type="PackedScene" uid="uid://jbcspp38l2ph" path="res://src/character/component/HurtBoxComponent.tscn" id="4_8tflj"]
@@ -25,6 +26,9 @@ health_component = NodePath("HealthComponent")
 char_sound_component = NodePath("CharSoundComponent")
 gun_component = NodePath("PipePistol")
 xp_tracker = NodePath("XpTracker")
+
+[node name="AimOrigin" type="Marker2D" parent="."]
+script = ExtResource("2_ng06f")
 
 [node name="CharSpriteComponent" parent="." instance=ExtResource("2_sfus1")]
 

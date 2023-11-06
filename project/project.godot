@@ -30,6 +30,7 @@ GlobalSettings="*res://src/global/GlobalSettings.gd"
 ComponentUtils="*res://src/util/ComponentUtils.gd"
 RandomUtils="*res://src/util/RandomUtils.gd"
 DebugTools="*res://src/ui/DebugService.gd"
+ControllerManager="*res://src/ControllerManager.gd"
 
 [debug]
 

@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu675p7mq577p"]
+
+[ext_resource type="Script" path="res://test/scenarios/TestControllerObject.gd" id="1_ixell"]
+
+[node name="TestControls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ixell")
+
+[node name="JoypadTestIndicator" type="Polygon2D" parent="."]
+position = Vector2(199, 37)
+offset = Vector2(-4, -8)
+polygon = PackedVector2Array(13, 8, -0.025, 15, 0, 0)
+
+[node name="JoypadRightStickAngleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 218.025
+offset_top = 22.0
+offset_right = 280.025
+offset_bottom = 48.0
+text = "radians"
+
+[node name="JoypadRightStickXStrength" type="Label" parent="."]
+offset_left = 71.0
+offset_top = 136.0
+offset_right = 111.0
+offset_bottom = 162.0
+text = "x val"
+
+[node name="XLabel" type="Label" parent="JoypadRightStickXStrength"]
+offset_left = -40.0
+offset_bottom = 26.0
+text = "x val"
+
+[node name="JoypadRightStickYStrength" type="Label" parent="."]
+offset_left = 76.0
+offset_top = 165.0
+offset_right = 116.0
+offset_bottom = 191.0
+text = "y val"
+
+[node name="YLabel" type="Label" parent="JoypadRightStickYStrength"]
+offset_left = -46.0
+offset_top = 1.0
+offset_right = -6.0
+offset_bottom = 27.0
+text = "x val"
+
+[node name="JoypadTestIndicatorNormalized" type="Polygon2D" parent="."]
+position = Vector2(200.025, 70)
+offset = Vector2(-4, -8)
+polygon = PackedVector2Array(13, 8, -0.025, 15, 0, 0)
+
+[node name="JoypadRightStickNormalizedAngleLabel" type="Label" parent="."]
+offset_left = 217.025
+offset_top = 58.0
+offset_right = 279.025
+offset_bottom = 84.0
+text = "radians"
+
+[node name="NormalizedLabel" type="Label" parent="JoypadRightStickNormalizedAngleLabel"]
+offset_left = -114.025
+offset_top = -3.0
+offset_right = -24.025
+offset_bottom = 23.0
+text = "Normalized"
+
+[node name="JoypadTestIndicatorMethod" type="Polygon2D" parent="."]
+position = Vector2(206, 115)
+offset = Vector2(-4, -8)
+polygon = PackedVector2Array(13, 8, -0.025, 15, 0, 0)
+
+[node name="JoypadRightStickMethodAngleLabel" type="Label" parent="."]
+offset_left = 218.0
+offset_top = 102.0
+offset_right = 280.0
+offset_bottom = 128.0
+text = "radians"
+
+[node name="VectorMethod" type="Label" parent="JoypadRightStickMethodAngleLabel"]
+offset_left = -136.0
+offset_right = -21.0
+offset_bottom = 26.0
+text = "Vector Method"
