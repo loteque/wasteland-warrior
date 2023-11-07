@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://boo0to3wu6pl8" path="res://assets/char/snapper_walk.png" id="1"]
 [ext_resource type="Script" path="res://src/character/mob/Mob.gd" id="2"]
-[ext_resource type="Shader" path="res://src/hit_flash_white.gdshader" id="3"]
+[ext_resource type="Shader" path="res://src/character/shader/hit_flash_white.gdshader" id="2_kcxr5"]
 
 [sub_resource type="ShaderMaterial" id="11"]
 resource_local_to_scene = true
-shader = ExtResource("3")
+shader = ExtResource("2_kcxr5")
 shader_parameter/active = false
 
 [sub_resource type="AtlasTexture" id="2"]
