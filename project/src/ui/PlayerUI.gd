@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var game_over_dialog: Control = $GameOverDialog
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://t46w0dyymasj"]
+[gd_scene load_steps=6 format=3 uid="uid://t46w0dyymasj"]
 
-[ext_resource type="PackedScene" uid="uid://dreerbkagrdui" path="res://src/environment/BackgroundGenerator.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://durlan6er57t1" path="res://src/character/player/PlayerController.tscn" id="2_edfjv"]
+[ext_resource type="PackedScene" uid="uid://durlan6er57t1" path="res://src/character/player/PlayerController.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://dvsr6kjsg6d6h" path="res://src/GlobalAudioStreamPlayer.tscn" id="3_htf7n"]
 [ext_resource type="PackedScene" uid="uid://nfa2qbimwtnh" path="res://src/camera/FollowCamera.tscn" id="4_qkfcf"]
 [ext_resource type="PackedScene" uid="uid://cmdk8clyw5edi" path="res://src/ui/PlayerUI.tscn" id="5_y3s1d"]
@@ -11,7 +10,7 @@
 
 [node name="BackgroundGenerator" parent="." instance=ExtResource("2")]
 
-[node name="PlayerController" parent="." instance=ExtResource("2_edfjv")]
+[node name="PlayerController" parent="." instance=ExtResource("2")]
 z_index = 1
 
 [node name="GlobalAudioStreamPlayer" parent="." instance=ExtResource("3_htf7n")]
