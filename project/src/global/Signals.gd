@@ -3,6 +3,8 @@ extends Node
 signal updated_camera_pos
 signal sound_fx(name)
 signal projectile_shot()
+signal player_health_changed(new_health: int)
+signal player_max_health_changed(new_max_health: int)
 signal player_hit()
 signal mob_hit()
 signal debug_ui_toggled(is_active: bool)

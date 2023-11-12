@@ -8,15 +8,21 @@ class_name HealthComponent
 
 signal died
 
+func _ready():
+	set_health(MAX_HEALTH)
+	set_max_health(MAX_HEALTH)
+
 func set_max_health(value):
 	if value > MIN_HEALTH:
 		MAX_HEALTH = value
+	Signals.player_max_health_changed.emit(value)
 
 func get_max_health():
 	return MAX_HEALTH
 
 func set_health(value):
 	health = clamp(value, MIN_HEALTH, MAX_HEALTH)
+	Signals.player_health_changed.emit(health)
 
 func get_health():
 	return health

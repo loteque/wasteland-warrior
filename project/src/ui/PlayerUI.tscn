@@ -1,22 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmdk8clyw5edi"]
+[gd_scene load_steps=9 format=3 uid="uid://cmdk8clyw5edi"]
 
 [ext_resource type="Script" path="res://src/ui/PlayerUI.gd" id="1_f8vwn"]
 [ext_resource type="PackedScene" uid="uid://dnpeqeld84ayk" path="res://src/ui/GameOverDialog.tscn" id="2_l1xan"]
 [ext_resource type="Script" path="res://src/ui/XpBar.gd" id="3_knpyj"]
+[ext_resource type="Script" path="res://src/ui/HealthBar.gd" id="4_c53fi"]
 
-[node name="PlayerUI" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="Theme" id="Theme_qwegu"]
+
+[sub_resource type="Curve" id="Curve_qpp6e"]
+_data = [Vector2(0.443223, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_yjril"]
+texture_mode = 1
+curve = SubResource("Curve_qpp6e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_egcjb"]
+texture = SubResource("CurveTexture_yjril")
+
+[node name="PlayerUI" type="CanvasLayer"]
+layer = 3
 script = ExtResource("1_f8vwn")
 metadata/_edit_vertical_guides_ = [256.0]
 
 [node name="GameOverDialog" parent="." instance=ExtResource("2_l1xan")]
 visible = false
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -29,43 +37,83 @@ offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="XpBar" type="ProgressBar" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -140.0
+offset_bottom = 44.0
+grow_horizontal = 0
+
+[node name="XpContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="XpBar" type="ProgressBar" parent="VBoxContainer/XpContainer"]
 modulate = Color(0, 0.556863, 0.890196, 1)
-layout_mode = 0
-offset_left = -91.0
-offset_top = -182.0
-offset_right = 101.0
-offset_bottom = -155.0
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
 max_value = 5.0
 step = 1.0
 show_percentage = false
 script = ExtResource("3_knpyj")
 
-[node name="ValueLabel" type="Label" parent="XpBar"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 2.0
-offset_right = 87.0
-offset_bottom = 28.0
+[node name="XpText" type="HBoxContainer" parent="VBoxContainer/XpContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="XpValueLabel" type="Label" parent="VBoxContainer/XpContainer/XpText"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
-[node name="Slash" type="Label" parent="XpBar"]
-layout_mode = 0
-offset_left = 83.0
-offset_top = 2.0
-offset_right = 100.0
-offset_bottom = 28.0
+[node name="XpSlash" type="Label" parent="VBoxContainer/XpContainer/XpText"]
+layout_mode = 2
 text = "/"
 horizontal_alignment = 1
 
-[node name="MaxLabel" type="Label" parent="XpBar"]
-layout_mode = 0
-offset_left = 97.0
-offset_top = 2.0
-offset_right = 191.0
-offset_bottom = 28.0
+[node name="XpMaxLabel" type="Label" parent="VBoxContainer/XpContainer/XpText"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "5"
 
-[connection signal="changed" from="XpBar" to="XpBar" method="_on_max_changed"]
-[connection signal="value_changed" from="XpBar" to="XpBar" method="_on_value_changed"]
+[node name="HealthContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer/HealthContainer"]
+custom_minimum_size = Vector2(140, 10)
+layout_mode = 2
+theme = SubResource("Theme_qwegu")
+theme_override_styles/fill = SubResource("StyleBoxTexture_egcjb")
+max_value = 6.0
+value = 6.0
+show_percentage = false
+script = ExtResource("4_c53fi")
+
+[node name="HealthText" type="HBoxContainer" parent="VBoxContainer/HealthContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="HealthValueLabel" type="Label" parent="VBoxContainer/HealthContainer/HealthText"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "6"
+horizontal_alignment = 2
+
+[node name="HealthSlash" type="Label" parent="VBoxContainer/HealthContainer/HealthText"]
+layout_mode = 2
+text = "/"
+horizontal_alignment = 1
+
+[node name="HealthMaxLabel" type="Label" parent="VBoxContainer/HealthContainer/HealthText"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "6"
+
+[connection signal="changed" from="VBoxContainer/XpContainer/XpBar" to="VBoxContainer/XpContainer/XpBar" method="_on_max_changed"]
+[connection signal="value_changed" from="VBoxContainer/XpContainer/XpBar" to="VBoxContainer/XpContainer/XpBar" method="_on_value_changed"]
+[connection signal="changed" from="VBoxContainer/HealthContainer/HealthBar" to="VBoxContainer/HealthContainer/HealthBar" method="_on_changed"]
+[connection signal="value_changed" from="VBoxContainer/HealthContainer/HealthBar" to="VBoxContainer/HealthContainer/HealthBar" method="_on_value_changed"]
