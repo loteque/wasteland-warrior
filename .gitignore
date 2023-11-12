@@ -336,6 +336,7 @@ _ReSharper*/
 *.[Cc]ache
 
 # Others
+wakatime/
 ClientBin/
 enc_temp_folder/
 ~$*
